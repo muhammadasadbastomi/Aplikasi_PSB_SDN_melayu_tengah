@@ -73,12 +73,12 @@ Data Siswa
                                             </tbody>
                                             <tfoot>
                                                 <tr>
-                                                    <th>Name</th>
-                                                    <th>Position</th>
-                                                    <th>Office</th>
-                                                    <th>Age</th>
-                                                    <th>Start date</th>
-                                                    <th>Aksi</th>
+                                                    <th class="text-center">Name</th>
+                                                    <th class="text-center">Position</th>
+                                                    <th class="text-center">Office</th>
+                                                    <th class="text-center">Age</th>
+                                                    <th class="text-center">Start date</th>
+                                                    <th class="text-center">Aksi</th>
                                                 </tr>
                                             </tfoot>
                                         </table>
