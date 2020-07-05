@@ -18,7 +18,7 @@ class CreateAyahsTable extends Migration
             $table->string('uuid')->length(36);
             $table->string('nama');
             $table->text('alamat');
-            $table->int('telp');
+            $table->integer('telp');
             $table->string('agama');
             $table->text('tempat_lahir');
             $table->date('tgl_lahir');

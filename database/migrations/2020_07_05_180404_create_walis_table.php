@@ -19,7 +19,7 @@ class CreateWalisTable extends Migration
             $table->string('nama');
             $table->enum('jenis_kelamin', ['1', '2']);
             $table->text('alamat');
-            $table->int('telp');
+            $table->integer('telp');
             $table->string('agama');
             $table->text('tempat_lahir');
             $table->date('tgl_lahir');
