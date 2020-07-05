@@ -6,13 +6,13 @@ use App\Traits\Uuid;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 
-class Ibu extends Model
+class Pendaftaran extends Model
 {
     use Notifiable;
     use Uuid;
 
     public function siswa()
     {
-        return $this->HasOne(Siswa::class);
+        return $this->belongsTo(Siswa::class);
     }
 }
