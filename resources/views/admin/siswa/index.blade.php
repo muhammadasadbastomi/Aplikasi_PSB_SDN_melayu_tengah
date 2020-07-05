@@ -4,7 +4,6 @@
 Data Siswa
 @endsection
 
-
 @section('head')
 <link rel="stylesheet" type="text/css" href="{{ asset('app-assets/vendors/css/tables/datatable/datatables.min.css') }}">
 @endsection
@@ -41,43 +40,35 @@ Data Siswa
                         <div class="card">
                             <div class="card-content">
                                 <div class="card-body card-dashboard">
-                                    <button type="button" class="btn btn-primary round mr-1 mb-1">Primary</button>
+                                    <button type="button" class="btn btn-primary round mr-1 mb-1" data-toggle="modal"
+                                        data-target="#default"><i class="
+                                       bx bx-plus-circle"></i></button>
                                     <div class="table-responsive">
                                         <table class="table zero-configuration">
                                             <thead>
                                                 <tr>
-                                                    <th>Name</th>
-                                                    <th>Position</th>
-                                                    <th>Office</th>
-                                                    <th>Age</th>
-                                                    <th>Start date</th>
-                                                    <th>Salary</th>
+                                                    <th class="text-center">Name</th>
+                                                    <th class="text-center">Position</th>
+                                                    <th class="text-center">Office</th>
+                                                    <th class="text-center">Age</th>
+                                                    <th class="text-center">Start date</th>
+                                                    <th class="text-center">Aksi</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 <tr>
-                                                    <td>Shad Decker</td>
-                                                    <td>Regional Director</td>
-                                                    <td>Edinburgh</td>
-                                                    <td>51</td>
-                                                    <td>2008/11/13</td>
-                                                    <td>$183,000</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Michael Bruce</td>
-                                                    <td>Javascript Developer</td>
-                                                    <td>Singapore</td>
-                                                    <td>29</td>
-                                                    <td>2011/06/27</td>
-                                                    <td>$183,000</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Donna Snider</td>
-                                                    <td>Customer Support</td>
-                                                    <td>New York</td>
-                                                    <td>27</td>
-                                                    <td>2011/01/25</td>
-                                                    <td>$112,000</td>
+                                                    <td class="text-center">Shad Decker</td>
+                                                    <td class="text-center">Regional Director</td>
+                                                    <td class="text-center">Edinburgh</td>
+                                                    <td class="text-center">51</td>
+                                                    <td class="text-center">2008/11/13</td>
+                                                    <td class="text-center">
+                                                        <a href="{{ route('siswaEdit','1') }}"
+                                                            class="btn btn-info round mr-1 mb-1 text-white"><i
+                                                                class="bx bxs-edit"></i></a>
+                                                        <a class="delete btn btn-danger round mr-1 mb-1 text-white"><i
+                                                                class="bx bx-trash"></i></a>
+                                                    </td>
                                                 </tr>
                                             </tbody>
                                             <tfoot>
@@ -87,7 +78,7 @@ Data Siswa
                                                     <th>Office</th>
                                                     <th>Age</th>
                                                     <th>Start date</th>
-                                                    <th>Salary</th>
+                                                    <th>Aksi</th>
                                                 </tr>
                                             </tfoot>
                                         </table>
@@ -103,9 +94,100 @@ Data Siswa
         </div>
     </div>
 </div>
+
+<!--Basic Modal -->
+<div class="modal fade text-left" id="default" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="myModalLabel1">Basic Modal</h3>
+                <button type="button" class="close rounded-pill" data-dismiss="modal" aria-label="Close">
+                    <i class="bx bx-x"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form method="POST">
+                    <fieldset class="form-group">
+                        <label for="basicInput">Basic Input</label>
+                        <input type="text" class="form-control" id="basicInput" placeholder="Enter email">
+                    </fieldset>
+                    <h6>Basic Select</h6>
+                    <fieldset class="form-group">
+                        <select class="form-control" id="basicSelect">
+                            <option>IT</option>
+                            <option>Blade Runner</option>
+                            <option>Thor Ragnarok</option>
+                        </select>
+                    </fieldset>
+                    <h6 class="form-group">Alamat</h6>
+                    <fieldset class="form-group">
+                        <textarea class="form-control" id="basicTextarea" rows="3" placeholder="Textarea"></textarea>
+                    </fieldset>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-light-secondary" data-dismiss="modal">
+                            <i class="bx bx-x d-block d-sm-none"></i>
+                            <span class="d-none d-sm-block">Close</span>
+                        </button>
+                        <button type="submit" class="btn btn-primary ml-1" data-dismiss="modal">
+                            <i class="bx bx-check d-block d-sm-none"></i>
+                            <span class="d-none d-sm-block">Accept</span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
 @endsection
 
 @section('script')
+
+<script>
+    $(document).on('click', '.delete', function(e) {
+        e.preventDefault();
+        var id = $(this).data('id');
+        swal.fire({
+            title: "Apakah anda yakin?",
+            icon: "warning",
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: "Ya",
+            cancelButtonText: "Tidak",
+            showCancelButton: true,
+        }).then((result) => {
+            if (result.value) {
+                $.ajax({
+                    url: "{{ url('/admin/siswa/delete')}}" + '/' + id,
+                    type: "POST",
+                    data: {
+                        '_method': 'DELETE',
+                        "_token": "{{ csrf_token() }}"
+                    },
+                    success: function(response) {
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Data Berhasil Dihapus',
+                            showConfirmButton: false,
+                            timer: 1500
+                        })
+                        setTimeout(function() {
+                            document.location.reload(true);
+                        }, 1000);
+                    },
+                })
+            } else if (result.dismiss === swal.DismissReason.cancel) {
+                Swal.fire(
+                    'Dibatalkan',
+                    'data batal dihapus',
+                    'error'
+                )
+            }
+        })
+    });
+</script>
 
 <!-- BEGIN: Page Vendor JS-->
 <script src="{{ asset('app-assets/vendors/js/tables/datatable/datatables.min.js') }}"></script>

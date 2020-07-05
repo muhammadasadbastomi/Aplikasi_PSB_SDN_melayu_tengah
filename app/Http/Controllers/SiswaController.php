@@ -56,7 +56,7 @@ class SiswaController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('admin.siswa.edit');
     }
 
     /**
