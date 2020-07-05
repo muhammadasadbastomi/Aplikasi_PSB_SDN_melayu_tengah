@@ -18,7 +18,7 @@
                 data-toggle="dropdown"><i class="menu-livicon" data-icon="comments"></i><span>Master Data</span></a>
             <ul class="dropdown-menu">
                 <li data-menu=""><a class="dropdown-item align-items-center" href="{{ route('siswaIndex') }}"
-                        data-toggle="dropdown"><i class="bx bx-right-arrow-alt">Data Siswa</i></a>
+                        data-toggle="dropdown"><i class="bx bx-right-arrow-alt"></i>Data Siswa</a>
                 </li>
                 <li data-menu=""><a class="dropdown-item align-items-center" href="app-chat.html"
                         data-toggle="dropdown"><i class="bx bx-right-arrow-alt"></i>Chat</a>
