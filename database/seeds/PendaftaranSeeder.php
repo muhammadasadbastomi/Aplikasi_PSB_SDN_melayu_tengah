@@ -19,7 +19,7 @@ class PendaftaranSeeder extends Seeder
         for ($i = 0; $i < 10; $i++) {
             DB::table('pendaftarans')->insert([
                 'uuid' => Str::random(36),
-                'siswa_id' => $faker->randomDigit,
+                'siswa_id' => $faker->unique()->numberBetween(1, 10),
                 'status' => '1',
             ]);
         }

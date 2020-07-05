@@ -39,35 +39,38 @@ Data Pendaftaran Siswa
                         <div class="card">
                             <div class="card-content">
                                 <div class="card-body card-dashboard">
-                                    <button type="button" class="btn btn-primary round mr-1 mb-1" data-toggle="modal" data-target="#default"><i class="bx bx-plus-circle"></i></button>
+                                    <!-- <button type="button" class="btn btn-primary round mr-1 mb-1" data-toggle="modal" data-target="#default"><i class="bx bx-plus-circle"></i></button> -->
                                     <div class="table-responsive">
                                         <table class="table zero-configuration">
                                             <thead>
                                                 <tr>
-                                                    <th class="text-center">Nama Lengkap</th>
-                                                    <th class="text-center">Email</th>
+                                                    <th>Nama Lengkap</th>
+                                                    <th>Email</th>
                                                     <th class="text-center">Status</th>
                                                     <th class="text-center">Aksi</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
+                                                @foreach($data as $d)
                                                 <tr>
-                                                    <td class="text-center">Shad</td>
-                                                    <td class="text-center">Regional</td>
-                                                    <td class="text-center">Edinburgh</td>
+                                                    <td>{{$d->siswa->nama_depan}} {{$d->siswa->nama_belakang}}</td>
+                                                    <td>{{$d->siswa->user->email}}</td>
+                                                    <td class="text-center">@if($d->status == 1) <a class="text-primary">Belum dikonfirmasi</a> @elseif($d->status == 2) <a class="text-success">Sudah dikonfirmasi</a> @else <a class="text-danger">Pendaftaran ditolak</a> @endif</td>
                                                     <td class="text-center">
-                                                        <a href="{{ route('siswaEdit','1') }}" class="btn btn-info round mr-1 mb-1 text-white"><i class="bx bxs-edit"></i></a>
-                                                        <a class="delete btn btn-danger round mr-1 mb-1 text-white"><i class="bx bx-trash"></i></a>
+                                                        <!-- <a href="{{ route('siswaTolak','1') }}" class="btn btn-info round mr-1 mb-1 text-white"><i class="bx bxs-edit"></i></a> -->
+                                                        <!-- <a class="delete btn btn-danger round mr-1 mb-1 text-white"><i class="bx bx-trash"></i></a> -->
+                                                        <a class="btn btn-info round mr-1 mb-1 text-white"><i class="bx bx-search"></i> Lihat</a>
+                                                        <a href="{{ route('siswaKonfirmasi',['id' => $d->uuid]) }}" class="btn btn-primary round mr-1 mb-1 text-white">Konfirmasi</a>
+                                                        <a href="{{ route('siswaTolak',['id' => $d->uuid]) }}" class="btn btn-danger round mr-1 mb-1 text-white">Tolak</a>
                                                     </td>
                                                 </tr>
+                                                @endforeach
                                             </tbody>
                                             <tfoot>
                                                 <tr>
-                                                    <th class="text-center">Name</th>
-                                                    <th class="text-center">Position</th>
-                                                    <th class="text-center">Office</th>
-                                                    <th class="text-center">Age</th>
-                                                    <th class="text-center">Start date</th>
+                                                    <th class="text-center">Nama Lengkap</th>
+                                                    <th class="text-center">Email</th>
+                                                    <th class="text-center">Status</th>
                                                     <th class="text-center">Aksi</th>
                                                 </tr>
                                             </tfoot>
@@ -84,52 +87,7 @@ Data Pendaftaran Siswa
         </div>
     </div>
 </div>
-
-<!--Basic Modal -->
-<div class="modal fade text-left" id="default" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-scrollable" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3 class="modal-title" id="myModalLabel1">Basic Modal</h3>
-                <button type="button" class="close rounded-pill" data-dismiss="modal" aria-label="Close">
-                    <i class="bx bx-x"></i>
-                </button>
-            </div>
-            <div class="modal-body">
-                <form method="POST">
-                    <fieldset class="form-group">
-                        <label for="basicInput">Basic Input</label>
-                        <input type="text" class="form-control" id="basicInput" placeholder="Enter email">
-                    </fieldset>
-                    <h6>Basic Select</h6>
-                    <fieldset class="form-group">
-                        <select class="form-control" id="basicSelect">
-                            <option>IT</option>
-                            <option>Blade Runner</option>
-                            <option>Thor Ragnarok</option>
-                        </select>
-                    </fieldset>
-                    <h6 class="form-group">Alamat</h6>
-                    <fieldset class="form-group">
-                        <textarea class="form-control" id="basicTextarea" rows="3" placeholder="Textarea"></textarea>
-                    </fieldset>
-
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-light-secondary" data-dismiss="modal">
-                            <i class="bx bx-x d-block d-sm-none"></i>
-                            <span class="d-none d-sm-block">Close</span>
-                        </button>
-                        <button type="submit" class="btn btn-primary ml-1" data-dismiss="modal">
-                            <i class="bx bx-check d-block d-sm-none"></i>
-                            <span class="d-none d-sm-block">Accept</span>
-                        </button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
-
+@include('admin.siswa.tambah')
 @endsection
 
 @section('script')
