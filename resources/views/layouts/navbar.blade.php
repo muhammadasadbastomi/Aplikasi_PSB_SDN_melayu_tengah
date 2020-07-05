@@ -23,11 +23,16 @@
                                 class="ficon bx bx-fullscreen"></i></a></li>
                     <li class="dropdown dropdown-user nav-item"><a class="dropdown-toggle nav-link dropdown-user-link"
                             href="#" data-toggle="dropdown">
-                            <div class="user-nav d-lg-flex d-none"><span
-                                    class="user-name">{{ Auth::user()->name }}</span><span
-                                    class="user-status">Available</span></div><span><img class="round"
-                                    src="../../../app-assets/images/portrait/small/avatar-s-11.jpg" alt="avatar"
-                                    height="40" width="40"></span>
+                            <div class="user-nav d-lg-flex d-none">
+                                <span class="user-name">{{ Auth::user()->name }}</span>
+                                <span class="user-status">Available</span></div>
+                            @if(Auth::user()->photos)
+                            <span><img class="round" src="{{ url('images/user/'. Auth::user()->photos )}}" height="40"
+                                    width="40" alt=""></span>
+                            @else
+                            <span><img class="round" src="{{ url('images/default.png') }}" alt="avatar" height="40"
+                                    width="40"></span>
+                            @endif
                         </a>
                         <div class="dropdown-menu dropdown-menu-right pb-0"><a class="dropdown-item"
                                 href="page-user-profile.html"><i class="bx bx-user mr-50"></i> Edit Profile</a>
