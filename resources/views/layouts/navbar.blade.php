@@ -35,7 +35,7 @@
                             @endif
                         </a>
                         <div class="dropdown-menu dropdown-menu-right pb-0"><a class="dropdown-item"
-                                href="page-user-profile.html"><i class="bx bx-user mr-50"></i> Edit Profile</a>
+                                href="{{route('userProfile')}}"><i class="bx bx-user mr-50"></i> Edit Profile</a>
 
                             <div class="dropdown-divider mb-0"></div>
                             <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();

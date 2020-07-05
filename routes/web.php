@@ -28,3 +28,5 @@ Route::get('/admin/siswaedit/{id}', 'SiswaController@edit')->name('siswaEdit');
 Route::put('/admin/siswaupdate', 'SiswaController@update')->name('siswaUpdate');
 Route::delete('/admin/siswa/delete', 'SiswaController@destroy')->name('siswaDelete');
 
+Route::get('/admin/user/', 'UserController@profile')->name('userProfile');
+
