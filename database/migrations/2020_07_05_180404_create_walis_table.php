@@ -17,9 +17,9 @@ class CreateWalisTable extends Migration
             $table->bigIncrements('id');
             $table->string('uuid')->length(36);
             $table->string('nama');
-            $table->enum('jenis_kelamin', ['1', '2']);
+            $table->enum('jenis_kelamin', ['L', 'P']);
             $table->text('alamat');
-            $table->integer('telp');
+            $table->string('telp');
             $table->string('agama');
             $table->text('tempat_lahir');
             $table->date('tgl_lahir');
