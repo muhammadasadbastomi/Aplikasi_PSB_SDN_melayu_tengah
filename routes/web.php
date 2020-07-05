@@ -20,3 +20,11 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/admin', 'HomeController@index')->name('dashboard');
+
+
+Route::get('/admin/siswa', 'SiswaController@index')->name('siswaIndex');
+Route::post('/admin/siswastore', 'SiswaController@store')->name('siswaStore');
+Route::get('/admin/siswaedit', 'SiswaController@edit')->name('siswaEdit');
+Route::put('/admin/siswaupdate', 'SiswaController@update')->name('siswaUpdate');
+Route::delete('/admin/siswa/delete', 'SiswaController@destroy')->name('siswaDelete');
+
