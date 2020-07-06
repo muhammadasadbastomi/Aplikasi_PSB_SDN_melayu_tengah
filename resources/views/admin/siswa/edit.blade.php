@@ -59,7 +59,7 @@ Edit Siswa
                                     </fieldset>
                                     <button type="submit" class="btn btn-primary ml-1" data-dismiss="modal">
                                         <i class="bx bx-check d-block d-sm-none"></i>
-                                        <span class="d-none d-sm-block">Edit</span>
+                                        <span class="d-none d-sm-block">Ubah</span>
                                     </button>
                                 </form>
                             </div>

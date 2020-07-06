@@ -65,8 +65,8 @@ Data Pendaftaran
                                             </tbody>
                                             <tfoot>
                                                 <tr>
-                                                    <th class="text-center">Nama Lengkap</th>
-                                                    <th class="text-center">Email</th>
+                                                    <th>Nama Lengkap</th>
+                                                    <th>Email</th>
                                                     <th class="text-center">Status</th>
                                                     <th class="text-center">Aksi</th>
                                                 </tr>

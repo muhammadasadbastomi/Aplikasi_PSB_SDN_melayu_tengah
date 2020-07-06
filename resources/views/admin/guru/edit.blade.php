@@ -42,7 +42,7 @@
                     </fieldset>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-light-secondary" data-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary ml-1">Tambah</button>
+                        <button type="submit" class="btn btn-primary ml-1">Ubah</button>
                     </div>
                 </form>
             </div>

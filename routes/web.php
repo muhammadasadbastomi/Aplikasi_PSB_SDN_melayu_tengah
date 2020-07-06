@@ -39,4 +39,9 @@ Route::post('/admin/kelas', 'KelasController@store')->name('kelasStore');
 Route::put('/admin/kelas', 'KelasController@update')->name('kelasUpdate');
 Route::delete('/admin/kelas/delete/{id}', 'KelasController@destroy')->name('kelasDelete');
 
+Route::get('/admin/mapel', 'MapelController@index')->name('mapelIndex');
+Route::post('/admin/mapel', 'MapelController@store')->name('mapelStore');
+Route::put('/admin/mapel', 'MapelController@update')->name('mapelUpdate');
+Route::delete('/admin/mapel/delete/{id}', 'MapelController@destroy')->name('mapelDelete');
+
 Route::get('/admin/user/', 'UserController@profile')->name('userProfile');

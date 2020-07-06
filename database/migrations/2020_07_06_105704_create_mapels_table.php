@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateKelasTable extends Migration
+class CreateMapelsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,12 @@ class CreateKelasTable extends Migration
      */
     public function up()
     {
-        Schema::create('kelas', function (Blueprint $table) {
+        Schema::create('mapels', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('uuid')->length(36);
-            $table->string('kode_kelas');
-            $table->string('kelas');
-            $table->unsignedBigInteger('mapel_id')->nullable();
-            $table->enum('hari', ['1', '2', '3', '4', '5', '6', '7'])->nullable();
+            $table->string('kode_mapel');
+            $table->string('mapel');
+            $table->string('guru_id');
             $table->timestamps();
         });
     }
@@ -31,6 +30,6 @@ class CreateKelasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('kelas');
+        Schema::dropIfExists('mapels');
     }
 }
