@@ -14,6 +14,13 @@ class SiswaController extends Controller
         return view('admin.siswa.index', compact('data'));
     }
 
+    public function show($id)
+    {
+        $data = Pendaftaran::where('uuid', $id)->first();
+
+        return view('admin.siswa.show', compact('data'));
+    }
+
     public function konfirmasi($id)
     {
         $data = Pendaftaran::where('uuid', $id)->first();

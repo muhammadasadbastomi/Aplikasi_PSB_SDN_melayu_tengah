@@ -65,8 +65,8 @@ Data Guru
                                                     <td class="text-center">{{$d->telp}}</td>
                                                     <td>{{$d->alamat}}</td>
                                                     <td class="text-center">
-                                                        <a href="{{ route('siswaTolak','1') }}" class="btn btn-info round mr-1 mb-1 text-white"><i class="bx bxs-edit"></i></a>
-                                                        <a class="delete btn btn-danger round mr-1 mb-1 text-white"><i class="bx bx-trash"></i></a>
+                                                        <a class="btn btn-info round mr-1 mb-1 text-white" data-toggle="modal" data-target="#modaledit" data-id="{{$d->id}}" data-nip="{{$d->nip}}" data-nama="{{$d->nama}}" data-jk="{{$d->jenis_kelamin}}" data-agama="{{$d->agama}}" data-telp="{{$d->telp}}" data-alamat="{{$d->alamat}}"><i class="bx bxs-edit"></i></a>
+                                                        <a class="delete btn btn-danger round mr-1 mb-1 text-white" data-id="{{$d->id}}"><i class="bx bx-trash"></i></a>
                                                     </td>
                                                 </tr>
                                                 @endforeach
@@ -85,9 +85,32 @@ Data Guru
     </div>
 </div>
 @include('admin.guru.tambah')
+@include('admin.guru.edit')
 @endsection
 
 @section('script')
+
+<script>
+    $('#modaledit').on('show.bs.modal', function(event) {
+        let button = $(event.relatedTarget)
+        let id = button.data('id')
+        let nama = button.data('nama')
+        let nip = button.data('nip')
+        let jk = button.data('jk')
+        let alamat = button.data('alamat')
+        let telp = button.data('telp')
+        let agama = button.data('agama')
+        let modal = $(this)
+
+        modal.find('.modal-body #id').val(id)
+        modal.find('.modal-body #nama').val(nama);
+        modal.find('.modal-body #nip').val(nip);
+        modal.find('.modal-body #jk').val(jk);
+        modal.find('.modal-body #alamat').val(alamat);
+        modal.find('.modal-body #agama').val(agama);
+        modal.find('.modal-body #telp').val(telp);
+    })
+</script>
 
 <script>
     $(document).on('click', '.delete', function(e) {
@@ -104,7 +127,50 @@ Data Guru
         }).then((result) => {
             if (result.value) {
                 $.ajax({
-                    url: "{{ url('/admin/siswa/delete')}}" + '/' + id,
+                    url: "{{url('/admin/user/delete/')}}" + '/' + id,
+                    type: "POST",
+                    data: {
+                        '_method': 'DELETE',
+                        "_token": "{{ csrf_token() }}"
+                    },
+                    success: function(response) {
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Data Berhasil Dihapus',
+                            showConfirmButton: false,
+                            timer: 1500
+                        })
+                        setTimeout(function() {
+                            document.location.reload(true);
+                        }, 1000);
+                    },
+                })
+            } else if (result.dismiss === swal.DismissReason.cancel) {
+                Swal.fire(
+                    'Dibatalkan',
+                    'data batal dihapus',
+                    'error'
+                )
+            }
+        })
+    });
+</script>
+<script>
+    $(document).on('click', '.delete', function(e) {
+        e.preventDefault();
+        var id = $(this).data('id');
+        swal.fire({
+            title: "Apakah anda yakin?",
+            icon: "warning",
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: "Ya",
+            cancelButtonText: "Tidak",
+            showCancelButton: true,
+        }).then((result) => {
+            if (result.value) {
+                $.ajax({
+                    url: "{{url('/admin/guru/delete')}}" + '/' + id,
                     type: "POST",
                     data: {
                         '_method': 'DELETE',

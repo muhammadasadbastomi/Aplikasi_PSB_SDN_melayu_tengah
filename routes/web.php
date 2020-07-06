@@ -23,15 +23,20 @@ Route::get('/admin', 'HomeController@index')->name('dashboard');
 
 
 Route::get('/admin/siswa', 'SiswaController@index')->name('siswaIndex');
+Route::get('/admin/siswa/{id}', 'SiswaController@show')->name('siswaShow');
 Route::put('/admin/siswa/konfirmasi/{id}', 'SiswaController@konfirmasi')->name('siswaKonfirmasi');
 Route::get('/admin/siswa/konfirmasi/{id}', 'SiswaController@konfirmasi');
 Route::patch('/admin/siswa/tolak/{id}', 'SiswaController@tolak')->name('siswaTolak');
 Route::get('/admin/siswa/tolak/{id}', 'SiswaController@tolak');
 
-Route::get('/admin/guru', 'GuruController@index')->name('GuruIndex');
-Route::post('/admin/guru', 'GuruController@store')->name('GuruStore');
-// Route::get('/admin/guruedit/{id}', 'GuruController@edit')->name('guruEdit');
-// Route::put('/admin/guruupdate', 'GuruController@update')->name('guruUpdate');
-// Route::delete('/admin/guru/delete', 'GuruController@destroy')->name('guruDelete');
+Route::get('/admin/guru', 'GuruController@index')->name('guruIndex');
+Route::post('/admin/guru', 'GuruController@store')->name('guruStore');
+Route::put('/admin/guru', 'GuruController@update')->name('guruUpdate');
+Route::delete('/admin/guru/delete/{id}', 'GuruController@destroy')->name('guruDelete');
+
+Route::get('/admin/kelas', 'KelasController@index')->name('kelasIndex');
+Route::post('/admin/kelas', 'KelasController@store')->name('kelasStore');
+Route::put('/admin/kelas', 'KelasController@update')->name('kelasUpdate');
+Route::delete('/admin/kelas/delete/{id}', 'KelasController@destroy')->name('kelasDelete');
 
 Route::get('/admin/user/', 'UserController@profile')->name('userProfile');

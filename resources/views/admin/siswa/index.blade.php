@@ -1,7 +1,7 @@
 @extends('layouts/admin')
 
 @section('title')
-Data Pendaftaran Siswa
+Data Pendaftaran
 @endsection
 
 @section('head')
@@ -17,12 +17,12 @@ Data Pendaftaran Siswa
             <div class="content-header-left col-12 mb-2 mt-1">
                 <div class="row breadcrumbs-top">
                     <div class="col-12">
-                        <h5 class="content-header-title float-left pr-1 mb-0">Data Siswa</h5>
+                        <h5 class="content-header-title float-left pr-1 mb-0">Data Pendaftaran</h5>
                         <div class="breadcrumb-wrapper col-12">
                             <ol class="breadcrumb p-0 mb-0">
                                 <li class="breadcrumb-item"><a href="{{ route('dashboard') }}"><i class="bx bx-home-alt"></i></a>
                                 </li>
-                                <li class="breadcrumb-item active">Data Siswa
+                                <li class="breadcrumb-item active">Data Pendaftaran
                                 </li>
                             </ol>
                         </div>
@@ -56,7 +56,7 @@ Data Pendaftaran Siswa
                                                     <td>{{$d->siswa->user->email}}</td>
                                                     <td class="text-center">@if($d->status == 1) <a class="text-primary">Belum dikonfirmasi</a> @elseif($d->status == 2) <a class="text-success">Sudah dikonfirmasi</a> @else <a class="text-danger">Pendaftaran ditolak</a> @endif</td>
                                                     <td class="text-center">
-                                                        <a class="btn btn-info round mr-1 mb-1 text-white"><i class="bx bx-search"></i> Lihat</a>
+                                                        <a href="{{ route('siswaShow',['id' => $d->uuid]) }}" class="btn btn-info round mr-1 mb-1 text-white"><i class="bx bx-search"></i> Lihat</a>
                                                         <a href="{{ route('siswaKonfirmasi',['id' => $d->uuid]) }}" class="btn btn-primary round mr-1 mb-1 text-white">Konfirmasi</a>
                                                         <a href="{{ route('siswaTolak',['id' => $d->uuid]) }}" class="btn btn-danger round mr-1 mb-1 text-white">Tolak</a>
                                                     </td>
