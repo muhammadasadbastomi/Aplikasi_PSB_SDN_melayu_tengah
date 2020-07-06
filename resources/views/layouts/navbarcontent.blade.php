@@ -17,6 +17,8 @@
                 </li>
                 <li data-menu=""><a class="dropdown-item align-items-center" href="{{route('guruIndex')}}" data-toggle="dropdown"><i class="bx bx-right-arrow-alt"></i>Data Guru</a>
                 </li>
+                <li data-menu=""><a class="dropdown-item align-items-center" href="{{route('mapelIndex')}}" data-toggle="dropdown"><i class="bx bx-right-arrow-alt"></i>Data Mapel</a>
+                </li>
                 <li data-menu=""><a class="dropdown-item align-items-center" href="{{route('kelasIndex')}}" data-toggle="dropdown"><i class="bx bx-right-arrow-alt"></i>Kelas & Jadwal</a>
                 </li>
             </ul>

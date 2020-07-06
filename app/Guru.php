@@ -13,6 +13,6 @@ class Guru extends Model
 
     public function mapel()
     {
-        return $this->hasMany(Mapel::class);
+        return $this->hasOne(Mapel::class);
     }
 }

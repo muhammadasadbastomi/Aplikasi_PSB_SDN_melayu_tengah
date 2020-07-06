@@ -14,13 +14,23 @@
                     @csrf
                     <input type="hidden" id="id" name="id">
                     <fieldset class="form-group">
-                        <label for="kode_kelas">Kode Kelas</label>
-                        <input type="text" class="form-control" id="kode_kelas" name="kode_kelas" placeholder="Masukkan Kode Kelas" value="{{old('kode_kelas')}}">
+                        <label for="kode_mapel">Kode Mapel</label>
+                        <input type="text" class="form-control" id="kode_mapel" name="kode_mapel" placeholder="Masukkan Kode Mapel" value="{{old('kode_mapel')}}">
                     </fieldset>
                     <fieldset class="form-group">
-                        <label for="kelas">Nama Kelas</label>
-                        <input type="text" class="form-control" id="kelas" name="kelas" placeholder="Masukkan Nama Kelas" value="{{old('kelas')}}">
+                        <label for="mapel">Nama Mapel</label>
+                        <input type="text" class="form-control" id="mapel" name="mapel" placeholder="Masukkan Nama Mapel" value="{{old('mapel')}}">
                     </fieldset>
+                    <label for="guru">Guru Pengajar</label>
+                    <fieldset class="form-group">
+                        <select class="form-control" id="guru" name="guru">
+                            @foreach($guru as $d)
+                            <option value="{{$d->id}}">{{$d->nama}}</option>
+                            @endforeach
+                            <option value="0">Tidak Ada Guru Mengajar</option>
+                        </select>
+                    </fieldset>
+                    <br>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-light-secondary" data-dismiss="modal">Close</button>
                         <button type="submit" class="btn btn-primary ml-1">Ubah</button>

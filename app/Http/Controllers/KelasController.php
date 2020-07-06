@@ -18,7 +18,7 @@ class KelasController extends Controller
     public function store(Request $request)
     {
         $messages = [
-            'unique' => 'NIP sudah terdaftar.',
+            'unique' => ':attribute sudah terdaftar.',
             'required' => ':attribute harus diisi.',
         ];
         $validator = Validator::make($request->all(), [
@@ -41,7 +41,7 @@ class KelasController extends Controller
     public function update(Request $request)
     {
         $messages = [
-            'unique' => 'NIP sudah terdaftar.',
+            'unique' => ':attribute sudah terdaftar.',
             'required' => ':attribute harus diisi.',
         ];
         $validator = Validator::make($request->all(), [

@@ -12,13 +12,24 @@
                 <form method="POST">
                     @csrf
                     <fieldset class="form-group">
-                        <label for="kode_kelas">Kode Kelas</label>
-                        <input type="text" class="form-control" id="kode_kelas" name="kode_kelas" placeholder="Masukkan Kode Kelas" value="{{old('kode_kelas')}}">
+                        <label for="kode_mapel">Kode Mapel</label>
+                        <input type="text" class="form-control" id="kode_mapel" name="kode_mapel" placeholder="Masukkan Kode Mapel" value="{{old('kode_mapel')}}">
                     </fieldset>
                     <fieldset class="form-group">
-                        <label for="kelas">Nama Kelas</label>
-                        <input type="text" class="form-control" id="kelas" name="kelas" placeholder="Masukkan Nama Kelas" value="{{old('kelas')}}">
+                        <label for="mapel">Nama Mapel</label>
+                        <input type="text" class="form-control" id="mapel" name="mapel" placeholder="Masukkan Nama Mapel" value="{{old('mapel')}}">
                     </fieldset>
+                    <label for="mapel">Guru Pengajar</label>
+                    <fieldset class="form-group">
+                        <select class="form-control" id="guru" name="guru">
+                            <option value="0" selected>Pilih Guru</option>
+                            @foreach($guru as $d)
+                            <option value="{{$d->id}}" @if (old('guru')==$d->id ) {{ 'selected' }} @endif>{{$d->nama}}</option>
+                            @endforeach
+                        </select>
+                        <small>Note: Pilih Guru Jika ingin Memasukkan Guru Pengajar</small>
+                    </fieldset>
+                    <br>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-light-secondary" data-dismiss="modal">Close</button>
                         <button type="submit" class="btn btn-primary ml-1">Tambah</button>
