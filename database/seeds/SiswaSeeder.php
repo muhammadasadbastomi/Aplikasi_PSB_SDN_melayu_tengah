@@ -29,7 +29,7 @@ class SiswaSeeder extends Seeder
                 'agama' => 'Islam',
                 'tempat_lahir' => $faker->address,
                 'tgl_lahir' => $faker->date,
-                'jenis_kelamin' => 'P',
+                'jenis_kelamin' => '2',
                 'anak_ke' => $faker->randomDigit,
                 'jumlah_saudara' => $faker->randomDigit,
             ]);

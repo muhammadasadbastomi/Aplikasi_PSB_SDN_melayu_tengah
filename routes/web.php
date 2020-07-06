@@ -28,10 +28,10 @@ Route::get('/admin/siswa/konfirmasi/{id}', 'SiswaController@konfirmasi');
 Route::patch('/admin/siswa/tolak/{id}', 'SiswaController@tolak')->name('siswaTolak');
 Route::get('/admin/siswa/tolak/{id}', 'SiswaController@tolak');
 
-Route::get('/admin/siswa', 'SiswaController@index')->name('siswaIndex');
-// Route::post('/admin/siswastore', 'SiswaController@store')->name('siswaStore');
-// Route::get('/admin/siswaedit/{id}', 'SiswaController@edit')->name('siswaEdit');
-// Route::put('/admin/siswaupdate', 'SiswaController@update')->name('siswaUpdate');
-// Route::delete('/admin/siswa/delete', 'SiswaController@destroy')->name('siswaDelete');
+Route::get('/admin/guru', 'GuruController@index')->name('GuruIndex');
+Route::post('/admin/guru', 'GuruController@store')->name('GuruStore');
+// Route::get('/admin/guruedit/{id}', 'GuruController@edit')->name('guruEdit');
+// Route::put('/admin/guruupdate', 'GuruController@update')->name('guruUpdate');
+// Route::delete('/admin/guru/delete', 'GuruController@destroy')->name('guruDelete');
 
 Route::get('/admin/user/', 'UserController@profile')->name('userProfile');

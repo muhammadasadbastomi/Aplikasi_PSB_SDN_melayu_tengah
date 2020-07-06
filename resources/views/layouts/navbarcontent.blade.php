@@ -11,13 +11,13 @@
         </li>
         <li class="dropdown nav-item" data-menu="dropdown"><a class="dropdown-toggle nav-link" href="#" data-toggle="dropdown"><i class="menu-livicon" data-icon="comments"></i><span>Master Data</span></a>
             <ul class="dropdown-menu">
-                <li data-menu=""><a class="dropdown-item align-items-center" href="{{ route('siswaIndex') }}" data-toggle="dropdown"><i class="bx bx-right-arrow-alt"></i>Data Pendaftaran Siswa</a>
+                <li data-menu=""><a class="dropdown-item align-items-center" href="{{route('siswaIndex')}}" data-toggle="dropdown"><i class="bx bx-right-arrow-alt"></i>Data Pendaftaran Siswa</a>
                 </li>
-                <li data-menu=""><a class="dropdown-item align-items-center" href="app-chat.html" data-toggle="dropdown"><i class="bx bx-right-arrow-alt"></i>Chat</a>
+                <li data-menu=""><a class="dropdown-item align-items-center" href="{{route('GuruIndex')}}" data-toggle="dropdown"><i class="bx bx-right-arrow-alt"></i>Data Pembayaran</a>
                 </li>
-                <li data-menu=""><a class="dropdown-item align-items-center" href="app-todo.html" data-toggle="dropdown"><i class="bx bx-right-arrow-alt"></i>Todo</a>
+                <li data-menu=""><a class="dropdown-item align-items-center" href="{{route('GuruIndex')}}" data-toggle="dropdown"><i class="bx bx-right-arrow-alt"></i>Data Guru</a>
                 </li>
-                <li data-menu=""><a class="dropdown-item align-items-center" href="app-calendar.html" data-toggle="dropdown"><i class="bx bx-right-arrow-alt"></i>Calendar</a>
+                <li data-menu=""><a class="dropdown-item align-items-center" href="app-calendar.html" data-toggle="dropdown"><i class="bx bx-right-arrow-alt"></i>Jadwal & Kelas</a>
                 </li>
             </ul>
         </li>

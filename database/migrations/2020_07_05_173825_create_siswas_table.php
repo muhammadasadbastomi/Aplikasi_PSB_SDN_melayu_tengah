@@ -26,7 +26,7 @@ class CreateSiswasTable extends Migration
             $table->string('agama');
             $table->text('tempat_lahir');
             $table->date('tgl_lahir');
-            $table->enum('jenis_kelamin', ['L', 'P']);
+            $table->enum('jenis_kelamin', ['1', '2']);
             $table->string('anak_ke');
             $table->string('jumlah_saudara');
             $table->string('akte')->nullable();;

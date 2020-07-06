@@ -1,11 +1,11 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use Faker\Factory as Faker;
-use Illuminate\Support\Facades\DB;
 
-class WaliSeeder extends Seeder
+class GuruSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -17,18 +17,14 @@ class WaliSeeder extends Seeder
         $faker = Faker::create('id_ID');
 
         for ($i = 0; $i < 10; $i++) {
-            DB::table('walis')->insert([
+            DB::table('gurus')->insert([
                 'uuid' => Str::random(36),
                 'nama' => $faker->firstNameFemale,
-                'alamat' => $faker->address,
+                'nip' => $faker->isbn13,
                 'jenis_kelamin' => '2',
                 'agama' => 'Islam',
                 'telp' => $faker->phoneNumber,
-                'tempat_lahir' => $faker->address,
-                'tgl_lahir' => $faker->date,
-                'pendidikan' => 'SMA',
-                'pekerjaan' => 'Rumah Tangga',
-                'foto' => 'default.png',
+                'alamat' => $faker->address,
             ]);
         }
     }
