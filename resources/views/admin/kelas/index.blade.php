@@ -47,7 +47,6 @@ Data Kelas
                                                     <th class="text-center">No</th>
                                                     <th class="text-center">Kode Kelas</th>
                                                     <th class="text-center">Nama Kelas</th>
-                                                    <th class="text-center">Tambah Jadwal</th>
                                                     <th class="text-center">Lihat Jadwal</th>
                                                     <th class="text-center">Aksi</th>
                                                 </tr>
@@ -59,10 +58,7 @@ Data Kelas
                                                     <td class="text-center">{{$d->kode_kelas}}</td>
                                                     <td class="text-center">{{$d->kelas}}</td>
                                                     <td class="text-center">
-                                                        <a class="btn btn-primary round mr-1 mb-1 text-white" data-toggle="modal" data-target="#modaltambahjadwal"><i class="bx bxs-edit"></i></a>
-                                                    </td>
-                                                    <td class="text-center">
-                                                        <a class="btn btn-primary round mr-1 mb-1 text-white" data-toggle="modal" data-target="#modaljadwal"><i class="bx bxs-search"></i></a>
+                                                        <a href="{{route('jadwalIndex',['id' => $d->id , 'uuid' => $d->uuid])}}" class="btn btn-primary round mr-1 mb-1 text-white"><i class="bx bxs-search"></i></a>
                                                     </td>
                                                     <td class="text-center">
                                                         <a class="btn btn-info round mr-1 mb-1 text-white" data-toggle="modal" data-target="#modaledit" data-id="{{$d->id}}" data-kode_kelas="{{$d->kode_kelas}}" data-kelas="{{$d->kelas}}"><i class="bx bxs-edit"></i></a>
@@ -101,6 +97,14 @@ Data Kelas
         modal.find('.modal-body #id').val(id)
         modal.find('.modal-body #kode_kelas').val(kode_kelas);
         modal.find('.modal-body #kelas').val(kelas);
+    })
+
+    $('#modaljadwal').on('show.bs.modal', function(event) {
+        let button = $(event.relatedTarget)
+        let id = button.data('id')
+        let modal = $(this)
+
+        modal.find('.modal-body #id').val(id)
     })
 </script>
 

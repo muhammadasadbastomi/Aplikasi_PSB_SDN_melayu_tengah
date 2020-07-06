@@ -6,18 +6,17 @@ use App\Traits\Uuid;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 
-class Mapel extends Model
+class Jadwal extends Model
 {
     use Notifiable;
     use Uuid;
 
-    public function jadwal()
+    public function mapel()
     {
-        return $this->hasMany(jadwal::class);
+        return $this->belongsTo(Mapel::class);
     }
-
-    public function guru()
+    public function kelas()
     {
-        return $this->belongsTo(Guru::class);
+        return $this->hasMany(Kelas::class);
     }
 }

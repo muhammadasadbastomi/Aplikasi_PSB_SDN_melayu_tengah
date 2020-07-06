@@ -34,14 +34,19 @@ Route::post('/admin/guru', 'GuruController@store')->name('guruStore');
 Route::put('/admin/guru', 'GuruController@update')->name('guruUpdate');
 Route::delete('/admin/guru/delete/{id}', 'GuruController@destroy')->name('guruDelete');
 
+Route::get('/admin/mapel', 'MapelController@index')->name('mapelIndex');
+Route::post('/admin/mapel', 'MapelController@store')->name('mapelStore');
+Route::put('/admin/mapel', 'MapelController@update')->name('mapelUpdate');
+Route::delete('/admin/mapel/delete/{id}', 'MapelController@destroy')->name('mapelDelete');
+
 Route::get('/admin/kelas', 'KelasController@index')->name('kelasIndex');
 Route::post('/admin/kelas', 'KelasController@store')->name('kelasStore');
 Route::put('/admin/kelas', 'KelasController@update')->name('kelasUpdate');
 Route::delete('/admin/kelas/delete/{id}', 'KelasController@destroy')->name('kelasDelete');
 
-Route::get('/admin/mapel', 'MapelController@index')->name('mapelIndex');
-Route::post('/admin/mapel', 'MapelController@store')->name('mapelStore');
-Route::put('/admin/mapel', 'MapelController@update')->name('mapelUpdate');
-Route::delete('/admin/mapel/delete/{id}', 'MapelController@destroy')->name('mapelDelete');
+Route::get('/admin/jadwal/{id}/{uuid}', 'JadwalController@index')->name('jadwalIndex');
+Route::post('/admin/jadwal/{id}/{uuid}', 'JadwalController@store')->name('jadwalStore');
+Route::delete('/admin/jadwal/delete/{id}', 'JadwalController@destroy')->name('jadwalDelete');
+
 
 Route::get('/admin/user/', 'UserController@profile')->name('userProfile');

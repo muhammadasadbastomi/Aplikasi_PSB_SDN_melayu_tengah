@@ -13,7 +13,7 @@
             <ul class="dropdown-menu">
                 <li data-menu=""><a class="dropdown-item align-items-center" href="{{route('siswaIndex')}}" data-toggle="dropdown"><i class="bx bx-right-arrow-alt"></i>Data Pendaftaran Siswa</a>
                 </li>
-                <li data-menu=""><a class="dropdown-item align-items-center" href="{{route('guruIndex')}}" data-toggle="dropdown"><i class="bx bx-right-arrow-alt"></i>Data Pembayaran</a>
+                <li data-menu=""><a class="dropdown-item align-items-center" href="#" data-toggle="dropdown"><i class="bx bx-right-arrow-alt"></i>Data Pembayaran</a>
                 </li>
                 <li data-menu=""><a class="dropdown-item align-items-center" href="{{route('guruIndex')}}" data-toggle="dropdown"><i class="bx bx-right-arrow-alt"></i>Data Guru</a>
                 </li>

@@ -13,8 +13,8 @@ class Kelas extends Model
 
     protected $table = 'kelas';
 
-    public function mapel()
+    public function jadwal()
     {
-        return $this->belongsToMany(Mapel::class);
+        return $this->belongsToMany(Jadwal::class);
     }
 }

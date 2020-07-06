@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Jadwal;
 use App\Kelas;
+use App\Mapel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -11,8 +13,9 @@ class KelasController extends Controller
     public function index()
     {
         $data = Kelas::latest()->get();
+        $mapel = Mapel::latest()->get();
 
-        return view('admin.kelas.index', compact('data'));
+        return view('admin.kelas.index', compact('data', 'mapel'));
     }
 
     public function store(Request $request)

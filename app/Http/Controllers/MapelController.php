@@ -12,7 +12,7 @@ class MapelController extends Controller
     public function index()
     {
         $guru = Guru::latest()->get();
-        $data = Mapel::orderBy('id', 'Desc')->get();
+        $data = Mapel::latest()->get();
 
         return view('admin.mapel.index', compact('data', 'guru'));
     }
