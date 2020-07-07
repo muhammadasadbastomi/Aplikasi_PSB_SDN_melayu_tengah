@@ -33,9 +33,10 @@
                                 </div>
                             </a>
                         </div>
-                        {{-- <div class="page-links">
-                            <a href="login9.html" class="active">Login</a><a href="register9.html">Register</a>
-                        </div> --}}
+                        <div class="page-links">
+                            <a href="{{ route('login') }}" class="active">Login</a><a
+                                href="{{ route('register') }}">Register</a>
+                        </div>
                         @yield('content')
                         {{-- <form>
                             <input class="form-control" type="text" name="username" placeholder="E-mail Address"
