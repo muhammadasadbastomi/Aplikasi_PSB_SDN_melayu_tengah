@@ -14,17 +14,17 @@ class CreateWalisTable extends Migration
     public function up()
     {
         Schema::create('walis', function (Blueprint $table) {
-            $table->bigIncrements('id')->nullable();
-            $table->string('uuid')->length(36)->nullable();
-            $table->string('nama')->nullable();
-            $table->enum('jenis_kelamin', ['1', '2'])->nullable();
-            $table->text('alamat')->nullable();
-            $table->string('telp')->nullable();
-            $table->string('agama')->nullable();
-            $table->text('tempat_lahir')->nullable();
-            $table->date('tgl_lahir')->nullable();
-            $table->string('pendidikan')->nullable();
-            $table->string('pekerjaan')->nullable();
+            $table->bigIncrements('id');
+            $table->string('uuid')->length(36);
+            $table->string('nama');
+            $table->enum('jenis_kelamin', ['1', '2']);
+            $table->text('alamat');
+            $table->string('telp');
+            $table->string('agama');
+            $table->text('tempat_lahir');
+            $table->date('tgl_lahir');
+            $table->string('pendidikan');
+            $table->string('pekerjaan');
             $table->string('foto')->nullable();
             $table->timestamps();
         });

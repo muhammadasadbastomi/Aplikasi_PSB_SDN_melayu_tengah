@@ -23,8 +23,6 @@ class SiswaSeeder extends Seeder
                 'wali_id' => $faker->numberBetween(1, 10),
                 'ayah_id' => $faker->numberBetween(1, 10),
                 'ibu_id' => $faker->numberBetween(1, 10),
-                'nama_depan' => $faker->firstNameFemale,
-                'nama_belakang' => $faker->lastName,
                 'alamat' => $faker->address,
                 'agama' => 'Islam',
                 'tempat_lahir' => $faker->address,

@@ -11,6 +11,10 @@ class Siswa extends Model
     use Notifiable;
     use Uuid;
 
+    protected $fillable = [
+        'user_id'
+    ];
+
     public function user()
     {
         return $this->belongsTo(User::class);
