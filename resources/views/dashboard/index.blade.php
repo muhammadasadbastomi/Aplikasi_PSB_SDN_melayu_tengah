@@ -1,6 +1,6 @@
 @extends('layouts/admin')
 
-@section('title') Admin Dashboard @endsection
+@section('title') Dashboard @endsection
 
 @section('content')
 
@@ -17,6 +17,7 @@
             </div>
         </div>
         <div class="content-body">
+            @if(Auth::user()->role == 2)
             <!-- Dashboard Start -->
             <div class="content-body">
                 <div class="row">
@@ -33,7 +34,7 @@
                             <li>Bagi anak yang kurang mampu bisa menyerahkan surat miskin ke pihak sekolah atas rekomendasi RT</li>
                         </ol>
 
-                        <h5><b>Ketentuan Biaya yang harus dibayarkan : </b></h5>
+                        <h5><b>Ketentuan Biaya yang harus dibayarkan : <button class="btn btn-sm btn-outline-primary"><i class="fa fa-print"></i> Cetak</button> </b></h5>
                         <ol>
                             <table class="table table-responsive" style="margin-left: -68px;">
                                 <thead>
@@ -132,6 +133,15 @@
                 </div>
             </div>
             <!-- Dashboard end -->
+            @else
+            <div class="content-body">
+                <div class="row">
+                    <div class="col-12">
+
+                    </div>
+                </div>
+            </div>
+            @endif
         </div>
     </div>
 </div>

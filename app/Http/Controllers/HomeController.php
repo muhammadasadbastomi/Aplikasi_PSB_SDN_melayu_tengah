@@ -26,12 +26,15 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
+
     public function index()
     {
         $user =  User::find(Auth::user()->id);
         $data = Siswa::where('user_id', $user->id)->first();
-        $pendaftaran = Pendaftaran::where('siswa_id', $data->id)->first();
-
+        if (Auth::user()->role == 2) {
+            $pendaftaran = Pendaftaran::where('siswa_id', $data->id)->first();
+        } else {
+        }
         return view('dashboard/index', compact('data', 'pendaftaran'));
     }
 

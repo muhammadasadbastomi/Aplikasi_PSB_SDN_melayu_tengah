@@ -19,7 +19,7 @@ class SiswaController extends Controller
     {
         $data = Pendaftaran::latest()->get();
 
-        return view('admin.siswa.index', compact('data'));
+        return view('admin.pendaftaran.index', compact('data'));
     }
 
     public function show($id)
