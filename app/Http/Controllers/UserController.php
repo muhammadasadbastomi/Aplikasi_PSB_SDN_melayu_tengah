@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\user;
-use Auth;
 use Hash;
 
 class UserController extends Controller
@@ -16,15 +16,15 @@ class UserController extends Controller
      */
     public function profile()
     {
-        if (Auth::user()){
+        if (Auth::user()) {
             $user =  User::find(Auth::user()->id);
 
-            if ($user){
-            return view('admin.user.profile')->withUser($user);
+            if ($user) {
+                return view('admin.user.profile')->withUser($user);
             } else {
                 return redirect()->back();
             }
-        }else {
+        } else {
             return redirect()->back();
         }
     }
