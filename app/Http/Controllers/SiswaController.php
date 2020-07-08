@@ -72,6 +72,7 @@ class SiswaController extends Controller
             'name' => 'required',
             'akte' => 'file|image|mimes:jpeg,png,gif',
             'kk' => 'file|image|mimes:jpeg,png,gif',
+            'photos' => 'file|image|mimes:jpeg,png,gif',
         ], $messages);
 
         if ($validator->fails()) {
@@ -80,6 +81,12 @@ class SiswaController extends Controller
 
         $user = User::findorfail($request->id);
         $user->name = $request->name;
+        if ($request->photos) {
+            $request->file('photos')->move('images/biodata/', $request->file('photos')->getClientOriginalName());
+            $user->photos = $request->file('photos')->getClientOriginalName();
+        } elseif (!$request->photos) {
+            $user->photos = $user->photos;
+        }
         $user->update();
 
         $data = Siswa::findorfail($siswa->id);

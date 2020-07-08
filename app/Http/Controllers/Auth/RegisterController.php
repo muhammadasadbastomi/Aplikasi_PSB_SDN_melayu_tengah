@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Pendaftaran;
 use App\Providers\RouteServiceProvider;
 use App\Siswa;
 use App\User;
@@ -75,6 +76,10 @@ class RegisterController extends Controller
         $siswa = new Siswa;
         $siswa->user_id = $user->id;
         $siswa->save();
+
+        $pendaftaran = new Pendaftaran;
+        $pendaftaran->siswa_id = $siswa->id;
+        $pendaftaran->save();
 
         return $user;
     }

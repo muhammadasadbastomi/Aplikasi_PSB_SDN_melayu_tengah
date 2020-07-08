@@ -17,7 +17,7 @@ class CreatePendaftaransTable extends Migration
             $table->bigIncrements('id');
             $table->string('uuid')->length(36);
             $table->string('siswa_id');
-            $table->enum('status',  ['1', '2', '3'])->default('1');
+            $table->enum('status',  ['1', '2', '3'])->nullable();
             $table->string('kelas')->nullable();
             $table->timestamps();
         });

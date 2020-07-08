@@ -82,6 +82,10 @@ Isi Biodata
                                                         <input type="text" class="form-control" id="jmlh_saudara" name="jmlh_saudara" placeholder="Masukkan Jumlah Saudara..." value="{{ $data->jumlah_saudara }}">
                                                     </div>
                                                     <div class="form-group">
+                                                        <label for="photos">Foto Siswa</label>
+                                                        <input type="file" class="form-control" id="photos" name="photos" value="{{ Auth()->user()->photos }}">
+                                                    </div>
+                                                    <div class="form-group">
                                                         <label for="akte">Foto Copy Akte Kelahiran</label>
                                                         <input type="file" name="akte" id="akte" class="form-control" value="{{ $data->akte }}">
                                                     </div>

@@ -21,6 +21,8 @@ Auth::routes();
 
 Route::group(['middleware' => ['auth', 'Checkrole:1,2']], function () {
     Route::get('/dashboard', 'HomeController@index')->name('dashboard');
+    Route::post('/dashboard', 'HomeController@upload')->name('dashboardUpload');
+    Route::put('/dashboard', 'HomeController@daftar')->name('dashboardDaftar');
 });
 
 Route::group(['middleware' => ['auth', 'Checkrole:1']], function () {
@@ -63,4 +65,6 @@ Route::group(['middleware' => ['auth', 'Checkrole:2']], function () {
     Route::post('/siswa/biodata', 'SiswaController@update')->name('biodataUpdate');
     Route::patch('/siswa/biodata', 'SiswaController@wali')->name('waliUpdate');
     Route::put('/siswa/biodata', 'SiswaController@orangtua')->name('orangtuaUpdate');
+
+    Route::put('/siswa/pembayaran', 'PembayaranController@index')->name('pembayaranIndex');
 });

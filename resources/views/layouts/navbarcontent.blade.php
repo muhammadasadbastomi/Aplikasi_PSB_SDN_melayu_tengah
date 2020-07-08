@@ -1,13 +1,7 @@
 <div class="navbar-container main-menu-content" data-menu="menu-container">
     <!-- include ../../../includes/mixins-->
     <ul class="nav navbar-nav" id="main-menu-navigation" data-menu="menu-navigation" data-icon-style="filled">
-        <li class="nav-item"><a class="dropdown-toggle nav-link" href="index.html" data-toggle="dropdown"><i class="menu-livicon" data-icon="desktop"></i><span data-i18n="Dashboard">Dashboard</span></a>
-            <ul class="dropdown-menu">
-                <li data-menu=""><a class="align-items-center" href="dashboard-ecommerce.html"><i class="bx bx-right-arrow-alt"></i>eCommerce</a>
-                </li>
-                <li class="active" data-menu=""><a class="dropdown-item align-items-center" href="dashboard-analytics.html" data-toggle="dropdown"><i class="bx bx-right-arrow-alt"></i>Analytics</a>
-                </li>
-            </ul>
+        <li class="nav-item"><a class="nav-link" href="{{route('dashboard')}}"><i class="menu-livicon" data-icon="desktop"></i><span data-i18n="Dashboard">Dashboard</span></a>
         </li>
         @if(auth()->user()->role == '1')
         <li class="dropdown nav-item" data-menu="dropdown"><a class="dropdown-toggle nav-link" href="#" data-toggle="dropdown"><i class="menu-livicon" data-icon="comments"></i><span>Master Data</span></a>
