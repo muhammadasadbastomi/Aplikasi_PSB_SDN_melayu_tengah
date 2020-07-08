@@ -57,3 +57,10 @@ Route::group(['middleware' => ['auth', 'Checkrole:1']], function () {
 
     Route::get('/admin/user/', 'UserController@profile')->name('userProfile');
 });
+
+Route::group(['middleware' => ['auth', 'Checkrole:2']], function () {
+    Route::get('/siswa/biodata', 'SiswaController@biodata')->name('biodataIndex');
+    Route::post('/siswa/biodata', 'SiswaController@update')->name('biodataUpdate');
+    Route::patch('/siswa/biodata', 'SiswaController@wali')->name('waliUpdate');
+    Route::put('/siswa/biodata', 'SiswaController@orangtua')->name('orangtuaUpdate');
+});
