@@ -31,49 +31,26 @@ Data Pendaftaran Calon Siswa
             </div>
         </div>
         <div class="content-body">
-
-            <!-- Zero configuration table -->
-            <section id="basic-datatable">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="card">
-                            <div class="card-content">
-                                <div class="card-body card-dashboard">
-                                    <div class="table-responsive">
-                                        <table class="table zero-configuration">
-                                            <thead>
-                                                <tr>
-                                                    <th class="text-center">No</th>
-                                                    <th class="text-center">Nama Lengkap</th>
-                                                    <th class="text-center">Email</th>
-                                                    <th class="text-center">Status</th>
-                                                    <th class="text-center">Aksi</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                @foreach($data as $d)
-                                                <tr>
-                                                    <td class="text-center">{{$loop->iteration}}</td>
-                                                    <td>{{$d->siswa->user->name}}</td>
-                                                    <td class="text-center">{{$d->siswa->user->email}}</td>
-                                                    <td class="text-center">@if($d->status == 1) <a class="text-primary">Belum dikonfirmasi</a> @elseif($d->status == 2) <a class="text-success">Sudah dikonfirmasi</a> @elseif($d->status == 3) <a class="text-danger">Pendaftaran ditolak</a> @else <a class="text-info">Telah Lulus</a> @endif</td>
-                                                    <td class="text-center">
-                                                        <a class="btn btn-info round mr-1 mb-1 text-white"><i class="bx bx-search"></i> Lihat</a>
-                                                        <a href="{{ route('siswaKonfirmasi',['id' => $d->uuid]) }}" class="btn btn-primary round mr-1 mb-1 text-white">Konfirmasi</a>
-                                                        <a href="{{ route('siswaTolak',['id' => $d->uuid]) }}" class="btn btn-danger round mr-1 mb-1 text-white">Tolak</a>
-                                                    </td>
-                                                </tr>
-                                                @endforeach
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <!--/ Zero configuration table -->
+            <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <a class="nav-link active" id="pills-pendaftaran-tab" data-toggle="pill" href="#pills-pendaftaran" role="tab" aria-controls="pills-pendaftaran" aria-selected="true">Pendaftaran</a>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <a class="nav-link" id="pills-dikonfirmasi-tab" data-toggle="pill" href="#pills-dikonfirmasi" role="tab" aria-controls="pills-dikonfirmasi" aria-selected="false">Dikonfirmasi</a>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <a class="nav-link" id="pills-ditolak-tab" data-toggle="pill" href="#pills-ditolak" role="tab" aria-controls="pills-ditolak" aria-selected="false">Ditolak</a>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <a class="nav-link" id="pills-lulus-tab" data-toggle="pill" href="#pills-lulus" role="tab" aria-controls="pills-lulus" aria-selected="false">Dinyatakan Lulus</a>
+                </li>
+            </ul>
+            <div class="tab-content" id="pills-tabContent" style="margin-top: -40px;">
+                <div class="tab-pane fade show active" id="pills-pendaftaran" role="tabpanel" aria-labelledby="pills-pendaftaran-tab">@include('admin.pendaftaran.pendaftaran')</div>
+                <div class="tab-pane fade" id="pills-dikonfirmasi" role="tabpanel" aria-labelledby="pills-dikonfirmasi-tab">@include('admin.pendaftaran.dikonfirmasi')</div>
+                <div class="tab-pane fade" id="pills-ditolak" role="tabpanel" aria-labelledby="pills-ditolak-tab">@include('admin.pendaftaran.ditolak')</div>
+                <div class="tab-pane fade" id="pills-lulus" role="tabpanel" aria-labelledby="pills-lulus-tab">@include('admin.pendaftaran.lulus')</div>
+            </div>
         </div>
     </div>
 </div>

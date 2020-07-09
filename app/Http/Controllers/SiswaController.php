@@ -17,9 +17,15 @@ class SiswaController extends Controller
     //Route Admin Pendaftaran
     public function index()
     {
-        $data = Pendaftaran::latest()->get();
+        $data = Pendaftaran::latest()->where('status', 1)->get();
 
-        return view('admin.pendaftaran.index', compact('data'));
+        $konfirmasi = Pendaftaran::latest()->where('status', 2)->get();
+
+        $ditolak = Pendaftaran::latest()->where('status', 3)->get();
+
+        $lulus = Pendaftaran::latest()->where('status', 4)->get();
+
+        return view('admin.pendaftaran.index', compact('data', 'konfirmasi', 'lulus', 'ditolak'));
     }
 
     public function show($id)
