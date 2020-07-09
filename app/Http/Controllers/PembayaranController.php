@@ -74,6 +74,12 @@ class PembayaranController extends Controller
         $data->status = '3';
         $data->update();
 
+        $pendaftaran = Pendaftaran::where('pembayaran_id', $request->id)->first();
+
+        $data1 = Pendaftaran::find($pendaftaran->id);
+        $data1->status = '4';
+        $data1->update();
+
         return back()->with('success', 'Pembayaran Berhasil Dikonfirmasi');
     }
 }
