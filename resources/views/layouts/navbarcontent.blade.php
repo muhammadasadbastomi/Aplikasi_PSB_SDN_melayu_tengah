@@ -16,6 +16,8 @@
                 </li>
                 <li data-menu=""><a class="dropdown-item align-items-center" href="{{route('kelasIndex')}}" data-toggle="dropdown"><i class="bx bx-right-arrow-alt"></i>Kelas & Jadwal</a>
                 </li>
+                <li data-menu=""><a class="dropdown-item align-items-center" href="{{route('kalenderIndex')}}" data-toggle="dropdown"><i class="bx bx-right-arrow-alt"></i>Kalender Akademik</a>
+                </li>
             </ul>
         </li>
         @endif

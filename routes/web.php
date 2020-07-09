@@ -57,6 +57,9 @@ Route::group(['middleware' => ['auth', 'Checkrole:1']], function () {
     Route::post('/admin/jadwal/{id}/{uuid}', 'JadwalController@store')->name('jadwalStore');
     Route::delete('/admin/jadwal/delete/{id}', 'JadwalController@destroy')->name('jadwalDelete');
 
+    Route::get('/admin/kalender/', 'KalenderController@index')->name('kalenderIndex');
+    Route::post('/admin/kalender/', 'KalenderController@semester')->name('kalenderSemester');
+
     Route::get('/admin/user/', 'UserController@profile')->name('userProfile');
 });
 
