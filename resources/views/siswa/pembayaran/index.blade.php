@@ -9,7 +9,7 @@ Pembayaran Pendaftaran
 @endsection
 
 @section('content')
-
+@if(($data->status == 2) or ($data->status == 4))
 <div class="app-content content">
     <div class="content-overlay"></div>
     <div class="content-wrapper">
@@ -36,26 +36,30 @@ Pembayaran Pendaftaran
                 <div class="col-12">
                     <div class="card">
                         <div class="card-content">
+                            @if($data->pembayaran_id == null)
+                            @include('siswa.pembayaran.metode')
+                            @elseif($data->pembayaran->metode == 2)
+                            @if($data->pembayaran->status == 1)
+                            @include('siswa.pembayaran.cash')
+                            @elseif($data->pembayaran->status == 2)
                             <div class="card-body card-dashboard">
                                 <div class="table-responsive">
-                                    @if($data->pembayaran_id == null)
-                                    @include('siswa.pembayaran.metode')
-                                    @elseif($data->pembayaran->metode == 2)
-                                    @if($data->pembayaran->status == 1)
-                                    @include('siswa.pembayaran.cash')
-                                    @elseif($data->pembayaran->status == 2)
                                     <h2>Silahkan Tunggu Konfirmasi Admin</h2>
                                     <h5> <a href="{{route('kegiatanShow')}}">Klik Disini</a> untuk Melihat Daftar Kegiatan SDN Melayu Tengah</h5>
-                                    @elseif($data->pembayaran->status == 3)
+                                </div>
+                            </div>
+                            @elseif($data->pembayaran->status == 3)
+                            <div class="card-body card-dashboard">
+                                <div class="table-responsive">
                                     <h3>Pembayaran Telah Dikonfirmasi, <a href="#">Klik Disini Untuk </a> Melihat Kelas Dan Jadwal Pelajaran</h3>
                                     @else
                                     <h3>Pembayaran Tidak Tersedia, Silahkan Isi Syarat Pendaftaran <a href="{{route('dashboard')}}">Kembali</a></h3>
-                                    @endif
-                                    @else
-                                    @include('siswa.pembayaran.cicil')
-                                    @endif
                                 </div>
                             </div>
+                            @endif
+                            @else
+                            @include('siswa.pembayaran.cicil')
+                            @endif
                         </div>
                     </div>
                 </div>
@@ -64,6 +68,9 @@ Pembayaran Pendaftaran
         </div>
     </div>
 </div>
+@else
+@include('siswa.pembayaran.kembali')
+@endif
 @endsection
 
 @section('script')
