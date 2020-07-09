@@ -14,12 +14,20 @@
                     @csrf
                     <input type="hidden" id="id" name="id">
                     <fieldset class="form-group">
-                        <label for="kode_kelas">Kode Kelas</label>
-                        <input type="text" class="form-control" id="kode_kelas" name="kode_kelas" placeholder="Masukkan Kode Kelas" value="{{old('kode_kelas')}}">
+                        <label for="kegiatan">Kegiatan</label>
+                        <input type="text" class="form-control" id="kegiatan" name="kegiatan" placeholder="Masukkan Kegiatan" value="{{old('kegiatan')}}">
                     </fieldset>
                     <fieldset class="form-group">
-                        <label for="kelas">Nama Kelas</label>
-                        <input type="text" class="form-control" id="kelas" name="kelas" placeholder="Masukkan Nama Kelas" value="{{old('kelas')}}">
+                        <label for="tgl_mulai">Tanggal Mulai Kegiatan</label>
+                        <input type="date" class="form-control" id="tgl_mulai" name="tgl_mulai" value="{{old('tgl_mulai')}}">
+                    </fieldset>
+                    <fieldset class="form-group">
+                        <label for="tgl_akhir">Tanggal Berakhir Kegiatan</label>
+                        <input type="date" class="form-control" id="tgl_akhir" name="tgl_akhir" value="{{old('tgl_akhir')}}">
+                    </fieldset>
+                    <fieldset class="form-group">
+                        <label for="keterangan">Keterangan</label>
+                        <textarea class="form-control" id="keterangan" name="keterangan" placeholder="Masukkan Keterangan">{{old('keterangan')}}</textarea>
                     </fieldset>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-light-secondary" data-dismiss="modal">Close</button>

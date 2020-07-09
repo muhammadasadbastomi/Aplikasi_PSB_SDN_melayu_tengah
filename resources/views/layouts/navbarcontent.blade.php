@@ -18,6 +18,8 @@
                 </li>
                 <li data-menu=""><a class="dropdown-item align-items-center" href="{{route('kalenderIndex')}}" data-toggle="dropdown"><i class="bx bx-right-arrow-alt"></i>Kalender Akademik</a>
                 </li>
+                <li data-menu=""><a class="dropdown-item align-items-center" href="{{route('kegiatanIndex')}}" data-toggle="dropdown"><i class="bx bx-right-arrow-alt"></i>Kegiatan</a>
+                </li>
             </ul>
         </li>
         @endif
@@ -25,6 +27,8 @@
         <li class="nav-item"><a class="nav-link" href="{{route('biodataIndex')}}"><i class="menu-livicon" data-icon="briefcase"></i><span>Isi Biodata</span></a>
         </li>
         <li class="nav-item"><a class="nav-link" href="#"><i class="menu-livicon" data-icon="thumbnails-big"></i><span>Pembayaran</span></a>
+        </li>
+        <li class="nav-item"><a class="nav-link" href="{{route('kegiatanShow')}}"><i class="menu-livicon" data-icon="notebook"></i><span>Kegiatan</span></a>
         </li>
         <li class="nav-item"><a class="nav-link" href="#"><i class="menu-livicon" data-icon="notebook"></i><span>Kalender Akademik</span></a>
         </li>

@@ -57,8 +57,13 @@ Route::group(['middleware' => ['auth', 'Checkrole:1']], function () {
     Route::post('/admin/jadwal/{id}/{uuid}', 'JadwalController@store')->name('jadwalStore');
     Route::delete('/admin/jadwal/delete/{id}', 'JadwalController@destroy')->name('jadwalDelete');
 
+    Route::get('/admin/kegiatan/', 'KegiatanController@index')->name('kegiatanIndex');
+    Route::post('/admin/kegiatan/', 'KegiatanController@store')->name('kegiatanStore');
+    Route::put('/admin/kegiatan/', 'KegiatanController@update')->name('kegiatanUpdate');
+    Route::delete('/admin/kegiatan/delete/{id}', 'KegiatanController@destroy')->name('kegiatanDelete');
+
     Route::get('/admin/kalender/', 'KalenderController@index')->name('kalenderIndex');
-    Route::post('/admin/kalender/', 'KalenderController@semester')->name('kalenderSemester');
+    // Route::post('/admin/kalender/', 'KalenderController@semester')->name('kalenderSemester');
 
     Route::get('/admin/user/', 'UserController@profile')->name('userProfile');
 });
@@ -70,4 +75,6 @@ Route::group(['middleware' => ['auth', 'Checkrole:2']], function () {
     Route::put('/siswa/biodata', 'SiswaController@orangtua')->name('orangtuaUpdate');
 
     Route::put('/siswa/pembayaran', 'PembayaranController@index')->name('pembayaranIndex');
+
+    Route::get('/siswa/kegiatan/', 'KegiatanController@show')->name('kegiatanShow');
 });
