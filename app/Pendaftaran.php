@@ -15,4 +15,9 @@ class Pendaftaran extends Model
     {
         return $this->belongsTo(Siswa::class);
     }
+
+    public function pembayaran()
+    {
+        return $this->belongsTo(Pembayaran::class);
+    }
 }

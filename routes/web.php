@@ -33,10 +33,8 @@ Route::group(['middleware' => ['auth', 'Checkrole:1']], function () {
     Route::patch('/admin/siswa/tolak/{id}', 'SiswaController@tolak')->name('siswaTolak');
     Route::get('/admin/siswa/tolak/{id}', 'SiswaController@tolak');
 
-    Route::get('/admin/pembayaran', 'PembayaranController@index')->name('pembayaranIndex');
-    Route::post('/admin/pembayaran', 'PembayaranController@store')->name('pembayaranStore');
-    Route::put('/admin/pembayaran', 'PembayaranController@update')->name('pembayaranUpdate');
-    Route::delete('/admin/pembayaran/delete/{id}', 'PembayaranController@destroy')->name('pembayaranDelete');
+    Route::get('/admin/pembayaran', 'PembayaranController@indexadmin')->name('pembayaranIndexadmin');
+    Route::put('/admin/pembayaran', 'PembayaranController@konfirmasi')->name('pembayaranKonfirmasi');
 
     Route::get('/admin/guru', 'GuruController@index')->name('guruIndex');
     Route::post('/admin/guru', 'GuruController@store')->name('guruStore');
@@ -74,7 +72,9 @@ Route::group(['middleware' => ['auth', 'Checkrole:2']], function () {
     Route::patch('/siswa/biodata', 'SiswaController@wali')->name('waliUpdate');
     Route::put('/siswa/biodata', 'SiswaController@orangtua')->name('orangtuaUpdate');
 
-    Route::put('/siswa/pembayaran', 'PembayaranController@index')->name('pembayaranIndex');
+    Route::get('/siswa/pembayaran', 'PembayaranController@index')->name('pembayaranIndex');
+    Route::post('/siswa/pembayaran', 'PembayaranController@metode')->name('pembayaranMetode');
+    Route::put('/siswa/pembayaran', 'PembayaranController@cash')->name('pembayaranCash');
 
     Route::get('/siswa/kegiatan/', 'KegiatanController@show')->name('kegiatanShow');
 });

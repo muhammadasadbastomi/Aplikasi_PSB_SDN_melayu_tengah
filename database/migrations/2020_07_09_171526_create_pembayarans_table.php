@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePendaftaransTable extends Migration
+class CreatePembayaransTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,15 @@ class CreatePendaftaransTable extends Migration
      */
     public function up()
     {
-        Schema::create('pendaftarans', function (Blueprint $table) {
+        Schema::create('pembayarans', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('uuid')->length(36);
-            $table->string('siswa_id');
-            $table->string('pembayaran_id')->nullable();
-            $table->enum('status',  ['1', '2', '3', '4'])->nullable();
+            $table->string('metode');
+            $table->string('cicilan_id')->nullable();
+            $table->string('status')->nullable();
+            $table->string('nominal')->nullable();
+            $table->string('terbilang')->nullable();
+            $table->string('bukti')->nullable();
             $table->timestamps();
         });
     }
@@ -30,6 +33,6 @@ class CreatePendaftaransTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pendaftarans');
+        Schema::dropIfExists('pembayarans');
     }
 }
