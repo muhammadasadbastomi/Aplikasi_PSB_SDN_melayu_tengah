@@ -35,6 +35,7 @@ Route::group(['middleware' => ['auth', 'Checkrole:1']], function () {
 
     Route::get('/admin/pembayaran', 'PembayaranController@indexadmin')->name('pembayaranIndexadmin');
     Route::put('/admin/pembayaran', 'PembayaranController@konfirmasi')->name('pembayaranKonfirmasi');
+    Route::patch('/admin/pembayaran', 'PembayaranController@konfirmasicicilan')->name('pembayaranKonfirmasicicilan');
 
     Route::get('/admin/guru', 'GuruController@index')->name('guruIndex');
     Route::post('/admin/guru', 'GuruController@store')->name('guruStore');
@@ -79,6 +80,7 @@ Route::group(['middleware' => ['auth', 'Checkrole:2']], function () {
     Route::get('/siswa/pembayaran', 'PembayaranController@index')->name('pembayaranIndex');
     Route::post('/siswa/pembayaran', 'PembayaranController@metode')->name('pembayaranMetode');
     Route::put('/siswa/pembayaran', 'PembayaranController@cash')->name('pembayaranCash');
+    Route::patch('/siswa/pembayaran', 'PembayaranController@cicil')->name('pembayaranCicil');
 
     Route::get('/siswa/kegiatan/', 'KegiatanController@show')->name('kegiatanShow');
 });

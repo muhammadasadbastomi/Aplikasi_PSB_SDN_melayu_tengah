@@ -1,30 +1,16 @@
+@if($data->pembayaran->status == 1)
+@include('siswa.pembayaran.pembayarancash')
+@elseif($data->pembayaran->status == 2)
 <div class="card-body card-dashboard">
     <div class="table-responsive">
-        <h2>Pembayaran Pendaftaran</h2>
-        <br>
-        <form method="POST" enctype="multipart/form-data">
-            {{ method_field('put') }}
-            @csrf
-            <fieldset class="form-group">
-                <label for="name">Nama Siswa</label>
-                <input type="text" id="name" class="form-control" readonly value="{{ Auth::user()->name }}">
-            </fieldset>
-            <fieldset class="form-group">
-                <label for="nominal">Nominal</label>
-                <input type="number" class="form-control" id="nominal" name="nominal" placeholder="Masukkan Nominal Harga Bayar" value="{{old('nominal')}}">
-            </fieldset>
-            <fieldset class="form-group">
-                <label for="terbilang">Terbilang</label>
-                <input type="text" class="form-control" id="terbilang" name="terbilang" placeholder="Masukkan Terbilang Harga Bayar" value="{{old('terbilang')}}">
-            </fieldset>
-            <fieldset class="form-group">
-                <label for="bukti">Bukti Pembayara</label>
-                <input type="file" class="form-control" id="bukti" name="bukti" value="{{old('bukti')}}">
-            </fieldset>
-            <div class="modal-footer">
-                <button type="reset" class="btn btn-light-secondary">Reset</button>
-                <button type="submit" class="btn btn-primary ml-1">Submit</button>
-            </div>
-        </form>
+        <h2>Silahkan Tunggu Konfirmasi Admin</h2>
+        <h5> <a href="{{route('kegiatanShow')}}">Klik Disini</a> untuk Melihat Daftar Kegiatan SDN Melayu Tengah</h5>
     </div>
 </div>
+@else
+<div class="card-body card-dashboard">
+    <div class="table-responsive">
+        <h4>Pembayaran Telah Dikonfirmasi, Silahkan Tunggu dan Lihat <a href="{{route('kegiatanShow')}}"> Daftar Kegiatan </a> Untuk Informasi Pembagian Kelas.</h4>
+    </div>
+</div>
+@endif

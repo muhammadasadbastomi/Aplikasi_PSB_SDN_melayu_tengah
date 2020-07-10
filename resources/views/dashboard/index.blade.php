@@ -11,7 +11,7 @@
             <div class="content-header-left col-12 mb-2 mt-1">
                 <div class="row breadcrumbs-top">
                     <div class="col-12">
-                        @if($data->status == 5)
+                        @if((Auth::user()->role == 2) && ($data->status == 5))
                         @else
                         <h3 class="float-left pr-1 mb-0">Selamat Datang, {{Auth()->user()->name}}</h3>
                         @endif

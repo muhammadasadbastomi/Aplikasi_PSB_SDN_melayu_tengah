@@ -39,26 +39,11 @@ Pembayaran Pendaftaran
                             @if($data->pembayaran_id == null)
                             @include('siswa.pembayaran.metode')
                             @elseif($data->pembayaran->metode == 2)
-                            @if($data->pembayaran->status == 1)
                             @include('siswa.pembayaran.cash')
-                            @elseif($data->pembayaran->status == 2)
-                            <div class="card-body card-dashboard">
-                                <div class="table-responsive">
-                                    <h2>Silahkan Tunggu Konfirmasi Admin</h2>
-                                    <h5> <a href="{{route('kegiatanShow')}}">Klik Disini</a> untuk Melihat Daftar Kegiatan SDN Melayu Tengah</h5>
-                                </div>
-                            </div>
-                            @elseif($data->pembayaran->status == 3)
-                            <div class="card-body card-dashboard">
-                                <div class="table-responsive">
-                                    <h4>Pembayaran Telah Dikonfirmasi, Silahkan Tunggu dan Lihat <a href="{{route('kegiatanShow')}}"> Daftar Kegiatan </a> Untuk Informasi Pembagian Kelas.</h4>
-                                    @else
-                                    <h3>Pembayaran Tidak Tersedia, Silahkan Isi Syarat Pendaftaran <a href="{{route('dashboard')}}">Kembali</a></h3>
-                                </div>
-                            </div>
-                            @endif
-                            @else
+                            @elseif('siswa.pembayaran.metode == 1')
                             @include('siswa.pembayaran.cicil')
+                            @else
+                            Tidak Ada PEmbayaran bos
                             @endif
                         </div>
                     </div>
@@ -69,7 +54,17 @@ Pembayaran Pendaftaran
     </div>
 </div>
 @elseif($data->status == 5)
+
+@if(($data->pembayaran->metode == 1) && ($data->pembayaran->cicilan->cicilan_ke == 2))
+@include('siswa.pembayaran.pembayarancicilankedua')
+@elseif(($data->pembayaran->metode == 1) && ($data->pembayaran->status == 2) && ($data->pembayaran->cicilan->cicilan_ke == 3))
+@include('siswa.pembayaran.tunggu')
+@elseif($data->pembayaran->metode == 2)
 @include('siswa.pembayaran.tidaktersedia')
+@else
+@include('siswa.pembayaran.tidaktersedia')
+@endif
+
 @else
 @include('siswa.pembayaran.kembali')
 @endif

@@ -45,6 +45,8 @@ Isi Biodata
                                             <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
                                                 <form method="post" enctype="multipart/form-data">
                                                     @csrf
+                                                    <h3>Biodata Siswa</h3>
+                                                    <br>
                                                     <input type="hidden" id="id" name="id" value="{{ Auth()->user()->id }}">
                                                     <div class="form-group">
                                                         <label for="name">Nama Lengkap</label>
@@ -103,6 +105,10 @@ Isi Biodata
                                                 <form method="post" enctype="multipart/form-data">
                                                     {{ method_field('patch') }}
                                                     @csrf
+                                                    <h3>Biodata Wali</h3>
+                                                    <small>Note : Tidak Perlu Diisi, Jika Tidak Ada Wali Siswa.</small>
+                                                    <br>
+                                                    <br>
                                                     <input type="hidden" id="id" name="id" value="{{ Auth()->user()->id }}">
                                                     <div class="form-group">
                                                         <label for="nama_wali">Nama Lengkap</label>

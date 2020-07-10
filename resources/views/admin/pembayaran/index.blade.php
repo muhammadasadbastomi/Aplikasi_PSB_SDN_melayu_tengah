@@ -31,55 +31,22 @@ Data Pembayaran
             </div>
         </div>
         <div class="content-body">
-
-            <!-- Zero configuration table -->
-            <section id="basic-datatable">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="card">
-                            <div class="card-content">
-                                <div class="card-body card-dashboard">
-                                    <!-- <button type="button" class="btn btn-primary round mr-1 mb-1" data-toggle="modal" data-target="#default"><i class="bx bx-plus-circle"></i></button> -->
-                                    <div class="table-responsive">
-                                        <table class="table zero-configuration">
-                                            <thead>
-                                                <tr>
-                                                    <th class="text-center">No</th>
-                                                    <th class="text-center">Nama Siswa</th>
-                                                    <th class="text-center">Metode Pembayaran</th>
-                                                    <th class="text-center">Cicilan Ke</th>
-                                                    <th class="text-center">Aksi</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                @foreach($data as $d)
-                                                <tr>
-                                                    <td class="text-center">{{$loop->iteration}}</td>
-                                                    <td class="text-center">{{$d->user->name}}</td>
-                                                    <td class="text-center">@if($d->pembayaran->metode == 2) Pembayaran Cash @else Pembayaran Cicilan @endif</td>
-                                                    <td class="text-center">@if($d->pembayaran->cicilan_id == !null) @else - @endif</td>
-                                                    <td class="text-center">
-                                                        <a class="btn btn-info round mr-1 mb-1 text-white" data-toggle="modal" data-target="#modalshow" data-id="{{$d->id}}" data-nominal="{{$d->nominal}}" data-terbilang="{{$d->terbilang}}" data-bukti="{{$d->bukti}}"><i class="bx bxs-search"></i></a>
-                                                        <form method="post">
-                                                            {{ method_field('put') }}
-                                                            @csrf
-                                                            <input type="hidden" id="id" name="id" value="{{$d->pembayaran->id}}">
-                                                            <button class="btn btn-success round mr-1 mb-1 text-white"> Konfirmasi </button>
-                                                        </form>
-                                                    </td>
-                                                </tr>
-                                                @endforeach
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <!--/ Zero configuration table -->
-
+            <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <a class="nav-link active" id="pills-dikonfirmasi-tab" data-toggle="pill" href="#pills-dikonfirmasi" role="tab" aria-controls="pills-dikonfirmasi" aria-selected="true">Konfirmasi</a>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <a class="nav-link" id="pills-ditolak-tab" data-toggle="pill" href="#pills-cicilan" role="tab" aria-controls="pills-cicilan" aria-selected="false">Cicilan</a>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <a class="nav-link" id="pills-cicilan-tab" data-toggle="pill" href="#pills-lunas" role="tab" aria-controls="pills-lunas" aria-selected="false">Lunas</a>
+                </li>
+            </ul>
+            <div class="tab-content" id="pills-tabContent" style="margin-top: -45px;">
+                <div class="tab-pane fade show active" id="pills-dikonfirmasi" role="tabpanel" aria-labelledby="pills-dikonfirmasi-tab">@include('admin.pembayaran.konfirmasi')</div>
+                <div class="tab-pane fade" id="pills-cicilan" role="tabpanel" aria-labelledby="pills-cicilan-tab">@include('admin.pembayaran.cicilan')</div>
+                <div class="tab-pane fade" id="pills-lunas" role="tabpanel" aria-labelledby="pills-lunas-tab">@include('admin.pembayaran.lunas')</div>
+            </div>
         </div>
     </div>
 </div>

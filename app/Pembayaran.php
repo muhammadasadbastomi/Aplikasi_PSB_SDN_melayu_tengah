@@ -15,4 +15,8 @@ class Pembayaran extends Model
     {
         return $this->HasOne(Siswa::class);
     }
+    public function cicilan()
+    {
+        return $this->belongsTo(Cicilan::class);
+    }
 }

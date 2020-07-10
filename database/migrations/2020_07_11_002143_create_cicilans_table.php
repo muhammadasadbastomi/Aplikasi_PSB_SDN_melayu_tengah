@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePembayaransTable extends Migration
+class CreateCicilansTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,11 @@ class CreatePembayaransTable extends Migration
      */
     public function up()
     {
-        Schema::create('pembayarans', function (Blueprint $table) {
+        Schema::create('cicilans', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('uuid')->length(36);
-            $table->string('metode');
-            $table->date('tgl_bayar')->nullable();
-            $table->string('cicilan_id')->nullable();
-            $table->string('status')->nullable();
+            $table->string('cicilan_ke');
+            $table->date('tanggal_akhir')->nullable();
             $table->string('nominal')->nullable();
             $table->string('terbilang')->nullable();
             $table->string('bukti')->nullable();
@@ -34,6 +32,6 @@ class CreatePembayaransTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pembayarans');
+        Schema::dropIfExists('cicilans');
     }
 }
