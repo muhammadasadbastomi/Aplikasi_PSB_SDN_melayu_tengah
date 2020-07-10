@@ -30,6 +30,7 @@ class SiswaSeeder extends Seeder
                 'jenis_kelamin' => '2',
                 'anak_ke' => $faker->randomDigit,
                 'jumlah_saudara' => $faker->randomDigit,
+                'status' => '1',
             ]);
         }
     }

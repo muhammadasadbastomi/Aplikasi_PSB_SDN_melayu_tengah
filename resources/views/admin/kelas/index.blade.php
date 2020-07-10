@@ -48,6 +48,7 @@ Data Kelas
                                                     <th class="text-center">Kode Kelas</th>
                                                     <th class="text-center">Nama Kelas</th>
                                                     <th class="text-center">Lihat Jadwal</th>
+                                                    <th class="text-center">Lihat Siswa</th>
                                                     <th class="text-center">Aksi</th>
                                                 </tr>
                                             </thead>
@@ -59,6 +60,9 @@ Data Kelas
                                                     <td class="text-center">{{$d->kelas}}</td>
                                                     <td class="text-center">
                                                         <a href="{{route('jadwalIndex',['id' => $d->id , 'uuid' => $d->uuid])}}" class="btn btn-primary round mr-1 mb-1 text-white"><i class="bx bxs-search"></i></a>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <a href="{{route('pembagianIndex',['id' => $d->id , 'uuid' => $d->uuid])}}" class="btn btn-primary round mr-1 mb-1 text-white"><i class="bx bxs-search"></i></a>
                                                     </td>
                                                     <td class="text-center">
                                                         <a class="btn btn-info round mr-1 mb-1 text-white" data-toggle="modal" data-target="#modaledit" data-id="{{$d->id}}" data-kode_kelas="{{$d->kode_kelas}}" data-kelas="{{$d->kelas}}"><i class="bx bxs-edit"></i></a>

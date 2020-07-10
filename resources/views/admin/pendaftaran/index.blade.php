@@ -45,7 +45,7 @@ Data Pendaftaran Calon Siswa
                     <a class="nav-link" id="pills-lulus-tab" data-toggle="pill" href="#pills-lulus" role="tab" aria-controls="pills-lulus" aria-selected="false">Dinyatakan Lulus</a>
                 </li>
             </ul>
-            <div class="tab-content" id="pills-tabContent" style="margin-top: -40px;">
+            <div class="tab-content" id="pills-tabContent" style="margin-top: -45px;">
                 <div class="tab-pane fade show active" id="pills-pendaftaran" role="tabpanel" aria-labelledby="pills-pendaftaran-tab">@include('admin.pendaftaran.pendaftaran')</div>
                 <div class="tab-pane fade" id="pills-dikonfirmasi" role="tabpanel" aria-labelledby="pills-dikonfirmasi-tab">@include('admin.pendaftaran.dikonfirmasi')</div>
                 <div class="tab-pane fade" id="pills-ditolak" role="tabpanel" aria-labelledby="pills-ditolak-tab">@include('admin.pendaftaran.ditolak')</div>

@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Siswa;
 use App\Pembayaran;
-use App\Pendaftaran;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -13,16 +12,14 @@ class PembayaranController extends Controller
     //siswa
     public function index()
     {
-        $siswa = Siswa::where('user_id', Auth()->user()->id)->first();
-        $data = Pendaftaran::where('siswa_id', $siswa->id)->first();
+        $data = Siswa::where('user_id',  Auth()->user()->id)->first();
 
         return view('siswa.pembayaran.index', compact('data'));
     }
 
     public function metode(Request $request)
     {
-        $siswa = Siswa::where('user_id', Auth()->user()->id)->first();
-        $pendaftaran = Pendaftaran::where('siswa_id', $siswa->id)->first();
+        $siswa = Siswa::where('user_id',  Auth()->user()->id)->first();
 
         if ($request->pembayaran == 2) {
             $data = new Pembayaran;
@@ -36,7 +33,7 @@ class PembayaranController extends Controller
             $data->save();
         }
 
-        $data1 = Pendaftaran::find($pendaftaran->id);
+        $data1 = Siswa::find($siswa->id);
         $data1->pembayaran_id = $data->id;
         $data1->update();
 
@@ -46,9 +43,8 @@ class PembayaranController extends Controller
     public function cash(Request $request)
     {
         $siswa = Siswa::where('user_id', Auth()->user()->id)->first();
-        $pendaftaran = Pendaftaran::where('siswa_id', $siswa->id)->first();
 
-        $data = Pembayaran::findorfail($pendaftaran->pembayaran_id);
+        $data = Pembayaran::findorfail($siswa->pembayaran_id);
         $data->nominal = $request->nominal;
         $data->terbilang = $request->terbilang;
         $data->bukti = $request->bukti_pembayaran;
@@ -62,7 +58,7 @@ class PembayaranController extends Controller
     //admin konfirmasi
     public function indexadmin()
     {
-        $data = Pendaftaran::join('pembayarans', 'pembayarans.id', '=', 'pendaftarans.pembayaran_id')->where('pembayarans.status', 2)->get();
+        $data = Siswa::join('pembayarans', 'pembayarans.id', '=', 'siswas.pembayaran_id')->where('pembayarans.status', 2)->get();
 
         return view('admin.pembayaran.index', compact('data'));
     }
@@ -73,9 +69,9 @@ class PembayaranController extends Controller
         $data->status = '3';
         $data->update();
 
-        $pendaftaran = Pendaftaran::where('pembayaran_id', $request->id)->first();
+        $siswa = Siswa::where('pembayaran_id', $request->id)->first();
 
-        $data1 = Pendaftaran::find($pendaftaran->id);
+        $data1 = Siswa::find($siswa->id);
         $data1->status = '4';
         $data1->update();
 

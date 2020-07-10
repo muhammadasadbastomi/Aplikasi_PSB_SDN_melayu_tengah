@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePendaftaransTable extends Migration
+class CreateKelasDetailsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,12 @@ class CreatePendaftaransTable extends Migration
      */
     public function up()
     {
-        Schema::create('pendaftarans', function (Blueprint $table) {
+        Schema::create('kelas_details', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('uuid')->length(36);
+            $table->unsignedBigInteger('kelas_id');
             $table->string('siswa_id');
-            $table->string('pembayaran_id')->nullable();
-            $table->enum('status',  ['1', '2', '3', '4'])->nullable();
+            $table->integer('absen')->nullable();
             $table->timestamps();
         });
     }
@@ -30,6 +30,6 @@ class CreatePendaftaransTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pendaftarans');
+        Schema::dropIfExists('kelas_details');
     }
 }

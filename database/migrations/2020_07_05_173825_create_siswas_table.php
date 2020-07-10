@@ -27,8 +27,10 @@ class CreateSiswasTable extends Migration
             $table->enum('jenis_kelamin', ['1', '2'])->nullable();
             $table->string('anak_ke')->nullable();
             $table->string('jumlah_saudara')->nullable();
-            $table->string('akte')->nullable();;
-            $table->string('kk')->nullable();;
+            $table->string('akte')->nullable();
+            $table->string('kk')->nullable();
+            $table->string('pembayaran_id')->nullable();
+            $table->enum('status',  ['1', '2', '3', '4'])->nullable();
             $table->timestamps();
         });
     }

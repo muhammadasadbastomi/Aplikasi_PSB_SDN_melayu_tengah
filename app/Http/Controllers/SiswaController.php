@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Ayah;
 use App\Ibu;
-use App\Pendaftaran;
 use App\Siswa;
 use App\User;
 use App\Wali;
@@ -14,30 +13,30 @@ use Illuminate\Support\Facades\Validator;
 
 class SiswaController extends Controller
 {
-    //Route Admin Pendaftaran
+    //Route Admin Siswa
     public function index()
     {
-        $data = Pendaftaran::latest()->where('status', 1)->get();
+        $data = Siswa::latest()->where('status', 1)->get();
 
-        $konfirmasi = Pendaftaran::latest()->where('status', 2)->get();
+        $konfirmasi = Siswa::latest()->where('status', 2)->get();
 
-        $ditolak = Pendaftaran::latest()->where('status', 3)->get();
+        $ditolak = Siswa::latest()->where('status', 3)->get();
 
-        $lulus = Pendaftaran::latest()->where('status', 4)->get();
+        $lulus = Siswa::latest()->where('status', 4)->get();
 
         return view('admin.pendaftaran.index', compact('data', 'konfirmasi', 'lulus', 'ditolak'));
     }
 
     public function show($id)
     {
-        $data = Pendaftaran::where('uuid', $id)->first();
+        $data = Siswa::where('uuid', $id)->first();
 
         return view('admin.siswa.show', compact('data'));
     }
 
     public function konfirmasi($id)
     {
-        $data = Pendaftaran::where('uuid', $id)->first();
+        $data = Siswa::where('uuid', $id)->first();
 
         $data->status = 2;
         $data->update();
@@ -47,7 +46,7 @@ class SiswaController extends Controller
 
     public function tolak($id)
     {
-        $data = Pendaftaran::where('uuid', $id)->first();
+        $data = Siswa::where('uuid', $id)->first();
 
         $data->status = 3;
         $data->update();

@@ -22,21 +22,21 @@
             <div class="content-body">
                 <div class="row">
                     <div class="col-12">
-                        @if($pendaftaran->status == 1)
+                        @if($data->status == 1)
 
                         <h1 class="text-danger">Silahkan Tunggu Konfirmasi Admin.</h1>
 
                         <h6><i><b>*Catatan : Tunggu konfirmasi admin paling lambat dua hari kerja untuk verifikasi file.</b></i></h6>
 
-                        @elseif($pendaftaran->status == null)
+                        @elseif($data->status == null)
 
                         @include('dashboard.syaratpendaftar')
 
-                        @elseif($pendaftaran->status == 2)
+                        @elseif($data->status == 2)
 
                         @include('dashboard.pendaftaranulang')
 
-                        @elseif($pendaftaran->status == 3)
+                        @elseif($data->status == 3)
 
                         <h2 class="text-danger">Mohon Maaf Pendaftaran Telah Ditolak.</h2>
 

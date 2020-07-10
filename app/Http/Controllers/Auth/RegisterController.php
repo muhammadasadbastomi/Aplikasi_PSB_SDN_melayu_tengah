@@ -77,10 +77,6 @@ class RegisterController extends Controller
         $siswa->user_id = $user->id;
         $siswa->save();
 
-        $pendaftaran = new Pendaftaran;
-        $pendaftaran->siswa_id = $siswa->id;
-        $pendaftaran->save();
-
         return $user;
     }
 }

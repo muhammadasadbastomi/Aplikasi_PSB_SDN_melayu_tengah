@@ -17,4 +17,9 @@ class Kelas extends Model
     {
         return $this->belongsToMany(Jadwal::class);
     }
+
+    public function kelas_detail()
+    {
+        return $this->hasOne(Kelas_detail::class);
+    }
 }

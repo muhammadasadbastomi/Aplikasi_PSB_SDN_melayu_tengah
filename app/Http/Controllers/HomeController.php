@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Pendaftaran;
 use App\Siswa;
 use App\User;
 use Illuminate\Http\Request;
@@ -29,13 +28,11 @@ class HomeController extends Controller
 
     public function index()
     {
-        $user =  User::find(Auth::user()->id);
-        $data = Siswa::where('user_id', $user->id)->first();
         if (Auth::user()->role == 2) {
-            $pendaftaran = Pendaftaran::where('siswa_id', $data->id)->first();
+            $data = Siswa::where('user_id', Auth::user()->id)->first();
         } else {
         }
-        return view('dashboard/index', compact('data', 'pendaftaran'));
+        return view('dashboard/index', compact('data'));
     }
 
     public function upload(Request $request)
@@ -115,11 +112,9 @@ class HomeController extends Controller
 
     public function daftar()
     {
-        $user =  User::find(Auth::user()->id);
-        $siswa = Siswa::where('user_id', $user->id)->first();
-        $pendaftaran = Pendaftaran::where('siswa_id', $siswa->id)->first();
+        $pendaftaran = Siswa::where('user_id', Auth::user()->id)->first();
 
-        $data = Pendaftaran::findorfail($pendaftaran->id);
+        $data = Siswa::findorfail($pendaftaran->id);
         $data->status = '1';
         $data->update();
 

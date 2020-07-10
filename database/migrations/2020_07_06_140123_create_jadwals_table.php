@@ -16,7 +16,7 @@ class CreateJadwalsTable extends Migration
         Schema::create('jadwals', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('uuid')->length(36);
-            $table->unsignedBigInteger('kode_jadwal')->nullable();
+            $table->string('kode_jadwal')->nullable();
             $table->unsignedBigInteger('kelas_id')->nullable();
             $table->unsignedBigInteger('mapel_id')->nullable();
             $table->enum('hari', ['1', '2', '3', '4', '5', '6', '7'])->nullable();

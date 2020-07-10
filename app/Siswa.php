@@ -20,6 +20,11 @@ class Siswa extends Model
         return $this->belongsTo(User::class);
     }
 
+    public function pembayaran()
+    {
+        return $this->belongsTo(Pembayaran::class);
+    }
+
     public function wali()
     {
         return $this->belongsTo(Wali::class);
@@ -38,5 +43,10 @@ class Siswa extends Model
     public function pendaftaran()
     {
         return $this->HasOne(Pendaftaran::class);
+    }
+
+    public function kelas_detail()
+    {
+        return $this->hasOne(Kelas_detail::class);
     }
 }

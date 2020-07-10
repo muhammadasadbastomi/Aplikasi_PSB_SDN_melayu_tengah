@@ -6,13 +6,17 @@ use App\Traits\Uuid;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 
-class Pembayaran extends Model
+class Kelas_detail extends Model
 {
     use Notifiable;
     use Uuid;
 
+    public function kelas()
+    {
+        return $this->belongsTo(Kelas::class);
+    }
     public function siswa()
     {
-        return $this->HasOne(Siswa::class);
+        return $this->belongsTo(Siswa::class);
     }
 }

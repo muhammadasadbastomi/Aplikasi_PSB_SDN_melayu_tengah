@@ -55,6 +55,10 @@ Route::group(['middleware' => ['auth', 'Checkrole:1']], function () {
     Route::post('/admin/jadwal/{id}/{uuid}', 'JadwalController@store')->name('jadwalStore');
     Route::delete('/admin/jadwal/delete/{id}', 'JadwalController@destroy')->name('jadwalDelete');
 
+    Route::get('/admin/pembagian/{id}/{uuid}', 'PembagianController@index')->name('pembagianIndex');
+    Route::post('/admin/pembagian/{id}/{uuid}', 'PembagianController@store')->name('pembagianStore');
+    Route::delete('/admin/pembagian/delete/{id}', 'PembagianController@destroy')->name('pembagianDelete');
+
     Route::get('/admin/kegiatan/', 'KegiatanController@index')->name('kegiatanIndex');
     Route::post('/admin/kegiatan/', 'KegiatanController@store')->name('kegiatanStore');
     Route::put('/admin/kegiatan/', 'KegiatanController@update')->name('kegiatanUpdate');
