@@ -27,7 +27,7 @@
                                 <td><input type="checkbox" name="siswa_id[]" value="{{$d->id}}" class="case"></td>
                                 <td class="text-center">{{$d->user->name}}</td>
                                 <td class="text-center">{{$d->ayah->nama}} & {{$d->ibu->nama}}</td>
-                                <td class="text-center">@if($d->wali->nama == null) - @else {{$d->wali->nama}} @endif</td>
+                                <td class="text-center">@if($d->wali_id == null) - @else {{$d->wali->nama}} @endif</td>
                             </tr>
                             @endforeach
                         </tbody>

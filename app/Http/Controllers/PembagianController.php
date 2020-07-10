@@ -41,6 +41,12 @@ class PembagianController extends Controller
             $data->save();
         }
 
+        foreach ($request->siswa_id as $d) {
+            $siswa = Siswa::findOrFail($d);
+            $siswa->status = '5';
+            $siswa->update();
+        }
+
         return back()->with('success', 'Siswa Berhasil Ditambah');
     }
 }

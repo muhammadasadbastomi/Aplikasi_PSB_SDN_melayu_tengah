@@ -51,7 +51,7 @@ Pembayaran Pendaftaran
                             @elseif($data->pembayaran->status == 3)
                             <div class="card-body card-dashboard">
                                 <div class="table-responsive">
-                                    <h3>Pembayaran Telah Dikonfirmasi, <a href="#">Klik Disini Untuk </a> Melihat Kelas Dan Jadwal Pelajaran</h3>
+                                    <h4>Pembayaran Telah Dikonfirmasi, Silahkan Tunggu dan Lihat <a href="{{route('kegiatanShow')}}"> Daftar Kegiatan </a> Untuk Informasi Pembagian Kelas.</h4>
                                     @else
                                     <h3>Pembayaran Tidak Tersedia, Silahkan Isi Syarat Pendaftaran <a href="{{route('dashboard')}}">Kembali</a></h3>
                                 </div>
@@ -68,6 +68,8 @@ Pembayaran Pendaftaran
         </div>
     </div>
 </div>
+@elseif($data->status == 5)
+@include('siswa.pembayaran.tidaktersedia')
 @else
 @include('siswa.pembayaran.kembali')
 @endif

@@ -75,7 +75,7 @@ Daftar Siswa {{$kelas->kelas}}
                                                     <td class="text-center">{{$loop->iteration}}</td>
                                                     <td class="text-center">{{$d->siswa->user->name}}</td>
                                                     <td class="text-center">{{$d->siswa->ayah->nama}} & {{$d->siswa->ibu->nama}}</td>
-                                                    <td class="text-center">@if($d->siswa->wali->nama == null) - @else {{$d->siswa->wali->nama}} @endif</td>
+                                                    <td class="text-center">@if($d->siswa->wali_id == null) - @else {{$d->siswa->wali->nama}} @endif</td>
                                                     <td class="text-center">
                                                         <!-- <a class="btn btn-info round mr-1 mb-1 text-white" data-toggle="modal" data-target="#modaledit" data-id="{{$d->id}}" data-kode_kelas="{{$d->kode_kelas}}" data-kelas="{{$d->kelas}}"><i class="bx bxs-edit"></i></a> -->
                                                         <a class="delete btn btn-danger round mr-1 mb-1 text-white" data-id="{{$d->id}}"><i class="bx bx-trash"></i></a>

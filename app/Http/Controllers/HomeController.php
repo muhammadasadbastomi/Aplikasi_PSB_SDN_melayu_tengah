@@ -2,6 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Jadwal;
+use App\Kelas;
+use App\Kelas_detail;
+use App\Mapel;
 use App\Siswa;
 use App\User;
 use Illuminate\Http\Request;
@@ -30,9 +34,20 @@ class HomeController extends Controller
     {
         if (Auth::user()->role == 2) {
             $data = Siswa::where('user_id', Auth::user()->id)->first();
+            if (Kelas_detail::where('siswa_id', $data->id)->first() != null) {
+                $kelas = Kelas_detail::where('siswa_id', $data->id)->first();
+
+                $senin = Jadwal::where('kelas_id', $kelas->kelas_id)->where('hari', 1)->get();
+                $selasa = Jadwal::where('kelas_id', $kelas->kelas_id)->where('hari', 2)->get();
+                $rabu = Jadwal::where('kelas_id', $kelas->kelas_id)->where('hari', 3)->get();
+                $kamis = Jadwal::where('kelas_id', $kelas->kelas_id)->where('hari', 4)->get();
+                $jumat = Jadwal::where('kelas_id', $kelas->kelas_id)->where('hari', 5)->get();
+                $sabtu = Jadwal::where('kelas_id', $kelas->kelas_id)->where('hari', 6)->get();
+                $mapel = Mapel::latest()->get();
+            }
         } else {
         }
-        return view('dashboard/index', compact('data'));
+        return view('dashboard/index', compact('data', 'senin', 'selasa', 'rabu', 'kamis', 'jumat', 'sabtu', 'kelas', 'mapel'));
     }
 
     public function upload(Request $request)

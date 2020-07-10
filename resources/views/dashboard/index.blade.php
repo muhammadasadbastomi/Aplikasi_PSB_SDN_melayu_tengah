@@ -11,7 +11,10 @@
             <div class="content-header-left col-12 mb-2 mt-1">
                 <div class="row breadcrumbs-top">
                     <div class="col-12">
+                        @if($data->status == 5)
+                        @else
                         <h3 class="float-left pr-1 mb-0">Selamat Datang, {{Auth()->user()->name}}</h3>
+                        @endif
                     </div>
                 </div>
             </div>
@@ -40,10 +43,12 @@
 
                         <h2 class="text-danger">Mohon Maaf Pendaftaran Telah Ditolak.</h2>
 
+                        @elseif($data->status == 5)
+
+                        @include('dashboard.jadwal')
+
                         @else
-
-                        <h1 class="text-dark">Berhasil.</h1>
-
+                        <h4>Pembayaran Telah Dikonfirmasi, Silahkan Tunggu dan Lihat <a href="{{route('kegiatanShow')}}">Daftar Kegiatan </a> Untuk Informasi Pembagian Kelas.</h4>
                         @endif
 
                         @include('dashboard.akte')
