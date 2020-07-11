@@ -53,7 +53,7 @@ Pembayaran Pendaftaran
         </div>
     </div>
 </div>
-@elseif($data->status == 5)
+@elseif(($data->status == 5) or ($data->status == 6))
 
 @if(($data->pembayaran->metode == 1) && ($data->pembayaran->cicilan->cicilan_ke == 2))
 @include('siswa.pembayaran.pembayarancicilankedua')

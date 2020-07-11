@@ -11,29 +11,29 @@
     @endif
     @if($data->akte == !null)
     <li>
-        <a class="text-success">Fotocopy Akte kelahiran (Maksimal File 2 Mb)</a> <i class="fa fa-check"></i> <button class="btn btn-sm btn-default text-transparent"> &emsp; </button>
+        <a class="text-success">Fotocopy Akte kelahiran (Maksimal file 500Kb, File harus berupa PDF/JPEG).</a> <i class="fa fa-check"></i> <button class="btn btn-sm btn-default text-transparent"> &emsp; </button>
     </li>
     @else
     <li>
-        Fotocopy Akte kelahiran (Maksimal File 2 Mb) <button class="btn btn-sm btn-default text-primary" data-toggle="modal" data-target="#modalakte">Upload</button>
+        Fotocopy Akte kelahiran (Maksimal file 500Kb, File harus berupa PDF/JPEG). <button class="btn btn-sm btn-default text-primary" data-toggle="modal" data-target="#modalakte">Upload</button>
     </li>
     @endif
     @if($data->kk == !null)
     <li>
-        <a class="text-success"> Fotocopy Kartu Keluarga (Maksimal File 2 Mb) <i class="fa fa-check"></i> </a> <button class="btn btn-sm btn-default text-transparent"> &emsp; </button>
+        <a class="text-success"> Fotocopy Kartu Keluarga (Maksimal file 500Kb, File harus berupa PDF/JPEG). <i class="fa fa-check"></i> </a> <button class="btn btn-sm btn-default text-transparent"> &emsp; </button>
     </li>
     @else
     <li>
-        Fotocopy Kartu Keluarga (Maksimal File 2 Mb) <button class="btn btn-sm btn-default text-primary" data-toggle="modal" data-target="#modalkk">Upload</button>
+        Fotocopy Kartu Keluarga (Maksimal file 500Kb, File harus berupa PDF/JPEG). <button class="btn btn-sm btn-default text-primary" data-toggle="modal" data-target="#modalkk">Upload</button>
     </li>
     @endif
     @if(Auth::user()->photos == !null)
     <li>
-        <a class="text-success"> Foto Siswa (Maksimal File 2 Mb) <i class="fa fa-check"></i> </a> <button class="btn btn-sm btn-default text-transparent"> &emsp; </button>
+        <a class="text-success"> Foto Siswa (Maksimal file 500Kb, File harus berupa PDF/JPEG). <i class="fa fa-check"></i> </a> <button class="btn btn-sm btn-default text-transparent"> &emsp; </button>
     </li>
     @else
     <li>
-        Foto Siswa (Maksimal File 2 Mb) <button class="btn btn-sm btn-default text-primary" data-toggle="modal" data-target="#modalphotos">Upload</button>
+        Foto Siswa (Maksimal file 500Kb, File harus berupa PDF/JPEG). <button class="btn btn-sm btn-default text-primary" data-toggle="modal" data-target="#modalphotos">Upload</button>
     </li>
     @endif
 </ol>

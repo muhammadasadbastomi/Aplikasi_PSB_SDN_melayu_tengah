@@ -1,4 +1,4 @@
-<h4 class="text-success">Pendaftaran Telah Dikonfirmasi, Silahkan Lakukan Pendaftaran Ulang Sebagai Berikut :</h4>
+<h4 class="text-success">Pendaftaran Telah Dikonfirmasi, Silahkan Lakukan Pendaftaran Ulang Sebagai Berikut : <button class="btn btn-outline-default text-white float-right"> <i class="menu-livicon" data-icon="print-doc"></i> Print </button></h4>
 <ol>
     <li>Pendaftaran Ulang dapat dilakukan dengan cara Cash atau Dicicil.</li>
     <li>Pembayaran Cicilan maksimal 2 Kali Pembayaran, Dengan Pembayaran Pertama Rp.155.000,-</li>

@@ -77,8 +77,7 @@ Daftar Siswa {{$kelas->kelas}}
                                                     <td class="text-center">{{$d->siswa->ayah->nama}} & {{$d->siswa->ibu->nama}}</td>
                                                     <td class="text-center">@if($d->siswa->wali_id == null) - @else {{$d->siswa->wali->nama}} @endif</td>
                                                     <td class="text-center">
-                                                        <!-- <a class="btn btn-info round mr-1 mb-1 text-white" data-toggle="modal" data-target="#modaledit" data-id="{{$d->id}}" data-kode_kelas="{{$d->kode_kelas}}" data-kelas="{{$d->kelas}}"><i class="bx bxs-edit"></i></a> -->
-                                                        <a class="delete btn btn-danger round mr-1 mb-1 text-white" data-id="{{$d->id}}"><i class="bx bx-trash"></i></a>
+                                                        <a class="delete btn btn-danger round mr-1 mb-1 text-white" data-id="{{$d->uuid}}" data-siswa="{{$d->siswa_id}}"><i class="bx bx-trash"></i></a>
                                                     </td>
                                                 </tr>
                                                 @endforeach
@@ -115,6 +114,7 @@ Daftar Siswa {{$kelas->kelas}}
     $(document).on('click', '.delete', function(e) {
         e.preventDefault();
         var id = $(this).data('id');
+        var siswa = $(this).data('siswa');
         swal.fire({
             title: "Apakah anda yakin?",
             icon: "warning",
@@ -126,7 +126,7 @@ Daftar Siswa {{$kelas->kelas}}
         }).then((result) => {
             if (result.value) {
                 $.ajax({
-                    url: "{{url('/admin/kelas/delete')}}" + '/' + id,
+                    url: "{{url('/admin/pembagian')}}" + '/' + id + '/' + siswa,
                     type: "POST",
                     data: {
                         '_method': 'DELETE',

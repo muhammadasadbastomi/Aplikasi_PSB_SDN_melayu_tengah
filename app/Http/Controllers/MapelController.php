@@ -59,6 +59,7 @@ class MapelController extends Controller
         $data = Mapel::find($request->id);
         $data->kode_mapel = $request->kode_mapel;
         $data->mapel = $request->mapel;
+        $data->guru_id = $request->guru;
         $data->update();
 
         return back()->with('success', 'Data berhasil diubah');

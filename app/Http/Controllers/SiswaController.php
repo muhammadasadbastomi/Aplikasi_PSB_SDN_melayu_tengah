@@ -69,15 +69,15 @@ class SiswaController extends Controller
 
         $messages = [
             'required' => 'Nama harus diisi.',
-            'mimes' => 'Photo harus berupa JPG, PNG, GIF',
-            'image' => 'Photo harus berupa Image!',
-            'file' => 'Photo harus berupa File!',
+            'mimes' => 'File harus berupa PDF atau JPG!',
+            'file' => 'File harus berupa PDF atau JPG!',
+            'max' => 'File tidak boleh lebih dari 500Kb!',
         ];
         $validator = Validator::make($request->all(), [
             'name' => 'required',
-            'akte' => 'file|image|mimes:jpeg,png,gif',
-            'kk' => 'file|image|mimes:jpeg,png,gif',
-            'photos' => 'file|image|mimes:jpeg,png,gif',
+            'akte' => 'file|mimes:jpeg,png,gif,pdf|max:500',
+            'kk' => 'file|mimes:jpeg,png,gif,pdf|max:500',
+            'photos' => 'file|mimes:jpeg,png,gif,pdf|max:500',
         ], $messages);
 
         if ($validator->fails()) {
@@ -100,8 +100,12 @@ class SiswaController extends Controller
         $data->tempat_lahir = $request->tmp_lahir;
         $data->tgl_lahir = $request->tgl_lahir;
         $data->jenis_kelamin = $request->jenis_kelamin;
-        $data->anak_ke = $request->anak_ke;
-        $data->jumlah_saudara = $request->jmlh_saudara;
+        if ($request->anak_ke > $request->jmlh_saudara) {
+            return back()->with('warning', 'Jumlah Saudara Tidak Benar!');
+        } else {
+            $data->anak_ke = $request->anak_ke;
+            $data->jumlah_saudara = $request->jmlh_saudara;
+        }
         if ($request->akte) {
             $request->file('akte')->move('images/biodata/', $request->file('akte')->getClientOriginalName());
             $data->akte = $request->file('akte')->getClientOriginalName();

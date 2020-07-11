@@ -40,36 +40,38 @@ Route::group(['middleware' => ['auth', 'Checkrole:1']], function () {
     Route::get('/admin/guru', 'GuruController@index')->name('guruIndex');
     Route::post('/admin/guru', 'GuruController@store')->name('guruStore');
     Route::put('/admin/guru', 'GuruController@update')->name('guruUpdate');
-    Route::delete('/admin/guru/delete/{id}', 'GuruController@destroy')->name('guruDelete');
+    Route::delete('/admin/guru/{id}', 'GuruController@destroy')->name('guruDelete');
 
     Route::get('/admin/mapel', 'MapelController@index')->name('mapelIndex');
     Route::post('/admin/mapel', 'MapelController@store')->name('mapelStore');
     Route::put('/admin/mapel', 'MapelController@update')->name('mapelUpdate');
-    Route::delete('/admin/mapel/delete/{id}', 'MapelController@destroy')->name('mapelDelete');
+    Route::delete('/admin/mapel/{id}', 'MapelController@destroy')->name('mapelDelete');
 
     Route::get('/admin/kelas', 'KelasController@index')->name('kelasIndex');
     Route::post('/admin/kelas', 'KelasController@store')->name('kelasStore');
     Route::put('/admin/kelas', 'KelasController@update')->name('kelasUpdate');
-    Route::delete('/admin/kelas/delete/{id}', 'KelasController@destroy')->name('kelasDelete');
+    Route::delete('/admin/kelas/{id}', 'KelasController@destroy')->name('kelasDelete');
 
     Route::get('/admin/jadwal/{id}/{uuid}', 'JadwalController@index')->name('jadwalIndex');
     Route::post('/admin/jadwal/{id}/{uuid}', 'JadwalController@store')->name('jadwalStore');
-    Route::delete('/admin/jadwal/delete/{id}', 'JadwalController@destroy')->name('jadwalDelete');
+    Route::put('/admin/jadwal/{id}/{uuid}', 'JadwalController@update')->name('jadwalUpdate');
+    Route::delete('/admin/jadwal/{id}', 'JadwalController@destroy')->name('jadwalDelete');
 
     Route::get('/admin/pembagian/{id}/{uuid}', 'PembagianController@index')->name('pembagianIndex');
     Route::post('/admin/pembagian/{id}/{uuid}', 'PembagianController@store')->name('pembagianStore');
-    Route::delete('/admin/pembagian/delete/{id}', 'PembagianController@destroy')->name('pembagianDelete');
+    Route::delete('/admin/pembagian/{id}/{siswa}', 'PembagianController@destroy')->name('pembagianDelete');
 
-    Route::get('/admin/kegiatan/', 'KegiatanController@index')->name('kegiatanIndex');
-    Route::post('/admin/kegiatan/', 'KegiatanController@store')->name('kegiatanStore');
-    Route::put('/admin/kegiatan/', 'KegiatanController@update')->name('kegiatanUpdate');
-    Route::delete('/admin/kegiatan/delete/{id}', 'KegiatanController@destroy')->name('kegiatanDelete');
+    Route::get('/admin/kegiatan', 'KegiatanController@index')->name('kegiatanIndex');
+    Route::post('/admin/kegiatan', 'KegiatanController@store')->name('kegiatanStore');
+    Route::put('/admin/kegiatan', 'KegiatanController@update')->name('kegiatanUpdate');
+    Route::delete('/admin/kegiatan/{id}', 'KegiatanController@destroy')->name('kegiatanDelete');
 
-    Route::get('/admin/kalender/', 'KalenderController@index')->name('kalenderIndex');
-    Route::post('/admin/kalender/', 'KalenderController@store')->name('kalenderStore');
-    Route::put('/admin/kalender/', 'KalenderController@update')->name('kalenderUpdate');
+    Route::get('/admin/kalender', 'KalenderController@index')->name('kalenderIndex');
+    Route::post('/admin/kalender', 'KalenderController@store')->name('kalenderStore');
+    Route::put('/admin/kalender', 'KalenderController@update')->name('kalenderUpdate');
+    Route::delete('/admin/kalender/{id}', 'KalenderController@destroy')->name('kalenderDelete');
 
-    Route::get('/admin/user/', 'UserController@profile')->name('userProfile');
+    Route::get('/admin/user', 'UserController@profile')->name('userProfile');
 });
 
 Route::group(['middleware' => ['auth', 'Checkrole:2']], function () {
@@ -83,7 +85,7 @@ Route::group(['middleware' => ['auth', 'Checkrole:2']], function () {
     Route::put('/siswa/pembayaran', 'PembayaranController@cash')->name('pembayaranCash');
     Route::patch('/siswa/pembayaran', 'PembayaranController@cicil')->name('pembayaranCicil');
 
-    Route::get('/siswa/kegiatan/', 'KegiatanController@show')->name('kegiatanShow');
+    Route::get('/siswa/kegiatan', 'KegiatanController@show')->name('kegiatanShow');
 
-    Route::get('/siswa/kalender/', 'KalenderController@show')->name('kalenderShow');
+    Route::get('/siswa/kalender', 'KalenderController@show')->name('kalenderShow');
 });

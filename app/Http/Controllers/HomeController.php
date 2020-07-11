@@ -56,13 +56,12 @@ class HomeController extends Controller
 
         if ($request->akte) {
             $messages = [
-                'mimes' => 'Photo harus berupa JPG, PNG, GIF',
-                'image' => 'Photo harus berupa Image!',
-                'file' => 'Photo harus berupa File!',
-                // 'size' => ':attribute maksimal :size.',
+                'mimes' => 'File harus berupa PDF atau JPG!',
+                'file' => 'File harus berupa PDF atau JPG!',
+                'max' => 'File tidak boleh lebih dari 500KB!',
             ];
             $validator = Validator::make($request->all(), [
-                'akte' => 'file|image|mimes:jpeg,png,gif',
+                'akte' => 'file|mimes:jpeg,png,gif,pdf|max:500',
             ], $messages);
 
             if ($validator->fails()) {
@@ -77,15 +76,13 @@ class HomeController extends Controller
 
             $data->update();
         } elseif ($request->kk) {
-
             $messages = [
-                'mimes' => 'Photo harus berupa JPG, PNG, GIF',
-                'image' => 'Photo harus berupa Image!',
-                'file' => 'Photo harus berupa File!',
-                // 'size' => ':attribute maksimal :size.',
+                'mimes' => 'File harus berupa PDF atau JPG!',
+                'file' => 'File harus berupa PDF atau JPG!',
+                'max' => 'File tidak boleh lebih dari 500Kv!',
             ];
             $validator = Validator::make($request->all(), [
-                'kk' => 'file|image|mimes:jpeg,png,gif',
+                'kk' => 'file|mimes:jpeg,png,gif,pdf|max:500',
             ], $messages);
 
             if ($validator->fails()) {
@@ -100,13 +97,12 @@ class HomeController extends Controller
         } elseif ($request->photos) {
 
             $messages = [
-                'mimes' => 'Photo harus berupa JPG, PNG, GIF',
-                'image' => 'Photo harus berupa Image!',
-                'file' => 'Photo harus berupa File!',
-                // 'size' => ':attribute maksimal :size.',
+                'mimes' => 'File harus berupa PDF atau JPG!',
+                'file' => 'File harus berupa PDF atau JPG!',
+                'max' => 'File tidak boleh lebih dari 500KB!',
             ];
             $validator = Validator::make($request->all(), [
-                'photos' => 'file|image|mimes:jpeg,png,gif',
+                'photos' => 'file|mimes:jpeg,png,gif,pdf|max:500',
             ], $messages);
 
             if ($validator->fails()) {

@@ -66,7 +66,7 @@ Data Guru
                                                     <td>{{$d->alamat}}</td>
                                                     <td class="text-center">
                                                         <a class="btn btn-info round mr-1 mb-1 text-white" data-toggle="modal" data-target="#modaledit" data-id="{{$d->id}}" data-nip="{{$d->nip}}" data-nama="{{$d->nama}}" data-jk="{{$d->jenis_kelamin}}" data-agama="{{$d->agama}}" data-telp="{{$d->telp}}" data-alamat="{{$d->alamat}}"><i class="bx bxs-edit"></i></a>
-                                                        <a class="delete btn btn-danger round mr-1 mb-1 text-white" data-id="{{$d->id}}"><i class="bx bx-trash"></i></a>
+                                                        <a class="delete btn btn-danger round mr-1 mb-1 text-white" data-id="{{$d->uuid}}"><i class="bx bx-trash"></i></a>
                                                     </td>
                                                 </tr>
                                                 @endforeach
@@ -170,7 +170,7 @@ Data Guru
         }).then((result) => {
             if (result.value) {
                 $.ajax({
-                    url: "{{url('/admin/guru/delete')}}" + '/' + id,
+                    url: "{{url('/admin/guru')}}" + '/' + id,
                     type: "POST",
                     data: {
                         '_method': 'DELETE',

@@ -8,7 +8,7 @@ use App\Pembayaran;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use phpDocumentor\Reflection\Types\Null_;
+use Illuminate\Support\Facades\Validator;
 
 class PembayaranController extends Controller
 {
@@ -52,6 +52,21 @@ class PembayaranController extends Controller
 
     public function cash(Request $request)
     {
+        $messages = [
+            'required' => ':attribute harus diisi.',
+            'mimes' => 'File harus berupa PDF atau JPG!',
+            'file' => 'File harus berupa PDF atau JPG!',
+        ];
+        $validator = Validator::make($request->all(), [
+            'nominal' => 'required',
+            'terbilang' => 'required',
+            'bukti' => 'file|mimes:jpeg,png,gif,pdf|required',
+        ], $messages);
+
+        if ($validator->fails()) {
+            return back()->with('warning', $validator->errors()->all()[0])->withInput();
+        }
+
         $siswa = Siswa::where('user_id', Auth()->user()->id)->first();
         $now = Carbon::now();
 
@@ -67,11 +82,26 @@ class PembayaranController extends Controller
 
         $data->update();
 
-        return back()->with('success', 'Data Berhasil Terkirim');
+        return back()->with('success', 'Data Berhasil Terkirim, Silahkan Tunggu Konfirmasi Admin');
     }
 
     public function cicil(Request $request)
     {
+        $messages = [
+            'required' => ':attribute harus diisi.',
+            'mimes' => 'File harus berupa PDF atau JPG!',
+            'file' => 'File harus berupa PDF atau JPG!',
+        ];
+        $validator = Validator::make($request->all(), [
+            'nominal' => 'required',
+            'terbilang' => 'required',
+            'bukti' => 'file|mimes:jpeg,png,gif,pdf|required',
+        ], $messages);
+
+        if ($validator->fails()) {
+            return back()->with('warning', $validator->errors()->all()[0])->withInput();
+        }
+
         $siswa = Siswa::where('user_id', Auth()->user()->id)->first();
         $now = Carbon::now();
 
@@ -103,7 +133,7 @@ class PembayaranController extends Controller
         $data->cicilan_id = $cicil->id;
         $data->update();
 
-        return back()->with('success', 'Data Berhasil Terkirim');
+        return back()->with('success', 'Data Berhasil Terkirim, Silahkan Tunggu Konfirmasi Admin');
     }
 
 

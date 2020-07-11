@@ -57,10 +57,10 @@ Data Kegiatan
                                                     <td class="text-center">{{$loop->iteration}}</td>
                                                     <td class="text-center">{{$d->kegiatan}}</td>
                                                     <td class="text-center">{{Carbon\Carbon::parse($d->tgl_mulai)->translatedFormat('d F Y')}} s/d {{Carbon\Carbon::parse($d->tgl_akhir)->translatedFormat('d F Y')}}</td>
-                                                    <td class="text-center">{{$d->keterangan}}</td>
+                                                    <td class="text-center"> @if($d->keterangan == !null) {{$d->keterangan}} @else - @endif</td>
                                                     <td class="text-center">
                                                         <a class="btn btn-info round mr-1 mb-1 text-white" data-toggle="modal" data-target="#modaledit" data-id="{{$d->id}}" data-kegiatan="{{$d->kegiatan}}" data-tgl_mulai="{{$d->tgl_mulai}}" data-tgl_akhir="{{$d->tgl_akhir}}" data-keterangan="{{$d->keterangan}}"><i class="bx bxs-edit"></i></a>
-                                                        <a class="delete btn btn-danger round mr-1 mb-1 text-white" data-id="{{$d->id}}"><i class="bx bx-trash"></i></a>
+                                                        <a class="delete btn btn-danger round mr-1 mb-1 text-white" data-id="{{$d->uuid}}"><i class="bx bx-trash"></i></a>
                                                     </td>
                                                 </tr>
                                                 @endforeach
@@ -74,7 +74,6 @@ Data Kegiatan
                 </div>
             </section>
             <!--/ Zero configuration table -->
-
         </div>
     </div>
 </div>
@@ -117,7 +116,7 @@ Data Kegiatan
         }).then((result) => {
             if (result.value) {
                 $.ajax({
-                    url: "{{url('/admin/kegiatan/delete')}}" + '/' + id,
+                    url: "{{url('/admin/kegiatan')}}" + '/' + id,
                     type: "POST",
                     data: {
                         '_method': 'DELETE',

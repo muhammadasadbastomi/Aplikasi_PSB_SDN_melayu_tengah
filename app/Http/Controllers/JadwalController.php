@@ -45,4 +45,33 @@ class JadwalController extends Controller
 
         return back()->with('success', 'Data berhasil disimpan');
     }
+
+    public function update(Request $request)
+    {
+        $messages = [
+            'required' => 'Mata Pelajaran harus diisi.',
+        ];
+        $validator = Validator::make($request->all(), [
+            'mapel' => 'required',
+        ], $messages);
+
+        if ($validator->fails()) {
+            return back()->with('warning', $validator->errors()->all()[0])->withInput();
+        }
+
+        $data = Jadwal::find($request->id);
+        $data->hari = $request->hari;
+        $data->mapel_id = $request->mapel;
+        $data->update();
+
+        return back()->with('success', 'Data berhasil disimpan');
+    }
+
+    public function destroy($id)
+    {
+        $data = Jadwal::where('uuid', $id)->first();
+        $data->delete();
+
+        return back()->with('success', 'Data berhasil dihapus');
+    }
 }

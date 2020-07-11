@@ -5,7 +5,6 @@ Data Kalender Akademik
 @endsection
 
 @section('head')
-<link rel="stylesheet" type="text/css" href="{{ asset('app-assets/vendors/css/tables/datatable/datatables.min.css') }}">
 @endsection
 
 @section('content')
@@ -39,10 +38,14 @@ Data Kalender Akademik
                         <div class="card">
                             <div class="card-content">
                                 <div class="card-body card-dashboard">
+                                    <div class="page-header">
+                                        <h3 id="timeline">Kalender Akademik SDN Melayu Tengah Kabupaten Banjar <button class="btn btn-outline-default text-white float-right"> <i class="menu-livicon" data-icon="print-doc"></i> Print </button> </h3>
+                                    </div>
+                                    <br>
                                     <div class="table-responsive">
-                                        <table class="table zero-configuration">
+                                        <table class="table mb-0">
                                             <thead>
-                                                <tr>
+                                                <tr class="table-active">
                                                     <th class="text-center">No</th>
                                                     <th class="text-center">Kegiatan Kalender Akademik</th>
                                                     <th class="text-center">Tanggal Mulai</th>
@@ -51,7 +54,11 @@ Data Kalender Akademik
                                             </thead>
                                             <tbody>
                                                 @foreach($data as $d)
-                                                <tr>
+                                                @if($d->id % 4 == 0)
+                                                <tr class="table-primary">
+                                                    @else
+                                                <tr class="table-info">
+                                                    @endif
                                                     <td class="text-center">{{$loop->iteration}}</td>
                                                     <td class="text-center">{{$d->kegiatan}}</td>
                                                     <td class="text-center">{{Carbon\Carbon::parse($d->tgl_mulai)->Format('d F Y')}}</td>
@@ -77,9 +84,6 @@ Data Kalender Akademik
 @section('script')
 
 <!-- BEGIN: Page Vendor JS-->
-<script src="{{ asset('app-assets/vendors/js/tables/datatable/datatables.min.js') }}"></script>
-<script src="{{ asset('app-assets/vendors/js/tables/datatable/dataTables.bootstrap4.min.js') }}"></script>
-<script src="{{ asset('app-assets/vendors/js/tables/datatable/dataTables.buttons.min.js') }}"></script>
 <script src="{{ asset('app-assets/vendors/js/tables/datatable/buttons.html5.min.js') }}"></script>
 <script src="{{ asset('app-assets/vendors/js/tables/datatable/buttons.print.min.js') }}"></script>
 <script src="{{ asset('app-assets/vendors/js/tables/datatable/buttons.bootstrap.min.js') }}"></script>
@@ -87,7 +91,4 @@ Data Kalender Akademik
 <script src="{{ asset('app-assets/vendors/js/tables/datatable/vfs_fonts.js') }}"></script>
 <!-- END: Page Vendor JS-->
 
-<!-- BEGIN: Page JS-->
-<script src="{{ asset('app-assets/js/scripts/datatables/datatable.js') }}"></script>
-<!-- END: Page JS-->
 @endsection

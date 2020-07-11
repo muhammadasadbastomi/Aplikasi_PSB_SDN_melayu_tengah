@@ -183,41 +183,52 @@ Data Kegiatan
             </div>
         </div> -->
         <div class="content-body">
-            <div class="container">
-                <div class="page-header">
-                    <h2 id="timeline">Daftar Kegiatan Penerimaan Peserta Didik Baru <button class="btn btn-outline btn-primary float-right">Cetak</button> </h2>
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="card-body card-dashboard">
+                                <div class="container">
+                                    <div class="page-header">
+                                        <h2 id="timeline">Daftar Kegiatan Penerimaan Peserta Didik Baru <button class="btn btn-outline-default text-white float-right"> <i class="menu-livicon" data-icon="print-doc"></i> Cetak</button> </h2>
+                                    </div>
+                                    <br>
+                                    <ul class="timeline">
+                                        @foreach($data as $d)
+                                        @if($d->id % 2 == 0)
+                                        <li>
+                                            <div class="timeline-badge info"><i class="bx bxs-calendar text-white"></i></div>
+                                            <div class="timeline-panel">
+                                                <div class="timeline-heading">
+                                                    <h4 class="timeline-title">{{$d->kegiatan}}</h4>
+                                                    <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i>Jadwal Kegiatan {{Carbon\Carbon::parse($d->tgl_mulai)->translatedFormat('d F Y')}} s/d {{Carbon\Carbon::parse($d->tgl_akhir)->translatedFormat('d F Y')}}</small></p>
+                                                </div>
+                                                <div class="timeline-body">
+                                                    <p>{{$d->keterangan}}</p>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        @else
+                                        <li class="timeline-inverted">
+                                            <div class="timeline-badge warning"><i class="bx bxs-calendar text-white"></i></div>
+                                            <div class="timeline-panel">
+                                                <div class="timeline-heading">
+                                                    <h4 class="timeline-title">{{$d->kegiatan}}</h4>
+                                                    <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i>Jadwal Kegiatan {{Carbon\Carbon::parse($d->tgl_mulai)->translatedFormat('d F Y')}} s/d {{Carbon\Carbon::parse($d->tgl_akhir)->translatedFormat('d F Y')}}</small></p>
+                                                </div>
+                                                <div class="timeline-body">
+                                                    <p>{{$d->keterangan}}</p>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        @endif
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <ul class="timeline">
-                    @foreach($data as $d)
-                    @if($d->id % 2 == 0)
-                    <li>
-                        <div class="timeline-badge info"><i class="glyphicon glyphicon-check"></i></div>
-                        <div class="timeline-panel">
-                            <div class="timeline-heading">
-                                <h4 class="timeline-title">{{$d->kegiatan}}</h4>
-                                <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i>Jadwal Kegiatan {{Carbon\Carbon::parse($d->tgl_mulai)->translatedFormat('d F Y')}} s/d {{Carbon\Carbon::parse($d->tgl_akhir)->translatedFormat('d F Y')}}</small></p>
-                            </div>
-                            <div class="timeline-body">
-                                <p>{{$d->keterangan}}</p>
-                            </div>
-                        </div>
-                    </li>
-                    @else
-                    <li class="timeline-inverted">
-                        <div class="timeline-badge warning"><i class="glyphicon glyphicon-credit-card"></i></div>
-                        <div class="timeline-panel">
-                            <div class="timeline-heading">
-                                <h4 class="timeline-title">{{$d->kegiatan}}</h4>
-                                <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i>Jadwal Kegiatan {{Carbon\Carbon::parse($d->tgl_mulai)->translatedFormat('d F Y')}} s/d {{Carbon\Carbon::parse($d->tgl_akhir)->translatedFormat('d F Y')}}</small></p>
-                            </div>
-                            <div class="timeline-body">
-                                <p>{{$d->keterangan}}</p>
-                            </div>
-                        </div>
-                    </li>
-                    @endif
-                    @endforeach
-                </ul>
             </div>
         </div>
     </div>

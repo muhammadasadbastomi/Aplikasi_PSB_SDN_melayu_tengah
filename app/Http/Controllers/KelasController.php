@@ -35,7 +35,7 @@ class KelasController extends Controller
 
         $data = new Kelas;
         $data->kode_kelas = $request->kode_kelas;
-        $data->kelas = $request->kelas;
+        $data->kelas = 'Kelas ' . $request->kelas . '';
         $data->save();
 
         return back()->with('success', 'Data berhasil disimpan');

@@ -30,7 +30,7 @@ class CreateSiswasTable extends Migration
             $table->string('akte')->nullable();
             $table->string('kk')->nullable();
             $table->string('pembayaran_id')->nullable();
-            $table->enum('status',  ['1', '2', '3', '4', '5'])->nullable();
+            $table->integer('status')->nullable();
             $table->timestamps();
         });
     }

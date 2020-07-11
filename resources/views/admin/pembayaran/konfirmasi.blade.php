@@ -15,6 +15,7 @@
                                         <th class="text-center">Tanggal Pembayaran</th>
                                         <th class="text-center">Cicilan</th>
                                         <th class="text-center">Nominal</th>
+                                        <th class="text-center">Detail</th>
                                         <th class="text-center">Aksi</th>
                                     </tr>
                                 </thead>
@@ -35,6 +36,9 @@
                                         @else
                                         <td class="text-center">Rp. {{number_format($d->siswa->pembayaran->nominal, 0, ',', '.')}},-</td>
                                         @endif
+                                        <td class="text-center">
+                                            <a class="btn btn-info round mr-1 mb-1 text-white" data-toggle="modal" data-target="#modalshow" data-id="{{$d->id}}" data-nominal="{{$d->nominal}}" data-terbilang="{{$d->terbilang}}" data-bukti="{{$d->bukti}}"><i class="bx bxs-search"></i></a>
+                                        </td>
                                         <td class="text-center">
                                             @if($d->cicilan_id == !null)
                                             <form method="post">

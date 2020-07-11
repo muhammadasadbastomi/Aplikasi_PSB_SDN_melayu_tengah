@@ -36,7 +36,7 @@
                     </fieldset>
                     <h6 class="form-group">Alamat</h6>
                     <fieldset class="form-group">
-                        <textarea class="form-control" id="alamat" name="alamat" rows="3" placeholder="Textarea">{{old('alamat')}}</textarea>
+                        <textarea class="form-control" id="alamat" name="alamat" rows="3" placeholder="Masukkan Alamat">{{old('alamat')}}</textarea>
                     </fieldset>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-light-secondary" data-dismiss="modal">Close</button>

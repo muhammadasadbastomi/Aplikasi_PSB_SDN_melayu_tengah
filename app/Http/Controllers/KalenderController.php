@@ -32,6 +32,10 @@ class KalenderController extends Controller
             return back()->with('warning', $validator->errors()->all()[0])->withInput();
         }
 
+        if ($request->tgl_mulai > $request->tgl_akhir) {
+            return back()->with('warning', 'Data Tanggal Harus Benar');
+        }
+
         $data = new Kalender;
         $data->kegiatan = $request->kalender;
         $data->tgl_mulai = $request->tgl_mulai;
@@ -56,6 +60,10 @@ class KalenderController extends Controller
             return back()->with('warning', $validator->errors()->all()[0])->withInput();
         }
 
+        if ($request->tgl_mulai > $request->tgl_akhir) {
+            return back()->with('warning', 'Data Tanggal Harus Benar');
+        }
+
         $data = Kalender::find($request->id);
         $data->kegiatan = $request->kegiatan;
         $data->tgl_mulai = $request->tgl_mulai;
@@ -63,6 +71,14 @@ class KalenderController extends Controller
         $data->update();
 
         return back()->with('success', 'Data Berhasil Diubah.');
+    }
+
+    public function destroy($id)
+    {
+        $data = Kalender::where('uuid', $id)->first();
+        $data->delete();
+
+        return back()->with('success', 'Data Berhasil Dihapus');
     }
 
 
