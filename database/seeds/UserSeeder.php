@@ -24,15 +24,15 @@ class UserSeeder extends Seeder
         ]);
 
         //faker
-        $faker = Faker::create('id_ID');
+        // $faker = Faker::create('id_ID');
 
-        for ($i = 0; $i < 10; $i++) {
-            DB::table('users')->insert([
-                'uuid' => Str::random(36),
-                'name' => $faker->firstNameFemale,
-                'email' => $faker->email,
-                'password' => Hash::make('123'),
-            ]);
-        }
+        // for ($i = 0; $i < 10; $i++) {
+        //     DB::table('users')->insert([
+        //         'uuid' => Str::random(36),
+        //         'name' => $faker->firstNameFemale,
+        //         'email' => $faker->email,
+        //         'password' => Hash::make('123'),
+        //     ]);
+        // }
     }
 }
