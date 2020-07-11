@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use Carbon\Carbon;
 use App\Kalender;
-use App\Kalender_detail_ganjil;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class KalenderController extends Controller
 {
@@ -19,6 +19,19 @@ class KalenderController extends Controller
 
     public function store(Request $request)
     {
+        $messages = [
+            'required' => ':attribute harus diisi.',
+        ];
+        $validator = Validator::make($request->all(), [
+            'kalender' => 'required',
+            'tgl_mulai' => 'required',
+            'tgl_akhir' => 'required'
+        ], $messages);
+
+        if ($validator->fails()) {
+            return back()->with('warning', $validator->errors()->all()[0])->withInput();
+        }
+
         $data = new Kalender;
         $data->kegiatan = $request->kalender;
         $data->tgl_mulai = $request->tgl_mulai;
@@ -30,6 +43,19 @@ class KalenderController extends Controller
 
     public function update(Request $request)
     {
+        $messages = [
+            'required' => ':attribute harus diisi.',
+        ];
+        $validator = Validator::make($request->all(), [
+            'kegiatan' => 'required',
+            'tgl_mulai' => 'required',
+            'tgl_akhir' => 'required'
+        ], $messages);
+
+        if ($validator->fails()) {
+            return back()->with('warning', $validator->errors()->all()[0])->withInput();
+        }
+
         $data = Kalender::find($request->id);
         $data->kegiatan = $request->kegiatan;
         $data->tgl_mulai = $request->tgl_mulai;

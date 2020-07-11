@@ -85,6 +85,7 @@
     <!-- END: Footer-->
     @include('sweetalert::alert')
     <script src="{{ asset('vendor/sweetalert/sweetalert.all.js')}}"></script>
+
     <!-- BEGIN: Vendor JS-->
     <script src="{{ asset('app-assets/vendors/js/vendors.min.js') }}"></script>
     <script src="{{ asset('app-assets/fonts/LivIconsEvo/js/LivIconsEvo.tools.js') }}"></script>
