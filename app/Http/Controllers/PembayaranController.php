@@ -21,10 +21,11 @@ class PembayaranController extends Controller
             $current = Carbon::parse($data->pembayaran->tgl_bayar);
 
             $expired = $current->addDays(30);
-        } else {
-        }
 
-        return view('siswa.pembayaran.index', compact('data', 'expired'));
+            return view('siswa.pembayaran.index', compact('data', 'expired'));
+        } else {
+            return view('siswa.pembayaran.index');
+        }
     }
 
     public function metode(Request $request)
