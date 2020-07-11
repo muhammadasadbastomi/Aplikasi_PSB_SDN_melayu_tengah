@@ -9,20 +9,42 @@ use Illuminate\Http\Request;
 
 class KalenderController extends Controller
 {
+    //admin kalender
     public function index()
     {
-        return view('admin.kalender.index');
+        $data = Kalender::orderBy('tgl_mulai', 'ASC')->get();
+
+        return view('admin.kalender.index', compact('data'));
     }
 
-    public function semester(Request $request)
+    public function store(Request $request)
     {
-        $kalender = Kalender::find('1');
-        $kalender->ganjil1 = $request->ganjil1;
-        $kalender->ganjil2 = $request->ganjil2;
-        $kalender->genap1 = $request->genap1;
-        $kalender->genap2 = $request->genap2;
-        $kalender->update();
+        $data = new Kalender;
+        $data->kegiatan = $request->kalender;
+        $data->tgl_mulai = $request->tgl_mulai;
+        $data->tgl_akhir = $request->tgl_akhir;
+        $data->save();
 
-        return back()->with('success', 'Kalender Akademik Berhasil Dibuat.');
+        return back()->with('success', 'Data Berhasil Ditambah.');
+    }
+
+    public function update(Request $request)
+    {
+        $data = Kalender::find($request->id);
+        $data->kegiatan = $request->kegiatan;
+        $data->tgl_mulai = $request->tgl_mulai;
+        $data->tgl_akhir = $request->tgl_akhir;
+        $data->update();
+
+        return back()->with('success', 'Data Berhasil Diubah.');
+    }
+
+
+    //siswa kalender
+    public function show()
+    {
+        $data = Kalender::orderBy('tgl_mulai', 'ASC')->get();
+
+        return view('siswa.kalender.index', compact('data'));
     }
 }

@@ -10,9 +10,4 @@ class Kalender extends Model
 {
     use Notifiable;
     use Uuid;
-
-    // public function Kalender_detail_ganjil()
-    // {
-    //     return $this->hasOne(Kalender_detail_ganjil::class);
-    // }
 }

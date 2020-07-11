@@ -23,12 +23,6 @@ class UserSeeder extends Seeder
             'password' => Hash::make('123'),
         ]);
 
-        //kalender
-        DB::table('kalenders')->insert([
-            'uuid' => Str::random(36),
-        ]);
-
-
         //faker
         $faker = Faker::create('id_ID');
 

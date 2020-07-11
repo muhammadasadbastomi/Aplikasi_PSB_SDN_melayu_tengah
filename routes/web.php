@@ -66,7 +66,8 @@ Route::group(['middleware' => ['auth', 'Checkrole:1']], function () {
     Route::delete('/admin/kegiatan/delete/{id}', 'KegiatanController@destroy')->name('kegiatanDelete');
 
     Route::get('/admin/kalender/', 'KalenderController@index')->name('kalenderIndex');
-    // Route::post('/admin/kalender/', 'KalenderController@semester')->name('kalenderSemester');
+    Route::post('/admin/kalender/', 'KalenderController@store')->name('kalenderStore');
+    Route::put('/admin/kalender/', 'KalenderController@update')->name('kalenderUpdate');
 
     Route::get('/admin/user/', 'UserController@profile')->name('userProfile');
 });
@@ -83,4 +84,6 @@ Route::group(['middleware' => ['auth', 'Checkrole:2']], function () {
     Route::patch('/siswa/pembayaran', 'PembayaranController@cicil')->name('pembayaranCicil');
 
     Route::get('/siswa/kegiatan/', 'KegiatanController@show')->name('kegiatanShow');
+
+    Route::get('/siswa/kalender/', 'KalenderController@show')->name('kalenderShow');
 });

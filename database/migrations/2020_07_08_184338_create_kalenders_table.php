@@ -16,10 +16,9 @@ class CreateKalendersTable extends Migration
         Schema::create('kalenders', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('uuid')->length(36);
-            $table->date('ganjil1')->nullable();
-            $table->date('ganjil2')->nullable();
-            $table->date('genap1')->nullable();
-            $table->date('genap2')->nullable();
+            $table->string('kegiatan');
+            $table->date('tgl_mulai');
+            $table->date('tgl_akhir');
             $table->timestamps();
         });
     }
