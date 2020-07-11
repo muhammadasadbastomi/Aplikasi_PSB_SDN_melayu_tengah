@@ -149,9 +149,11 @@ class PembayaranController extends Controller
         if (Pembayaran::where('cicilan_id', !null)->first() == !null) {
             $current = Carbon::parse($pembayaran->tgl_bayar);
             $expired = $current->addDays(30);
+
+            return view('admin.pembayaran.index', compact('data', 'lunas', 'cicil', 'expired'));
         }
 
-        return view('admin.pembayaran.index', compact('data', 'lunas', 'cicil', 'expired'));
+        return view('admin.pembayaran.index', compact('data', 'lunas', 'cicil'));
     }
 
     public function konfirmasi(Request $request)
