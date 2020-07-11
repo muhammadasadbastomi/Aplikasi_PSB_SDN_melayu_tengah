@@ -24,7 +24,7 @@ class PembayaranController extends Controller
 
             return view('siswa.pembayaran.index', compact('data', 'expired'));
         } else {
-            return view('siswa.pembayaran.index');
+            return view('siswa.pembayaran.index', compact('data'));
         }
     }
 
