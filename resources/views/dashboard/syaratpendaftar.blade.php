@@ -2,7 +2,7 @@
 <ol>
     @if(($data->ayah_id == !null) && ($data->ibu_id == !null) && ($data->alamat == !null) && ($data->agama == !null))
     <li>
-        <a class="text-success">Mengisi Lengkap Biodata Siswa <i class="fa fa-check"></i></a> <button class="btn btn-sm btn-default text-transparent"> &emsp; </button>
+        <a class="text-success">Mengisi Lengkap Biodata Siswa <i class="bx bx-check"></i></a> <button class="btn btn-sm btn-default text-transparent"> &emsp; </button>
     </li>
     @else
     <li>
@@ -11,29 +11,29 @@
     @endif
     @if($data->akte == !null)
     <li>
-        <a class="text-success">Fotocopy Akte kelahiran (Maksimal file 500Kb, File harus berupa PDF/JPEG).</a> <i class="fa fa-check"></i> <button class="btn btn-sm btn-default text-transparent"> &emsp; </button>
+        <a class="text-success">Fotocopy Akte kelahiran (Maksimal file 500Kb, File harus berupa PDF/JPEG).<i class="bx bx-check"></i> </a> <button class="btn btn-sm btn-default text-transparent"> &emsp; </button>
     </li>
     @else
     <li>
-        Fotocopy Akte kelahiran (Maksimal file 500Kb, File harus berupa PDF/JPEG). <button class="btn btn-sm btn-default text-primary" data-toggle="modal" data-target="#modalakte">Upload</button>
+        Fotocopy Akte kelahiran <a style="color:red"> (Maksimal file 500Kb, File harus berupa PDF/JPEG).</a> <button class="btn btn-sm btn-outline-default border-white text-primary" data-toggle="modal" data-target="#modalakte"> Upload <i class="bx bx-cloud-upload"></i> </button>
     </li>
     @endif
     @if($data->kk == !null)
     <li>
-        <a class="text-success"> Fotocopy Kartu Keluarga (Maksimal file 500Kb, File harus berupa PDF/JPEG). <i class="fa fa-check"></i> </a> <button class="btn btn-sm btn-default text-transparent"> &emsp; </button>
+        <a class="text-success"> Fotocopy Kartu Keluarga (Maksimal file 500Kb, File harus berupa PDF/JPEG). <i class="bx bx-check"></i> </a> <button class="btn btn-sm btn-default text-transparent"> &emsp; </button>
     </li>
     @else
     <li>
-        Fotocopy Kartu Keluarga (Maksimal file 500Kb, File harus berupa PDF/JPEG). <button class="btn btn-sm btn-default text-primary" data-toggle="modal" data-target="#modalkk">Upload</button>
+        Fotocopy Kartu Keluarga <a style="color:red"> (Maksimal file 500Kb, File harus berupa PDF/JPEG).</a> <button class="btn btn-sm btn-outline-default border-white text-primary" data-toggle="modal" data-target="#modalkk"> Upload <i class="bx bx-cloud-upload"></i> </button>
     </li>
     @endif
     @if(Auth::user()->photos == !null)
     <li>
-        <a class="text-success"> Foto Siswa (Maksimal file 500Kb, File harus berupa PDF/JPEG). <i class="fa fa-check"></i> </a> <button class="btn btn-sm btn-default text-transparent"> &emsp; </button>
+        <a class="text-success"> Foto Siswa (Maksimal file 500Kb, File harus berupa PDF/JPEG). <i class="bx bx-check"></i> </a> <button class="btn btn-sm btn-default text-transparent"> &emsp; </button>
     </li>
     @else
     <li>
-        Foto Siswa (Maksimal file 500Kb, File harus berupa PDF/JPEG). <button class="btn btn-sm btn-default text-primary" data-toggle="modal" data-target="#modalphotos">Upload</button>
+        Foto Siswa <a style="color:red"> (Maksimal file 500Kb, File harus berupa PDF/JPEG).</a> <button class="btn btn-sm btn-outline-default border-white text-primary" data-toggle="modal" data-target="#modalphotos"> Upload <i class="bx bx-cloud-upload"></i> </button>
     </li>
     @endif
 </ol>
