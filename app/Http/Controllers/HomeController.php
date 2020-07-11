@@ -44,8 +44,10 @@ class HomeController extends Controller
                 $jumat = Jadwal::where('kelas_id', $kelas->kelas_id)->where('hari', 5)->get();
                 $sabtu = Jadwal::where('kelas_id', $kelas->kelas_id)->where('hari', 6)->get();
                 $mapel = Mapel::latest()->get();
+
+                return view('dashboard/index', compact('data', 'senin', 'selasa', 'rabu', 'kamis', 'jumat', 'sabtu', 'kelas', 'mapel'));
             }
-            return view('dashboard/index', compact('data', 'senin', 'selasa', 'rabu', 'kamis', 'jumat', 'sabtu', 'kelas', 'mapel'));
+            return view('dashboard/index', compact('data'));
         }
 
         return view('dashboard/index');
