@@ -67,9 +67,15 @@ Route::group(['middleware' => ['auth', 'Checkrole:1']], function () {
     Route::delete('/admin/kegiatan/{id}', 'KegiatanController@destroy')->name('kegiatanDelete');
 
     Route::get('/admin/kalender', 'KalenderController@index')->name('kalenderIndex');
-    Route::post('/admin/kalender', 'KalenderController@store')->name('kalenderStore');
-    Route::put('/admin/kalender', 'KalenderController@update')->name('kalenderUpdate');
-    Route::delete('/admin/kalender/{id}', 'KalenderController@destroy')->name('kalenderDelete');
+    Route::patch('/admin/kalender/{id}', 'KalenderController@active')->name('kalenderActive');
+    Route::post('/admin/kalender', 'KalenderController@create')->name('kalenderStore');
+    Route::put('/admin/kalender', 'KalenderController@edit')->name('kalenderUpdate');
+    Route::delete('/admin/kalender/{id}', 'KalenderController@delete')->name('kalenderDelete');
+
+    Route::get('/admin/kalender/detail/{id}', 'KalenderController@show')->name('kalenderdetailShow');
+    Route::post('/admin/kalender/detail/{id}', 'KalenderController@store')->name('kalenderdetailStore');
+    Route::put('/admin/kalender/detail/{id}', 'KalenderController@update')->name('kalenderdetailUpdate');
+    Route::delete('/admin/kalender/detail/delete/{id}', 'KalenderController@destroy')->name('kalenderdetailDelete');
 
     Route::get('/admin/user', 'UserController@profile')->name('userProfile');
 
@@ -93,5 +99,5 @@ Route::group(['middleware' => ['auth', 'Checkrole:2']], function () {
 
     Route::get('/siswa/kegiatan', 'KegiatanController@show')->name('kegiatanShow');
 
-    Route::get('/siswa/kalender', 'KalenderController@show')->name('kalenderShow');
+    Route::get('/siswa/kalender', 'KalenderController@tampil')->name('kalenderTampil');
 });
