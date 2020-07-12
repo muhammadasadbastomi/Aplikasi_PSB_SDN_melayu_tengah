@@ -20,7 +20,8 @@ Data Guru
                         <h5 class="content-header-title float-left pr-1 mb-0">Data Guru</h5>
                         <div class="breadcrumb-wrapper col-12">
                             <ol class="breadcrumb p-0 mb-0">
-                                <li class="breadcrumb-item"><a href="{{ route('dashboard') }}"><i class="bx bx-home-alt"></i></a>
+                                <li class="breadcrumb-item"><a href="{{ route('dashboard') }}"><i
+                                            class="bx bx-home-alt"></i></a>
                                 </li>
                                 <li class="breadcrumb-item active">Data Guru
                                 </li>
@@ -39,7 +40,11 @@ Data Guru
                         <div class="card">
                             <div class="card-content">
                                 <div class="card-body card-dashboard">
-                                    <button type="button" class="btn btn-primary round mr-1 mb-1" data-toggle="modal" data-target="#default"><i class="bx bx-plus-circle"></i></button>
+                                    <button type="button" class="btn btn-primary round mr-1 mb-1" data-toggle="modal"
+                                        data-target="#default"><i class="bx bx-plus-circle"></i></button>
+                                    <a href="{{ route('cetakGuru') }}"
+                                        class="btn btn-outline-default text-white float-right"> <i class="menu-livicon"
+                                            data-icon="print-doc"></i> Cetak</a>
                                     <div class="table-responsive">
                                         <table class="table zero-configuration">
                                             <thead>
@@ -60,13 +65,20 @@ Data Guru
                                                     <td class="text-center">{{$loop->iteration}}</td>
                                                     <td class="text-center">{{$d->nip}}</td>
                                                     <td class="text-center">{{$d->nama}}</td>
-                                                    <td class="text-center"> @if($d->jenis_kelamin == 2 ) Perempuan @elseif($d->jenis_kelamin == 1 ) Laki-Laki @endif</td>
+                                                    <td class="text-center"> @if($d->jenis_kelamin == 2 ) Perempuan
+                                                        @elseif($d->jenis_kelamin == 1 ) Laki-Laki @endif</td>
                                                     <td class="text-center">{{$d->agama}}</td>
                                                     <td class="text-center">{{$d->telp}}</td>
                                                     <td>{{$d->alamat}}</td>
                                                     <td class="text-center">
-                                                        <a class="btn btn-info round mr-1 mb-1 text-white" data-toggle="modal" data-target="#modaledit" data-id="{{$d->id}}" data-nip="{{$d->nip}}" data-nama="{{$d->nama}}" data-jk="{{$d->jenis_kelamin}}" data-agama="{{$d->agama}}" data-telp="{{$d->telp}}" data-alamat="{{$d->alamat}}"><i class="bx bxs-edit"></i></a>
-                                                        <a class="delete btn btn-danger round mr-1 mb-1 text-white" data-id="{{$d->uuid}}"><i class="bx bx-trash"></i></a>
+                                                        <a class="btn btn-info round mr-1 mb-1 text-white"
+                                                            data-toggle="modal" data-target="#modaledit"
+                                                            data-id="{{$d->id}}" data-nip="{{$d->nip}}"
+                                                            data-nama="{{$d->nama}}" data-jk="{{$d->jenis_kelamin}}"
+                                                            data-agama="{{$d->agama}}" data-telp="{{$d->telp}}"
+                                                            data-alamat="{{$d->alamat}}"><i class="bx bxs-edit"></i></a>
+                                                        <a class="delete btn btn-danger round mr-1 mb-1 text-white"
+                                                            data-id="{{$d->uuid}}"><i class="bx bx-trash"></i></a>
                                                     </td>
                                                 </tr>
                                                 @endforeach

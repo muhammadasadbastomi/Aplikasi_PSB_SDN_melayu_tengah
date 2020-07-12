@@ -72,6 +72,8 @@ Route::group(['middleware' => ['auth', 'Checkrole:1']], function () {
     Route::delete('/admin/kalender/{id}', 'KalenderController@destroy')->name('kalenderDelete');
 
     Route::get('/admin/user', 'UserController@profile')->name('userProfile');
+
+    Route::get('/admin/laporan', 'LaporanController@guru')->name('cetakGuru');
 });
 
 Route::group(['middleware' => ['auth', 'Checkrole:2']], function () {
