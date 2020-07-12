@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('info')
+<p>Silahkan login jika anda sudah mempunyai akun.</p>
+@endsection
+
 @section('content')
 
 <form method="POST" action="{{ route('login') }}">

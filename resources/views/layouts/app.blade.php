@@ -17,25 +17,24 @@
             <div class="img-holder">
                 <div class="bg"></div>
                 <div class="info-holder">
-                    <h3>Get more things done with Loggin platform.</h3>
-                    <p>Access to the most powerfull tool in the entire design and web industry.</p>
-                    <img src="{{ asset('app-assets//login/images/graphic5.svg') }}" alt="">
+                    <h3>Selamat Datang Di PSB SDN Melayu Kabupaten Banjar.</h3>
+                    @yield('info')
+                    <img src="{{ asset('app-assets/login/images/graphic5.svg') }}" alt="">
                 </div>
             </div>
             <div class="form-holder">
                 <div class="form-content">
                     <div class="form-items">
                         <div class="website-logo-inside">
-                            <a href="index.html">
-                                <div class="logo">
-                                    <img class="logo-size" src="{{ asset('app-assets/login/images/logo-light.svg') }}"
-                                        alt="">
-                                </div>
-                            </a>
+                            <div class="">
+                                <img class="logo-size" src="{{ asset('images/logobanjar.png') }}" alt="">
+                            </div>
                         </div>
                         <div class="page-links">
-                            <a href="{{ route('login') }}" class="active">Login</a><a
-                                href="{{ route('register') }}">Register</a>
+                            <a href="{{ route('login') }}"
+                                class="{{ (\Request::route()->getName() == 'login') ? 'active' : '' }}">Login</a><a
+                                href="{{ route('register') }}"
+                                class="{{ (\Request::route()->getName() == 'register') ? 'active' : '' }}">Register</a>
                         </div>
                         @yield('content')
                         {{-- <form>
