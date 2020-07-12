@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Laporan Data Guru</title>
-    <link rel="icon" type="image/png" href="{{url('image/logobanjar.png')}}">
+    <link rel="icon" type="image/png" href="{{url('images/logobanjar.png')}}">
     <style>
         .logo {
             margin-top: 15px;
@@ -92,12 +92,12 @@
 
     <div class="header">
         <div class="logo">
-            <img class="sizeimg" src="img/logo.png">
+            <img class="sizeimg" src="images/logobanjar.png">
         </div>
         <div class="headtext">
-            <h3 style="margin:0px;">SDN MELAYU</h3>
-            <h1 style="margin:0px;">KABUPATEN BANJAR</h1>
-            <p style="margin:0px;">Jl. A. Yani KM 36, Komet, Banjarbaru Utara, Kota Banjarbaru, Kalimantan Selatan 70714
+            <h1 style="margin:0px;">SDN MELAYU</h1>
+            <h3 style="margin:0px;">KABUPATEN BANJAR</h3>
+            <p style="margin:0px;">Jl. Melayu Ulu, Desa Melayu, Martapura Timur, Kab. Banjar, Kalimantan Selatan 70617
             </p>
         </div>
         <hr>
@@ -124,7 +124,11 @@
                     <td scope="col" class="text-center">{{ $d->nama }}</td>
                     <td scope="col" class="text-center">{{ $d->nip }}</td>
                     <td scope="col" class="text-center">{{ $d->agama }}</td>
-                    <td scope="col" class="text-center">{{ $d->jenis_kelamin }}</td>
+                    @if ($d->jenis_kelamin == 1)
+                    <td scope="col" class="text-center">Laki-laki</td>
+                    @elseif($d->jenis_kelamin == 2)
+                    <td scope="col" class="text-center">Perempuan</td>
+                    @endif
                     <td scope="col" class="text-center">{{ $d->alamat }}</td>
                     <td scope="col" class="text-center">{{ $d->telp }}</td>
                 </tr>

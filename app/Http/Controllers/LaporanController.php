@@ -24,7 +24,7 @@ class LaporanController extends Controller
     {
         $data = Guru::all();
 
-        $pdf = PDF::loadview('laporan/laporanguru', compact('data'));
+        $pdf = PDF::loadview('admin/laporan/laporanguru', compact('data'));
         return $pdf->stream('laporan-guru-pdf');
     }
 }
