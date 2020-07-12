@@ -130,7 +130,8 @@
                     <td scope="col" class="text-center">
                         {{ $d->tempat_lahir }} ,
                         {{Carbon\Carbon::parse($d->tgl_lahir)->translatedFormat('d F Y')}}</td>
-                    <td scope="col" class="text-center">{{ $d->kegiatan }}</td>
+                    <td scope="col" class="text-center">
+                        {{Carbon\Carbon::parse($d->created_at)->translatedFormat('d F Y')}}</td>
                 </tr>
                 @endforeach
             </tbody>
