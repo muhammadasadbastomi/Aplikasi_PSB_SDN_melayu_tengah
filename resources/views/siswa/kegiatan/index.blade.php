@@ -1,10 +1,42 @@
 @extends('layouts/admin')
 
 @section('title')
-Data Kegiatan
+Data Kalender Akademik
 @endsection
 
 @section('head')
+<style>
+    .logo {
+        margin-top: 15px;
+        float: left;
+        margin-right: -1205px;
+        width: 25%;
+        text-align: right;
+    }
+
+    .judul {
+        text-align: center;
+    }
+
+    .sizeimg {
+        width: 75px;
+    }
+
+    .headtext {
+        margin-top: 1%;
+        float: right;
+        margin-left: -50px;
+        width: 81%;
+        padding-right: 10%;
+    }
+
+    .header {
+        margin-bottom: 0px;
+        text-align: center;
+        height: 150px;
+        padding: 0px;
+    }
+</style>
 <style>
     .timeline {
         list-style: none;
@@ -170,80 +202,109 @@ Data Kegiatan
 @endsection
 
 @section('content')
+
 <div class="app-content content">
     <div class="content-overlay"></div>
     <div class="content-wrapper">
-        <!-- <div class="content-header row">
+        <div class="content-header row">
             <div class="content-header-left col-12 mb-2 mt-1">
                 <div class="row breadcrumbs-top">
                     <div class="col-12">
-                        <h3 class="float-left pr-1 mb-0">Logo Daftar Kegiatan Penerimaan Peserta Didik Baru Pada SDN Melayu Tengah Kabupaten Banjar</h3>
+                        <h5 class="content-header-title float-left pr-1 mb-0">Kalender Akademik</h5>
+                        <div class="breadcrumb-wrapper col-12">
+                            <ol class="breadcrumb p-0 mb-0">
+                                <li class="breadcrumb-item"><a href="{{ route('dashboard') }}"><i class="bx bx-home-alt"></i></a>
+                                </li>
+                                <li class="breadcrumb-item active">Kalender Akademik
+                                </li>
+                            </ol>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div> -->
+        </div>
         <div class="content-body">
-            <div class="row">
-                <div class="col-12">
-                    <div class="card">
-                        <div class="card-content">
-                            <div class="card-body card-dashboard">
-                                <div class="container">
-                                    <div class="page-header">
-                                        <h2 id="timeline">Daftar Kegiatan Penerimaan Peserta Didik Baru <button class="btn btn-outline-default text-white float-right"> <i class="menu-livicon" data-icon="print-doc"></i> Cetak</button> </h2>
+
+            <!-- Zero configuration table -->
+            <section id="basic-datatable">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-content">
+                                <button class="btn btn-outline-default text-white float-right"> <i class="menu-livicon" data-icon="print-doc"></i> Print </button>
+                                <div class="card-body card-dashboard">
+
+                                    <div class="header">
+                                        <div class="logo">
+                                            <img class="sizeimg" src="{{url('images/logobanjar.png')}}">
+                                        </div>
+                                        <div class="headtext">
+                                            <h2 style="margin:0px;"> <b> SDN MELAYU TENGAH </b> </h2>
+                                            <h2 style="margin:0px;"> KABUPATEN BANJAR </h2>
+                                            <p style="margin:0px;">Jl. Melayu Ulu, Desa Melayu, Martapura Timur, Kab. Banjar, Kalimantan Selatan 70617
+                                            </p>
+                                        </div>
                                     </div>
+
+                                    <hr>
+                                    <h3 style="text-align:center;text-transform: uppercase;">Daftar Kegiatan Penerimaan Peserta Didik Baru</h3>
+
+
                                     <br>
-                                    <ul class="timeline">
-                                        @foreach($data as $d)
-                                        @if($d->id % 2 == 0)
-                                        <li>
-                                            <div class="timeline-badge info"><i class="bx bxs-calendar text-white"></i></div>
-                                            <div class="timeline-panel">
-                                                <div class="timeline-heading">
-                                                    <h4 class="timeline-title">{{$d->kegiatan}}</h4>
-                                                    <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i>Jadwal Kegiatan {{Carbon\Carbon::parse($d->tgl_mulai)->translatedFormat('d F Y')}} s/d {{Carbon\Carbon::parse($d->tgl_akhir)->translatedFormat('d F Y')}}</small></p>
+                                    <div class="container">
+                                        <ul class="timeline">
+                                            @foreach($data as $d)
+                                            @if($d->id % 2 == 0)
+                                            <li>
+                                                <div class="timeline-badge info"><i class="bx bxs-calendar text-white"></i></div>
+                                                <div class="timeline-panel">
+                                                    <div class="timeline-heading">
+                                                        <h4 class="timeline-title">{{$d->kegiatan}}</h4>
+                                                        <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i>Jadwal Kegiatan {{Carbon\Carbon::parse($d->tgl_mulai)->translatedFormat('d F Y')}} s/d {{Carbon\Carbon::parse($d->tgl_akhir)->translatedFormat('d F Y')}}.</small></p>
+                                                    </div>
+                                                    <div class="timeline-body">
+                                                        <p>{{$d->keterangan}}.</p>
+                                                    </div>
                                                 </div>
-                                                <div class="timeline-body">
-                                                    <p>{{$d->keterangan}}</p>
+                                            </li>
+                                            @else
+                                            <li class="timeline-inverted">
+                                                <div class="timeline-badge warning"><i class="bx bxs-calendar text-white"></i></div>
+                                                <div class="timeline-panel">
+                                                    <div class="timeline-heading">
+                                                        <h4 class="timeline-title">{{$d->kegiatan}}</h4>
+                                                        <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i>Jadwal Kegiatan {{Carbon\Carbon::parse($d->tgl_mulai)->translatedFormat('d F Y')}} s/d {{Carbon\Carbon::parse($d->tgl_akhir)->translatedFormat('d F Y')}}.</small></p>
+                                                    </div>
+                                                    <div class="timeline-body">
+                                                        <p>{{$d->keterangan}}.</p>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        </li>
-                                        @else
-                                        <li class="timeline-inverted">
-                                            <div class="timeline-badge warning"><i class="bx bxs-calendar text-white"></i></div>
-                                            <div class="timeline-panel">
-                                                <div class="timeline-heading">
-                                                    <h4 class="timeline-title">{{$d->kegiatan}}</h4>
-                                                    <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i>Jadwal Kegiatan {{Carbon\Carbon::parse($d->tgl_mulai)->translatedFormat('d F Y')}} s/d {{Carbon\Carbon::parse($d->tgl_akhir)->translatedFormat('d F Y')}}</small></p>
-                                                </div>
-                                                <div class="timeline-body">
-                                                    <p>{{$d->keterangan}}</p>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        @endif
-                                        @endforeach
-                                    </ul>
+                                            </li>
+                                            @endif
+                                            @endforeach
+                                        </ul>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </section>
+            <!--/ Zero configuration table -->
+
         </div>
     </div>
 </div>
 @endsection
 
 @section('script')
+
 <!-- BEGIN: Page Vendor JS-->
-<!-- <script src="{{ asset('app-assets/vendors/js/tables/datatable/buttons.html5.min.js') }}"></script>
+<script src="{{ asset('app-assets/vendors/js/tables/datatable/buttons.html5.min.js') }}"></script>
 <script src="{{ asset('app-assets/vendors/js/tables/datatable/buttons.print.min.js') }}"></script>
 <script src="{{ asset('app-assets/vendors/js/tables/datatable/buttons.bootstrap.min.js') }}"></script>
 <script src="{{ asset('app-assets/vendors/js/tables/datatable/pdfmake.min.js') }}"></script>
-<script src="{{ asset('app-assets/vendors/js/tables/datatable/vfs_fonts.js') }}"></script> -->
+<script src="{{ asset('app-assets/vendors/js/tables/datatable/vfs_fonts.js') }}"></script>
 <!-- END: Page Vendor JS-->
-<!-- <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"> -->
-<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
 @endsection

@@ -1,7 +1,7 @@
 @extends('layouts/admin')
 
 @section('title')
-Data Kalender Akademik
+Detail Data Kalender Akademik
 @endsection
 
 @section('head')
@@ -17,12 +17,14 @@ Data Kalender Akademik
             <div class="content-header-left col-12 mb-2 mt-1">
                 <div class="row breadcrumbs-top">
                     <div class="col-12">
-                        <h5 class="content-header-title float-left pr-1 mb-0">Kalender Akademik</h5>
+                        <h5 class="content-header-title float-left pr-1 mb-0">Detail Kalender Akademik</h5>
                         <div class="breadcrumb-wrapper col-12">
                             <ol class="breadcrumb p-0 mb-0">
                                 <li class="breadcrumb-item"><a href="{{ route('dashboard') }}"><i class="bx bx-home-alt"></i></a>
                                 </li>
-                                <li class="breadcrumb-item active">Kalender Akademik
+                                <li class="breadcrumb-item"><a href="{{ route('kalenderIndex') }}">Kalender Akademik</a>
+                                </li>
+                                <li class="breadcrumb-item active">Detail Kalender Akademik
                                 </li>
                             </ol>
                         </div>
@@ -39,16 +41,15 @@ Data Kalender Akademik
                         <div class="card">
                             <div class="card-content">
                                 <div class="card-body card-dashboard">
+                                    <h4 class="float-left"> Kalender Akadamik Tahun Ajaran {{$kalender->tahun}} </h4>
                                     <button type="button" class="btn btn-primary round mr-1 mb-1 float-right" data-toggle="modal" data-target="#modaltambah"> Tambah Data <i class="bx bx-plus-circle"></i></button>
                                     <div class="table-responsive">
                                         <table class="table zero-configuration">
                                             <thead>
                                                 <tr>
                                                     <th class="text-center">No</th>
-                                                    <th class="text-center">Tahun Ajaran</th>
-                                                    <th class="text-center">Keterangan</th>
-                                                    <th class="text-center">Detail Kalender Akademik</th>
-                                                    <th class="text-center">Status</th>
+                                                    <th class="text-center">Kegiatan Kalender Akademik</th>
+                                                    <th class="text-center">Tanggal Kalender Akademik</th>
                                                     <th class="text-center">Aksi</th>
                                                 </tr>
                                             </thead>
@@ -56,20 +57,10 @@ Data Kalender Akademik
                                                 @foreach($data as $d)
                                                 <tr>
                                                     <td class="text-center">{{$loop->iteration}}</td>
-                                                    <td class="text-center">{{$d->tahun}}</td>
-                                                    <td class="text-center">@if($d->keterangan == !null) {{$d->keterangan}} @else - @endif</td>
+                                                    <td class="text-center">{{$d->kegiatan}}</td>
+                                                    <td class="text-center">{{Carbon\Carbon::parse($d->tgl_mulai)->Format('d F Y')}} - {{Carbon\Carbon::parse($d->tgl_akhir)->Format('d F Y')}}</td>
                                                     <td class="text-center">
-                                                        @if($d->status == 1)
-                                                        <button class="btn btn-info round mr-1 mb-1 text-white"> Tampil </button>
-                                                        @else
-                                                        <button type="submit" class="active btn btn-secondary round mr-1 mb-1 text-white" data-id="{{$d->uuid}}" data-tahun="{{$d->tahun}}"> Tidak Tampil </button>
-                                                        @endif
-                                                    </td>
-                                                    <td class="text-center">
-                                                        <a class="btn btn-primary round mr-1 mb-1 text-white" href="{{route('kalenderdetailShow', ['id' => $d->uuid])}}"> Lihat Detail <i class="bx bx-search"></i></a>
-                                                    </td>
-                                                    <td class="text-center">
-                                                        <a class="btn btn-warning round mr-1 mb-1 text-white" data-toggle="modal" data-target="#modaledit" data-id="{{$d->id}}" data-tahun="{{$d->tahun}}" data-keterangan="{{$d->keterangan}}"><i class="bx bxs-edit"></i></a>
+                                                        <a class="btn btn-info round mr-1 mb-1 text-white" data-toggle="modal" data-target="#modaledit" data-id="{{$d->id}}" data-kegiatan="{{$d->kegiatan}}" data-tgl_mulai="{{$d->tgl_mulai}}" data-tgl_akhir="{{$d->tgl_akhir}}"><i class="bx bxs-edit"></i></a>
                                                         <a class="delete btn btn-danger round mr-1 mb-1 text-white" data-id="{{$d->uuid}}"><i class="bx bx-trash"></i></a>
                                                     </td>
                                                 </tr>
@@ -88,8 +79,8 @@ Data Kalender Akademik
         </div>
     </div>
 </div>
-@include('admin.kalender.tambah')
-@include('admin.kalender.edit')
+@include('admin.kalender.detail.tambah')
+@include('admin.kalender.detail.edit')
 @endsection
 
 @section('script')
@@ -98,13 +89,15 @@ Data Kalender Akademik
     $('#modaledit').on('show.bs.modal', function(event) {
         let button = $(event.relatedTarget)
         let id = button.data('id')
-        let tahun = button.data('tahun')
-        let keterangan = button.data('keterangan')
+        let kegiatan = button.data('kegiatan')
+        let tgl_mulai = button.data('tgl_mulai')
+        let tgl_akhir = button.data('tgl_akhir')
         let modal = $(this)
 
         modal.find('.modal-body #id').val(id)
-        modal.find('.modal-body #tahun').val(tahun)
-        modal.find('.modal-body #keterangan').val(keterangan)
+        modal.find('.modal-body #kegiatan').val(kegiatan)
+        modal.find('.modal-body #tgl_mulai').val(tgl_mulai)
+        modal.find('.modal-body #tgl_akhir').val(tgl_akhir)
     })
 </script>
 
@@ -123,7 +116,7 @@ Data Kalender Akademik
         }).then((result) => {
             if (result.value) {
                 $.ajax({
-                    url: "{{url('/admin/kalender')}}" + '/' + id,
+                    url: "{{url('/admin/kalender/detail/delete')}}" + '/' + id,
                     type: "POST",
                     data: {
                         '_method': 'DELETE',
@@ -145,51 +138,6 @@ Data Kalender Akademik
                 Swal.fire(
                     'Dibatalkan',
                     'data batal dihapus',
-                    'error'
-                )
-            }
-        })
-    });
-</script>
-
-<script>
-    $(document).on('click', '.active', function(e) {
-        e.preventDefault();
-        var id = $(this).data('id');
-        var tahun = $(this).data('tahun');
-        swal.fire({
-            title: "Tampilkan Tahun Ajaran " + tahun + " ?",
-            icon: "warning",
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
-            confirmButtonText: "Ya",
-            cancelButtonText: "Tidak",
-            showCancelButton: true,
-        }).then((result) => {
-            if (result.value) {
-                $.ajax({
-                    url: "{{url('/admin/kalender')}}" + '/' + id,
-                    type: "POST",
-                    data: {
-                        '_method': 'PATCH',
-                        "_token": "{{ csrf_token() }}"
-                    },
-                    success: function(response) {
-                        Swal.fire({
-                            icon: 'success',
-                            title: 'Tahun Ajaran ' + tahun + ' Berhasil Ditampilkan',
-                            showConfirmButton: false,
-                            timer: 1500
-                        })
-                        setTimeout(function() {
-                            document.location.reload(true);
-                        }, 1000);
-                    },
-                })
-            } else if (result.dismiss === swal.DismissReason.cancel) {
-                Swal.fire(
-                    'Dibatalkan',
-                    'Data Batal Ditampilkan',
                     'error'
                 )
             }

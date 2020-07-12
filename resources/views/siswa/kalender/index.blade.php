@@ -5,6 +5,38 @@ Data Kalender Akademik
 @endsection
 
 @section('head')
+<style>
+    .logo {
+        margin-top: 15px;
+        float: left;
+        margin-right: -1205px;
+        width: 25%;
+        text-align: right;
+    }
+
+    .judul {
+        text-align: center;
+    }
+
+    .sizeimg {
+        width: 75px;
+    }
+
+    .headtext {
+        margin-top: 1%;
+        float: right;
+        margin-left: -50px;
+        width: 81%;
+        padding-right: 10%;
+    }
+
+    .header {
+        margin-bottom: 0px;
+        text-align: center;
+        height: 150px;
+        padding: 0px;
+    }
+</style>
 @endsection
 
 @section('content')
@@ -37,10 +69,25 @@ Data Kalender Akademik
                     <div class="col-12">
                         <div class="card">
                             <div class="card-content">
+                                <button class="btn btn-outline-default text-white float-right"> <i class="menu-livicon" data-icon="print-doc"></i> Print </button>
                                 <div class="card-body card-dashboard">
-                                    <div class="page-header">
-                                        <h3 id="timeline">Kalender Akademik SDN Melayu Tengah Kabupaten Banjar <button class="btn btn-outline-default text-white float-right"> <i class="menu-livicon" data-icon="print-doc"></i> Print </button> </h3>
+
+                                    <div class="header">
+                                        <div class="logo">
+                                            <img class="sizeimg" src="{{url('images/logobanjar.png')}}">
+                                        </div>
+                                        <div class="headtext">
+                                            <h2 style="margin:0px;"> <b> SDN MELAYU TENGAH </b> </h2>
+                                            <h2 style="margin:0px;"> KABUPATEN BANJAR </h2>
+                                            <p style="margin:0px;">Jl. Melayu Ulu, Desa Melayu, Martapura Timur, Kab. Banjar, Kalimantan Selatan 70617
+                                            </p>
+                                        </div>
                                     </div>
+
+                                    <hr>
+                                    <h3 style="text-align:center;text-transform: uppercase;">Kalender Akademik SDN Melayu Tengah Kabupaten Banjar, Tahun Ajaran {{$kalender->tahun}}</h3>
+
+
                                     <br>
                                     <div class="table-responsive">
                                         <table class="table mb-0">

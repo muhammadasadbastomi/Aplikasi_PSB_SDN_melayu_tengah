@@ -30,7 +30,7 @@
         </li>
         <li class="nav-item"><a class="nav-link" href="{{route('kegiatanShow')}}"><i class="menu-livicon" data-icon="clock"></i><span>Kegiatan</span></a>
         </li>
-        <li class="nav-item"><a class="nav-link" href="{{route('kalenderShow')}}"><i class="menu-livicon" data-icon="calendar"></i><span>Kalender Akademik</span></a>
+        <li class="nav-item"><a class="nav-link" href="{{route('kalenderTampil')}}"><i class="menu-livicon" data-icon="calendar"></i><span>Kalender Akademik</span></a>
         </li>
         @endif
     </ul>

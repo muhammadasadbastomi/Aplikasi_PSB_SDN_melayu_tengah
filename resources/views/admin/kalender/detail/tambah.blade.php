@@ -3,7 +3,7 @@
     <div class="modal-dialog modal-dialog-scrollable" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h3 class="modal-title" id="myModalLabel1">Tambah Tahun Ajaran Kalender Akademik</h3>
+                <h3 class="modal-title" id="myModalLabel1">Tambah Tanggal Kalender Akademik</h3>
                 <button type="button" class="close rounded-pill" data-dismiss="modal" aria-label="Close">
                     <i class="bx bx-x"></i>
                 </button>
@@ -11,14 +11,17 @@
             <div class="modal-body">
                 <form method="POST">
                     @csrf
-                    <input type="hidden" id="id" name="id">
                     <fieldset class="form-group">
-                        <label for="tahun">Tahun Ajaran</label>
-                        <input type="text" class="form-control" id="tahun" name="tahun" placeholder="Masukkan Tahun Ajaran 2020/2021" value="{{old('tahun')}}">
+                        <label for="kalender">Kegiatan Kalender</label>
+                        <input type="text" class="form-control" id="kalender" name="kalender" placeholder="Masukkan Kegiatan Kalender Akademik" value="{{old('kalender')}}">
                     </fieldset>
                     <fieldset class="form-group">
-                        <label for="keterangan">Keterangan</label>
-                        <input type="text" class="form-control" id="keterangan" name="keterangan" placeholder="Masukkan Keterangan" value="{{old('keterangan')}}">
+                        <label for="tgl_mulai">Dari Tanggal</label>
+                        <input type="date" class="form-control" id="tgl_mulai" name="tgl_mulai" value="{{old('tgl_mulai')}}">
+                    </fieldset>
+                    <fieldset class="form-group">
+                        <label for="tgl_akhir">Sampai Tanggal</label>
+                        <input type="date" class="form-control" id="tgl_akhir" name="tgl_akhir" value="{{old('tgl_akhir')}}">
                     </fieldset>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-light-secondary" data-dismiss="modal">Close</button>

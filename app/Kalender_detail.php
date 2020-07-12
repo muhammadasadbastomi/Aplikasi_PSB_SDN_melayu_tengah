@@ -6,7 +6,7 @@ use App\Traits\Uuid;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 
-class Kalender extends Model
+class Kalender_detail extends Model
 {
     use Notifiable;
     use Uuid;

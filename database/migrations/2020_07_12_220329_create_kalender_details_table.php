@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateKalendersTable extends Migration
+class CreateKalenderDetailsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,13 @@ class CreateKalendersTable extends Migration
      */
     public function up()
     {
-        Schema::create('kalenders', function (Blueprint $table) {
+        Schema::create('kalender_details', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('uuid')->length(36);
-            $table->string('tahun');
-            $table->string('status')->nullable();
-            $table->string('keterangan')->nullable();
+            $table->unsignedBigInteger('kalender_id');
+            $table->string('kegiatan');
+            $table->date('tgl_mulai');
+            $table->date('tgl_akhir');
             $table->timestamps();
         });
     }
@@ -30,6 +31,6 @@ class CreateKalendersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('kalenders');
+        Schema::dropIfExists('kalender_details');
     }
 }
