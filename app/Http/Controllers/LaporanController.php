@@ -28,12 +28,28 @@ class LaporanController extends Controller
         return $pdf->stream('laporan-guru-pdf');
     }
 
-    public function pendaftar()
+    public function pendaftar(Request $request)
     {
-        $data = Siswa::where('status', 1)->get();
+        $start = $request->start;
+        $end = $request->end;
+        $data = Siswa::whereBetween('siswas.created_at', [$start, $end])
+        ->join('users', 'users.id', '=', 'siswas.user_id')
+        ->orderBy('users.name', 'ASC')->get();
 
-        $pdf = PDF::loadview('admin/laporan/pendaftar', compact('data'));
+        $pdf = PDF::loadview('admin/laporan/pendaftar', compact('data' , 'start', 'end'));
         return $pdf->stream('laporan-pendaftar-pdf');
+    }
+
+    public function lulus(Request $request)
+    {
+        $start = $request->start;
+        $end = $request->end;
+        $data = Siswa::where('status', 4)->whereBetween('siswas.created_at', [$start, $end])
+        ->join('users', 'users.id', '=', 'siswas.user_id')
+        ->orderBy('users.name', 'ASC')->get();
+
+        $pdf = PDF::loadview('admin/laporan/siswalulus', compact('data' , 'start', 'end'));
+        return $pdf->stream('laporan-pendaftar-lulus-pdf');
     }
 
     public function kegiatan(Request $request)
@@ -44,5 +60,15 @@ class LaporanController extends Controller
 
         $pdf = PDF::loadview('admin/laporan/kegiatan', compact('data', 'start', 'end'));
         return $pdf->stream('laporan-kegiatan-pdf');
+    }
+
+    public function kalender(Request $request)
+    {
+        $start = $request->start;
+        $end = $request->end;
+        $data = Kalender::whereBetween('tgl_mulai', [$start, $end])->get();
+
+        $pdf = PDF::loadview('admin/laporan/kalender', compact('data', 'start', 'end'));
+        return $pdf->stream('laporan-kalender-pdf');
     }
 }

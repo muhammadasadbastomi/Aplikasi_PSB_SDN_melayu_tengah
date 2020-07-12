@@ -20,7 +20,8 @@ Data Kalender Akademik
                         <h5 class="content-header-title float-left pr-1 mb-0">Kalender Akademik</h5>
                         <div class="breadcrumb-wrapper col-12">
                             <ol class="breadcrumb p-0 mb-0">
-                                <li class="breadcrumb-item"><a href="{{ route('dashboard') }}"><i class="bx bx-home-alt"></i></a>
+                                <li class="breadcrumb-item"><a href="{{ route('dashboard') }}"><i
+                                            class="bx bx-home-alt"></i></a>
                                 </li>
                                 <li class="breadcrumb-item active">Kalender Akademik
                                 </li>
@@ -39,7 +40,11 @@ Data Kalender Akademik
                         <div class="card">
                             <div class="card-content">
                                 <div class="card-body card-dashboard">
-                                    <button type="button" class="btn btn-primary round mr-1 mb-1" data-toggle="modal" data-target="#modaltambah"><i class="bx bx-plus-circle"></i></button>
+                                    <button type="button" class="btn btn-primary round mr-1 mb-1" data-toggle="modal"
+                                        data-target="#modaltambah"><i class="bx bx-plus-circle"></i></button>
+                                    <button type="button" data-toggle="modal" data-target="#modalcetak"
+                                        class="btn btn-outline-default text-white float-right"><i class="menu-livicon"
+                                            data-icon="print-doc"></i>Cetak</button>
                                     <div class="table-responsive">
                                         <table class="table zero-configuration">
                                             <thead>
@@ -55,10 +60,18 @@ Data Kalender Akademik
                                                 <tr>
                                                     <td class="text-center">{{$loop->iteration}}</td>
                                                     <td class="text-center">{{$d->kegiatan}}</td>
-                                                    <td class="text-center">{{Carbon\Carbon::parse($d->tgl_mulai)->Format('d F Y')}} - {{Carbon\Carbon::parse($d->tgl_akhir)->Format('d F Y')}}</td>
                                                     <td class="text-center">
-                                                        <a class="btn btn-info round mr-1 mb-1 text-white" data-toggle="modal" data-target="#modaledit" data-id="{{$d->id}}" data-kegiatan="{{$d->kegiatan}}" data-tgl_mulai="{{$d->tgl_mulai}}" data-tgl_akhir="{{$d->tgl_akhir}}"><i class="bx bxs-edit"></i></a>
-                                                        <a class="delete btn btn-danger round mr-1 mb-1 text-white" data-id="{{$d->uuid}}"><i class="bx bx-trash"></i></a>
+                                                        {{Carbon\Carbon::parse($d->tgl_mulai)->Format('d F Y')}} -
+                                                        {{Carbon\Carbon::parse($d->tgl_akhir)->Format('d F Y')}}</td>
+                                                    <td class="text-center">
+                                                        <a class="btn btn-info round mr-1 mb-1 text-white"
+                                                            data-toggle="modal" data-target="#modaledit"
+                                                            data-id="{{$d->id}}" data-kegiatan="{{$d->kegiatan}}"
+                                                            data-tgl_mulai="{{$d->tgl_mulai}}"
+                                                            data-tgl_akhir="{{$d->tgl_akhir}}"><i
+                                                                class="bx bxs-edit"></i></a>
+                                                        <a class="delete btn btn-danger round mr-1 mb-1 text-white"
+                                                            data-id="{{$d->uuid}}"><i class="bx bx-trash"></i></a>
                                                     </td>
                                                 </tr>
                                                 @endforeach
@@ -78,6 +91,7 @@ Data Kalender Akademik
 </div>
 @include('admin.kalender.tambah')
 @include('admin.kalender.edit')
+@include('admin.kalender.cetak')
 @endsection
 
 @section('script')

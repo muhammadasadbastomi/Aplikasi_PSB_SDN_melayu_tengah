@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Laporan Kalender Akademik</title>
+    <title>Laporan Data Siswa yang Lulus</title>
     <link rel="icon" type="image/png" href="{{url('images/logobanjar.png')}}">
     <style>
         .logo {
@@ -104,24 +104,32 @@
     </div>
 
     <div class="container" style="margin-top:-40px;">
-        <h3 style="text-align:center;text-transform: uppercase;">Laporan Kalender Akademik</h3>
+        <h3 style="text-align:center;text-transform: uppercase;">Laporan Data Siswa Lulus</h3>
         <h4 style="text-align:left">Periode {{Carbon\Carbon::parse($start)->translatedFormat('d F Y')}} s/d
             {{Carbon\Carbon::parse($end)->translatedFormat('d F Y')}} </h4>
         <table class='table table-bordered nowrap'>
             <thead>
                 <tr>
                     <th scope="col" class="text-center">No</th>
-                    <th scope="col" class="text-center">Waktu</th>
-                    <th scope="col" class="text-center">Nama Kegiatan</th>
+                    <th scope="col" class="text-center">Nama</th>
+                    <th scope="col" class="text-center">Agama</th>
+                    <th scope="col" class="text-center">Jenis Kelamin</th>
+                    <th scope="col" class="text-center">Tempat, tanggal lahir</th>
+                    <th scope="col" class="text-center">tanggal Pendaftaran</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach($data as $d)
                 <tr>
                     <td scope="col" class="text-center">{{ $loop->iteration }}</td>
+                    <td scope="col" class="text-center">{{ $d->user->name }}</td>
+                    <td scope="col" class="text-center">{{ $d->agama }}</td>
+                    <td scope="col" class="text-center">@if ($d->jenis_kelamin ==1) Laki-laki
+                        @elseif($d->jenis_kelamin == 2) perempuan
+                        @endif</td>
                     <td scope="col" class="text-center">
-                        {{Carbon\Carbon::parse($d->tgl_mulai)->translatedFormat('d F Y')}} s/d
-                        {{Carbon\Carbon::parse($d->tgl_akhir)->translatedFormat('d F Y')}}</td>
+                        {{ $d->tempat_lahir }} ,
+                        {{Carbon\Carbon::parse($d->tgl_lahir)->translatedFormat('d F Y')}}</td>
                     <td scope="col" class="text-center">{{ $d->kegiatan }}</td>
                 </tr>
                 @endforeach

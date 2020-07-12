@@ -63,6 +63,7 @@ Data Pendaftaran Calon Siswa
         </div>
     </div>
 </div>
+@include('admin.pendaftaran.cetak')
 @endsection
 
 @section('script')

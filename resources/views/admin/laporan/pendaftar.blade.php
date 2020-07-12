@@ -105,16 +105,18 @@
 
     <div class="container" style="margin-top:-40px;">
         <h3 style="text-align:center;text-transform: uppercase;">Laporan Data Pendaftaran Siswa</h3>
+        <h4 style="text-align:left">Periode {{Carbon\Carbon::parse($start)->translatedFormat('d F Y')}} s/d
+            {{Carbon\Carbon::parse($end)->translatedFormat('d F Y')}} </h4>
         <table class='table table-bordered nowrap'>
             <thead>
                 <tr>
                     <th scope="col" class="text-center">No</th>
                     <th scope="col" class="text-center">Nama</th>
-                    <th scope="col" class="text-center">Alamat</th>
                     <th scope="col" class="text-center">Agama</th>
                     <th scope="col" class="text-center">Jenis Kelamin</th>
                     <th scope="col" class="text-center">Tempat, tanggal lahir</th>
                     <th scope="col" class="text-center">tanggal Pendaftaran</th>
+                    <th scope="col" class="text-center">Status</th>
                 </tr>
             </thead>
             <tbody>
@@ -122,16 +124,27 @@
                 <tr>
                     <td scope="col" class="text-center">{{ $loop->iteration }}</td>
                     <td scope="col" class="text-center">{{ $d->user->name }}</td>
-                    <td scope="col" class="text-center">{{ $d->alamat }}</td>
                     <td scope="col" class="text-center">{{ $d->agama }}</td>
                     @if ($d->jenis_kelamin == 1)
                     <td scope="col" class="text-center">Laki-laki</td>
                     @elseif($d->jenis_kelamin == 2)
                     <td scope="col" class="text-center">Perempuan</td>
                     @endif
-                    <td scope="col" class="text-center">{{ $d->tempat_lahir }}, {{ $d->tanggal_lahir }}</td>
+                    <td scope="col" class="text-center">{{ $d->tempat_lahir }},
+                        {{Carbon\Carbon::parse($d->tgl_lahir)->translatedFormat('d F Y')}}</td>
                     <td scope="col" class="text-center">
                         {{Carbon\Carbon::parse($d->created_at)->translatedFormat('d F Y')}}</td>
+                    <td scope="col" class="text-center">
+                        @if ($d->status ==1 )
+                        Pendaftaran
+                        @elseif($d->status == 2)
+                        Dikonfirmasi
+                        @elseif($d->status == 3)
+                        Ditolak
+                        @elseif($d->status == 4)
+                        lulus
+                        @endif
+                    </td>
                 </tr>
                 @endforeach
             </tbody>

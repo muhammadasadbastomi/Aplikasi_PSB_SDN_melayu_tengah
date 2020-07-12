@@ -3,9 +3,9 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-content">
-                    <a target="_blank" href="{{ route('cetakPendaftar') }}"
-                        class="btn btn-outline-default text-white float-right"> <i class="menu-livicon"
-                            data-icon="print-doc"></i> Cetak</a>
+                    <button type="button" data-toggle="modal" data-target="#cetakpendaftar"
+                        class="btn btn-outline-default text-white float-right"><i class="menu-livicon"
+                            data-icon="print-doc"></i>Cetak</button>
                     <div class="card-body card-dashboard">
                         <div class="table-responsive">
                             <table class="table zero-configuration">

@@ -105,14 +105,14 @@
 
     <div class="container" style="margin-top:-40px;">
         <h3 style="text-align:center;text-transform: uppercase;">Laporan Jadwal Kegiatan</h3>
-        <h4 style="text-align:left">Periode {{Carbon\Carbon::parse($start)->translatedFormat('d F Y')}} sd
+        <h4 style="text-align:left">Periode {{Carbon\Carbon::parse($start)->translatedFormat('d F Y')}} s/d
             {{Carbon\Carbon::parse($end)->translatedFormat('d F Y')}} </h4>
         <table class='table table-bordered nowrap'>
             <thead>
                 <tr>
                     <th scope=" col" class="text-center">No</th>
                     <th scope="col" class="text-center">Nama Kegiatan</th>
-                    <th scope="col" class="text-center">Tanggal Mulai</th>
+                    <th scope="col" class="text-center">Waktu Kegiatan</th>
                     <th scope="col" class="text-center">Keterangan</th>
                 </tr>
             </thead>

@@ -16,6 +16,9 @@
                 </div>
             </div>
         </div>
+
+
+        {{-- siswa --}}
         <div class="content-body">
             @if(Auth::user()->role == 2)
             <!-- Dashboard SISWA -->
@@ -29,7 +32,8 @@
 
                                     <h1 class="text-danger">Silahkan Tunggu Konfirmasi Admin.</h1>
 
-                                    <h6><i><b>*Catatan : Tunggu konfirmasi admin paling lambat dua hari kerja untuk verifikasi file.</b></i></h6>
+                                    <h6><i><b>*Catatan : Tunggu konfirmasi admin paling lambat dua hari kerja untuk
+                                                verifikasi file.</b></i></h6>
 
                                     @elseif($data->status == null)
 
@@ -48,7 +52,9 @@
                                     @include('dashboard.jadwal')
 
                                     @else
-                                    <h4>Pembayaran Telah Dikonfirmasi, Silahkan Tunggu dan Lihat <a href="{{route('kegiatanShow')}}">Daftar Kegiatan </a> Untuk Informasi Pembagian Kelas.</h4>
+                                    <h4>Pembayaran Telah Dikonfirmasi, Silahkan Tunggu dan Lihat <a
+                                            href="{{route('kegiatanShow')}}">Daftar Kegiatan </a> Untuk Informasi
+                                        Pembagian Kelas.</h4>
                                     @endif
 
                                     @include('dashboard.akte')
@@ -62,11 +68,65 @@
                 </div>
             </div>
             <!-- Dashboard SISWA end -->
-            @else
+
+            <!-- Dashboard ADMIN start -->
+            @elseif(Auth::user()->role ==1)
             <div class="content-body">
                 <div class="row">
-                    <div class="col-12">
+                    <div class="col-sm-3 col-12 dashboard-users-success">
+                        <div class="card text-center">
+                            <div class="card-content">
+                                <div class="card-body py-1">
+                                    <div class="badge-circle badge-circle-lg badge-circle-light-success mx-auto mb-50">
+                                        <i class="bx bx-briefcase-alt font-medium-5"></i>
+                                    </div>
+                                    <div class="text-muted line-ellipsis">Total Siswa</div>
+                                    <h3 class="mb-0">1.2k</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
+                    <div class="col-sm-3 col-12 dashboard-users-success">
+                        <div class="card text-center">
+                            <div class="card-content">
+                                <div class="card-body py-1">
+                                    <div class="badge-circle badge-circle-lg badge-circle-light-success mx-auto mb-50">
+                                        <i class="bx bx-briefcase-alt font-medium-5"></i>
+                                    </div>
+                                    <div class="text-muted line-ellipsis">Siswa dalam pendaftaran</div>
+                                    <h3 class="mb-0">1.2k</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-3 col-12 dashboard-users-success">
+                        <div class="card text-center">
+                            <div class="card-content">
+                                <div class="card-body py-1">
+                                    <div class="badge-circle badge-circle-lg badge-circle-light-success mx-auto mb-50">
+                                        <i class="bx bx-briefcase-alt font-medium-5"></i>
+                                    </div>
+                                    <div class="text-muted line-ellipsis">Total Siswa Diterima</div>
+                                    <h3 class="mb-0">1.2k</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-3 col-12 dashboard-users-success">
+                        <div class="card text-center">
+                            <div class="card-content">
+                                <div class="card-body py-1">
+                                    <div class="badge-circle badge-circle-lg badge-circle-light-success mx-auto mb-50">
+                                        <i class="bx bx-briefcase-alt font-medium-5"></i>
+                                    </div>
+                                    <div class="text-muted line-ellipsis">Total Siswa Ditolak</div>
+                                    <h3 class="mb-0">1.2k</h3>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
