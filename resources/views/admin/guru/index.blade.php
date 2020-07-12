@@ -42,7 +42,7 @@ Data Guru
                                 <div class="card-body card-dashboard">
                                     <button type="button" class="btn btn-primary round mr-1 mb-1" data-toggle="modal"
                                         data-target="#default"><i class="bx bx-plus-circle"></i></button>
-                                    <a href="{{ route('cetakGuru') }}"
+                                    <a target="_blank" href="{{ route('cetakGuru') }}"
                                         class="btn btn-outline-default text-white float-right"> <i class="menu-livicon"
                                             data-icon="print-doc"></i> Cetak</a>
                                     <div class="table-responsive">

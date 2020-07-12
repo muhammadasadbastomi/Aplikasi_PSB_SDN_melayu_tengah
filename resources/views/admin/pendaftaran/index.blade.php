@@ -20,7 +20,8 @@ Data Pendaftaran Calon Siswa
                         <h5 class="content-header-title float-left pr-1 mb-0">Data Pendaftaran Calon Siswa</h5>
                         <div class="breadcrumb-wrapper col-12">
                             <ol class="breadcrumb p-0 mb-0">
-                                <li class="breadcrumb-item"><a href="{{ route('dashboard') }}"><i class="bx bx-home-alt"></i></a>
+                                <li class="breadcrumb-item"><a href="{{ route('dashboard') }}"><i
+                                            class="bx bx-home-alt"></i></a>
                                 </li>
                                 <li class="breadcrumb-item active">Data Pendaftaran Calon Siswa
                                 </li>
@@ -33,23 +34,31 @@ Data Pendaftaran Calon Siswa
         <div class="content-body">
             <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
                 <li class="nav-item" role="presentation">
-                    <a class="nav-link active" id="pills-pendaftaran-tab" data-toggle="pill" href="#pills-pendaftaran" role="tab" aria-controls="pills-pendaftaran" aria-selected="true">Pendaftaran</a>
+                    <a class="nav-link active" id="pills-pendaftaran-tab" data-toggle="pill" href="#pills-pendaftaran"
+                        role="tab" aria-controls="pills-pendaftaran" aria-selected="true">Pendaftaran</a>
                 </li>
                 <li class="nav-item" role="presentation">
-                    <a class="nav-link" id="pills-dikonfirmasi-tab" data-toggle="pill" href="#pills-dikonfirmasi" role="tab" aria-controls="pills-dikonfirmasi" aria-selected="false">Dikonfirmasi</a>
+                    <a class="nav-link" id="pills-dikonfirmasi-tab" data-toggle="pill" href="#pills-dikonfirmasi"
+                        role="tab" aria-controls="pills-dikonfirmasi" aria-selected="false">Dikonfirmasi</a>
                 </li>
                 <li class="nav-item" role="presentation">
-                    <a class="nav-link" id="pills-ditolak-tab" data-toggle="pill" href="#pills-ditolak" role="tab" aria-controls="pills-ditolak" aria-selected="false">Ditolak</a>
+                    <a class="nav-link" id="pills-ditolak-tab" data-toggle="pill" href="#pills-ditolak" role="tab"
+                        aria-controls="pills-ditolak" aria-selected="false">Ditolak</a>
                 </li>
                 <li class="nav-item" role="presentation">
-                    <a class="nav-link" id="pills-lulus-tab" data-toggle="pill" href="#pills-lulus" role="tab" aria-controls="pills-lulus" aria-selected="false">Dinyatakan Lulus</a>
+                    <a class="nav-link" id="pills-lulus-tab" data-toggle="pill" href="#pills-lulus" role="tab"
+                        aria-controls="pills-lulus" aria-selected="false">Dinyatakan Lulus</a>
                 </li>
             </ul>
             <div class="tab-content" id="pills-tabContent" style="margin-top: -45px;">
-                <div class="tab-pane fade show active" id="pills-pendaftaran" role="tabpanel" aria-labelledby="pills-pendaftaran-tab">@include('admin.pendaftaran.pendaftaran')</div>
-                <div class="tab-pane fade" id="pills-dikonfirmasi" role="tabpanel" aria-labelledby="pills-dikonfirmasi-tab">@include('admin.pendaftaran.dikonfirmasi')</div>
-                <div class="tab-pane fade" id="pills-ditolak" role="tabpanel" aria-labelledby="pills-ditolak-tab">@include('admin.pendaftaran.ditolak')</div>
-                <div class="tab-pane fade" id="pills-lulus" role="tabpanel" aria-labelledby="pills-lulus-tab">@include('admin.pendaftaran.lulus')</div>
+                <div class="tab-pane fade show active" id="pills-pendaftaran" role="tabpanel"
+                    aria-labelledby="pills-pendaftaran-tab">@include('admin.pendaftaran.pendaftaran')</div>
+                <div class="tab-pane fade" id="pills-dikonfirmasi" role="tabpanel"
+                    aria-labelledby="pills-dikonfirmasi-tab">@include('admin.pendaftaran.dikonfirmasi')</div>
+                <div class="tab-pane fade" id="pills-ditolak" role="tabpanel" aria-labelledby="pills-ditolak-tab">
+                    @include('admin.pendaftaran.ditolak')</div>
+                <div class="tab-pane fade" id="pills-lulus" role="tabpanel" aria-labelledby="pills-lulus-tab">
+                    @include('admin.pendaftaran.lulus')</div>
             </div>
         </div>
     </div>

@@ -73,7 +73,9 @@ Route::group(['middleware' => ['auth', 'Checkrole:1']], function () {
 
     Route::get('/admin/user', 'UserController@profile')->name('userProfile');
 
-    Route::get('/admin/laporan', 'LaporanController@guru')->name('cetakGuru');
+    Route::get('/admin/laporan/cetakguru', 'LaporanController@guru')->name('cetakGuru');
+    Route::get('/admin/laporan/cetakpendaftar', 'LaporanController@pendaftar')->name('cetakPendaftar');
+    Route::post('/admin/laporan/cetakkegiatan', 'LaporanController@kegiatan')->name('cetakKegiatan');
 });
 
 Route::group(['middleware' => ['auth', 'Checkrole:2']], function () {
