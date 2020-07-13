@@ -125,22 +125,22 @@
                     <tr>
                         <td>1</td>
                         <td>Uang pangkal gedung</td>
-                        <td>50.000</td>
+                        <td>Rp. 50.000</td>
                     </tr>
                     <tr>
                         <td>2</td>
                         <td>Uang Seragam </td>
-                        <td>175.000</td>
+                        <td>Rp. 175.000</td>
                     </tr>
                     <tr>
                         <td>3</td>
                         <td>Uang pembayaran bulan 1 (pertama)</td>
-                        <td>85.000</td>
+                        <td>Rp. 85.000</td>
                     </tr>
                     <tr>
                         <td>4</td>
                         <td><b>Total</b></td>
-                        <td><b>Rp.310.000</b></td>
+                        <td><b>Rp. Rp.310.000</b></td>
                     </tr>
                 </tbody>
             </table>
