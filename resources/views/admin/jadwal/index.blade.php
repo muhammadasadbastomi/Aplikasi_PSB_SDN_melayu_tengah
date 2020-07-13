@@ -43,8 +43,7 @@ Data Jadwal
                                 <button type="button" class="btn btn-primary round mr-1 mb-1 float-right"
                                     data-id="{{$kelas->id}}" data-toggle="modal" data-target="#default"><i
                                         class="bx bx-plus-circle"></i> Tambah Jadwal</button>
-                                <a target="_blank" type="button"
-                                    href="{{ route('cetakJadwal',['id' => $d->id , 'uuid' => $d->uuid]) }}"
+                                <a target="_blank" type="button" href="{{ route('cetakJadwal') }}"
                                     class="btn btn-outline-default text-white float-right"><i class="menu-livicon"
                                         data-icon="print-doc"></i>Cetak</a>
                             </div>

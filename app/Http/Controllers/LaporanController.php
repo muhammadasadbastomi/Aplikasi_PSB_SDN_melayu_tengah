@@ -16,7 +16,7 @@ use App\Kegiatan;
 use App\Kelas_detail;
 use App\Kelas;
 use App\Mapel;
-use App\Pembayaranl;
+use App\Pembayaran;
 use App\Siswa;
 use App\Wali;
 
@@ -93,7 +93,7 @@ class LaporanController extends Controller
 
     public function jadwal($id)
     {
-        $kelas = Kelas::where('id', $id)->first();
+        $kelas = Kelas::findOrfail('id', $id)->first();
         $senin = Jadwal::where('kelas_id', $id)->where('hari', 1)->get();
         $selasa = Jadwal::where('kelas_id', $id)->where('hari', 2)->get();
         $rabu = Jadwal::where('kelas_id', $id)->where('hari', 3)->get();
@@ -105,5 +105,16 @@ class LaporanController extends Controller
         $pdf = PDF::loadview('admin/laporan/jadwalmapel', compact('senin', 'selasa', 'rabu', 'kamis', 'jumat', 'sabtu', 'kelas', 'mapel'));
         $pdf->setPaper('a4', 'portrait');
         return $pdf->stream('laporan-jadwalmapel-pdf');
+    }
+
+    public function pendapatan(Request $request)
+    {
+        $start = $request->start;
+        $end = $request->end;
+        $data = Pembayaran::whereBetween('tgl_bayar', [$start, $end])->get();
+
+        $pdf = PDF::loadview('admin/laporan/pendapatan', compact('data', 'start', 'end'));
+        $pdf->setPaper('a4', 'portrait');
+        return $pdf->stream('laporan-pendapatan-pdf');
     }
 }
