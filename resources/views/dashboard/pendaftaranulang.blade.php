@@ -1,4 +1,4 @@
-<h4 class="text-success">Pendaftaran Telah Dikonfirmasi, Silahkan Lakukan Pendaftaran Ulang Sebagai Berikut : <button class="btn btn-outline-default text-white float-right"> <i class="menu-livicon" data-icon="print-doc"></i> Print </button></h4>
+<h4 class="text-success">Pendaftaran Telah Dikonfirmasi, Silahkan Lakukan Pendaftaran Ulang Sebagai Berikut :</h4>
 <ol>
     <li>Pendaftaran Ulang dapat dilakukan dengan cara Cash atau Dicicil.</li>
     <li>Pembayaran Cicilan maksimal 2 Kali Pembayaran, Dengan Pembayaran Pertama Rp.155.000,-</li>
@@ -6,7 +6,9 @@
     <li>Batas Waktu Pendaftaran Ulang Dapat Dilihat Pada Daftar <a href="{{route('kegiatanShow')}}"> Kegiatan</a>.</li>
 </ol>
 
-<h5><b>Ketentuan Biaya yang harus dibayarkan : <button class="btn btn-sm btn-outline-primary"><i class="fa fa-print"></i> Cetak</button> </b></h5>
+<h5><b>Ketentuan Biaya yang harus dibayarkan : <a target="_blank" href="{{ route('cetakKetentuan') }}"
+            class="btn btn-sm btn-outline-primary"><i class="fa fa-print"></i> Cetak</a> </b></h5>
+
 <ol>
     <table class="table table-responsive" style="margin-left: -68px;">
         <thead>

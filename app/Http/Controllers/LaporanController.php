@@ -117,4 +117,15 @@ class LaporanController extends Controller
         $pdf->setPaper('a4', 'portrait');
         return $pdf->stream('laporan-pendapatan-pdf');
     }
+
+    public function ketentuanbiaya()
+    {
+        $gedung = 50000;
+        $seragam = 175000;
+        $sppbln1 = 85000;
+
+        $pdf = PDF::loadview('admin/laporan/ketentuanbiaya', compact('gedung', 'seragam', 'sppbln1'));
+        $pdf->setPaper('a4', 'portrait');
+        return $pdf->stream('laporan-ketentuanbiaya-pdf');
+    }
 }

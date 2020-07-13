@@ -87,6 +87,7 @@ Route::group(['middleware' => ['auth', 'Checkrole:1']], function () {
     Route::post('/admin/laporan/cetakkelas', 'LaporanController@pembagiankelas')->name('cetakKelas');
     Route::post('/admin/laporan/cetakjadwal', 'LaporanController@jadwal')->name('cetakJadwal');
     Route::post('/admin/laporan/cetakpendapatan', 'LaporanController@pendapatan')->name('cetakPendapatan');
+    Route::get('/admin/laporan/cetakketentuanbiaya', 'LaporanController@ketentuanbiaya')->name('cetakKetentuan');
 });
 
 Route::group(['middleware' => ['auth', 'Checkrole:2']], function () {
@@ -103,4 +104,6 @@ Route::group(['middleware' => ['auth', 'Checkrole:2']], function () {
     Route::get('/siswa/kegiatan', 'KegiatanController@show')->name('kegiatanShow');
 
     Route::get('/siswa/kalender', 'KalenderController@tampil')->name('kalenderTampil');
+
+    Route::get('/admin/laporan/cetakketentuanbiaya', 'LaporanController@ketentuanbiaya')->name('cetakKetentuan');
 });
