@@ -43,6 +43,9 @@ Data Kalender Akademik
                                     <button type="button" class="btn btn-primary round mr-1 mb-1 float-right"
                                         data-toggle="modal" data-target="#modaltambah"> Tambah Data <i
                                             class="bx bx-plus-circle"></i></button>
+                                    <button type="button" data-toggle="modal" data-target="#cetaklulus"
+                                        class="btn btn-outline-default text-white float-right"><i class="menu-livicon"
+                                            data-icon="print-doc"></i>Cetak</button>
                                     <div class="table-responsive">
                                         <table class="table zero-configuration">
                                             <thead>

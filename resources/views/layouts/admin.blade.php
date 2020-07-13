@@ -19,7 +19,7 @@
 
     <!-- BEGIN: Vendor CSS-->
     <link rel="stylesheet" type="text/css" href="{{ asset('app-assets/vendors/css/vendors.min.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('app-assets/vendors/css/charts/apexcharts.css') }}">
+
     <link rel="stylesheet" type="text/css" href="{{ asset('app-assets/vendors/css/extensions/dragula.min.css') }}">
     <!-- END: Vendor CSS-->
     @yield('head')
@@ -106,7 +106,7 @@
 
     <!-- BEGIN: Page Vendor JS-->
     <script src="{{ asset('app-assets/vendors/js/ui/jquery.sticky.js') }}"></script>
-    <script src="{{ asset('app-assets/vendors/js/charts/apexcharts.min.js') }}"></script>
+
     <script src="{{ asset('app-assets/vendors/js/extensions/dragula.min.js') }}"></script>
     <!-- END: Page Vendor JS-->
 
@@ -119,7 +119,7 @@
     <!-- END: Theme JS-->
 
     <!-- BEGIN: Page JS-->
-    <script src="{{ asset('app-assets/js/scripts/pages/dashboard-analytics.js') }}"></script>
+
     <!-- END: Page JS-->
     @yield('script')
 </body>

@@ -20,7 +20,8 @@ Data Kelas
                         <h5 class="content-header-title float-left pr-1 mb-0">Data Kelas</h5>
                         <div class="breadcrumb-wrapper col-12">
                             <ol class="breadcrumb p-0 mb-0">
-                                <li class="breadcrumb-item"><a href="{{ route('dashboard') }}"><i class="bx bx-home-alt"></i></a>
+                                <li class="breadcrumb-item"><a href="{{ route('dashboard') }}"><i
+                                            class="bx bx-home-alt"></i></a>
                                 </li>
                                 <li class="breadcrumb-item active">Data Kelas
                                 </li>
@@ -39,7 +40,11 @@ Data Kelas
                         <div class="card">
                             <div class="card-content">
                                 <div class="card-body card-dashboard">
-                                    <button type="button" class="btn btn-primary round mr-1 mb-1" data-toggle="modal" data-target="#default"><i class="bx bx-plus-circle"></i></button>
+                                    <button type="button" class="btn btn-primary round mr-1 mb-1" data-toggle="modal"
+                                        data-target="#default"><i class="bx bx-plus-circle"></i></button>
+                                    <button type="button" data-toggle="modal" data-target="#cetak"
+                                        class="btn btn-outline-default text-white float-right"><i class="menu-livicon"
+                                            data-icon="print-doc"></i>Cetak</button>
                                     <div class="table-responsive">
                                         <table class="table zero-configuration">
                                             <thead>
@@ -59,14 +64,22 @@ Data Kelas
                                                     <td class="text-center">{{$d->kode_kelas}}</td>
                                                     <td class="text-center">{{$d->kelas}}</td>
                                                     <td class="text-center">
-                                                        <a href="{{route('jadwalIndex',['id' => $d->id , 'uuid' => $d->uuid])}}" class="btn btn-primary round mr-1 mb-1 text-white"><i class="bx bxs-search"></i></a>
+                                                        <a href="{{route('jadwalIndex',['id' => $d->id , 'uuid' => $d->uuid])}}"
+                                                            class="btn btn-primary round mr-1 mb-1 text-white"><i
+                                                                class="bx bxs-search"></i></a>
                                                     </td>
                                                     <td class="text-center">
-                                                        <a href="{{route('pembagianIndex',['id' => $d->id , 'uuid' => $d->uuid])}}" class="btn btn-primary round mr-1 mb-1 text-white"><i class="bx bxs-search"></i></a>
+                                                        <a href="{{route('pembagianIndex',['id' => $d->id , 'uuid' => $d->uuid])}}"
+                                                            class="btn btn-primary round mr-1 mb-1 text-white"><i
+                                                                class="bx bxs-search"></i></a>
                                                     </td>
                                                     <td class="text-center">
-                                                        <a class="btn btn-info round mr-1 mb-1 text-white" data-toggle="modal" data-target="#modaledit" data-id="{{$d->id}}" data-kode_kelas="{{$d->kode_kelas}}" data-kelas="{{$d->kelas}}"><i class="bx bxs-edit"></i></a>
-                                                        <a class="delete btn btn-danger round mr-1 mb-1 text-white" data-id="{{$d->uuid}}"><i class="bx bx-trash"></i></a>
+                                                        <a class="btn btn-info round mr-1 mb-1 text-white"
+                                                            data-toggle="modal" data-target="#modaledit"
+                                                            data-id="{{$d->id}}" data-kode_kelas="{{$d->kode_kelas}}"
+                                                            data-kelas="{{$d->kelas}}"><i class="bx bxs-edit"></i></a>
+                                                        <a class="delete btn btn-danger round mr-1 mb-1 text-white"
+                                                            data-id="{{$d->uuid}}"><i class="bx bx-trash"></i></a>
                                                     </td>
                                                 </tr>
                                                 @endforeach
@@ -86,6 +99,7 @@ Data Kelas
 </div>
 @include('admin.kelas.tambah')
 @include('admin.kelas.edit')
+@include('admin.kelas.cetak')
 @endsection
 
 @section('script')

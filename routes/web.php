@@ -84,6 +84,8 @@ Route::group(['middleware' => ['auth', 'Checkrole:1']], function () {
     Route::post('/admin/laporan/cetaklulus', 'LaporanController@lulus')->name('cetakLulus');
     Route::post('/admin/laporan/cetakkegiatan', 'LaporanController@kegiatan')->name('cetakKegiatan');
     Route::post('/admin/laporan/cetakkalender', 'LaporanController@kalender')->name('cetakKalender');
+    Route::post('/admin/laporan/cetakkelas', 'LaporanController@pembagiankelas')->name('cetakKelas');
+    Route::post('/admin/laporan/cetakjadwal', 'LaporanController@jadwal')->name('cetakJadwal');
 });
 
 Route::group(['middleware' => ['auth', 'Checkrole:2']], function () {
