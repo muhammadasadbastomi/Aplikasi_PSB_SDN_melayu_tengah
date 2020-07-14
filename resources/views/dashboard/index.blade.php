@@ -73,29 +73,33 @@
             @elseif(Auth::user()->role ==1)
             <div class="content-body">
                 <div class="row">
-                    <div class="col-sm-3 col-12 dashboard-users-success">
+                    <div class="col-sm-3 col-12 dashboard-users-info">
                         <div class="card text-center">
                             <div class="card-content">
                                 <div class="card-body py-1">
-                                    <div class="badge-circle badge-circle-lg badge-circle-light-success mx-auto mb-50">
-                                        <i class="bx bx-briefcase-alt font-medium-5"></i>
+                                    <div class="badge-circle badge-circle-lg badge-circle-light-info mx-auto mb-50">
+                                        <i class="bx bx-list-ol font-medium-5"></i>
                                     </div>
-                                    <div class="text-muted line-ellipsis">Total Siswa</div>
-                                    <h3 class="mb-0">1.2k</h3>
+                                    <div class="text-muted line-ellipsis">Total Pendaftaran</div>
+                                    <h3 class="mb-0">@if(empty(pendaftar())) Tidak Ada Data @else {{ pendaftar() }}
+                                        @endif
+                                    </h3>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="col-sm-3 col-12 dashboard-users-success">
+                    <div class="col-sm-3 col-12 dashboard-users-warning">
                         <div class="card text-center">
                             <div class="card-content">
                                 <div class="card-body py-1">
-                                    <div class="badge-circle badge-circle-lg badge-circle-light-success mx-auto mb-50">
-                                        <i class="bx bx-briefcase-alt font-medium-5"></i>
+                                    <div class="badge-circle badge-circle-lg badge-circle-light-warning mx-auto mb-50">
+                                        <i class="bx bx-user-plus font-medium-5"></i>
                                     </div>
                                     <div class="text-muted line-ellipsis">Siswa dalam pendaftaran</div>
-                                    <h3 class="mb-0">1.2k</h3>
+                                    <h3 class="mb-0">@if(empty(pendaftaran())) Tidak Ada Pendaftar @else
+                                        {{ pendaftaran() }}
+                                        @endif</h3>
                                 </div>
                             </div>
                         </div>
@@ -106,24 +110,26 @@
                             <div class="card-content">
                                 <div class="card-body py-1">
                                     <div class="badge-circle badge-circle-lg badge-circle-light-success mx-auto mb-50">
-                                        <i class="bx bx-briefcase-alt font-medium-5"></i>
+                                        <i class="bx bx-check font-medium-5"></i>
                                     </div>
                                     <div class="text-muted line-ellipsis">Total Siswa Diterima</div>
-                                    <h3 class="mb-0">1.2k</h3>
+                                    <h3 class="mb-0">@if(empty(lulus())) Tidak Ada Data @else {{ lulus() }}
+                                        @endif</h3>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="col-sm-3 col-12 dashboard-users-success">
+                    <div class="col-sm-3 col-12 dashboard-users-danger">
                         <div class="card text-center">
                             <div class="card-content">
                                 <div class="card-body py-1">
-                                    <div class="badge-circle badge-circle-lg badge-circle-light-success mx-auto mb-50">
-                                        <i class="bx bx-briefcase-alt font-medium-5"></i>
+                                    <div class="badge-circle badge-circle-lg badge-circle-light-danger mx-auto mb-50">
+                                        <i class="bx bx-x font-medium-5"></i>
                                     </div>
                                     <div class="text-muted line-ellipsis">Total Siswa Ditolak</div>
-                                    <h3 class="mb-0">1.2k</h3>
+                                    <h3 class="mb-0">@if(empty(ditolak())) Tidak Ada Data @else {{ ditolak() }}
+                                        @endif</h3>
                                 </div>
                             </div>
                         </div>
