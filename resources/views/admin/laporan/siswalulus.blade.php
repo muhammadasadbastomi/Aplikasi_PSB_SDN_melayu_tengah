@@ -95,7 +95,7 @@
             <img class="sizeimg" src="images/logobanjar.png">
         </div>
         <div class="headtext">
-            <h1 style="margin:0px;">SDN MELAYU</h1>
+            <h1 style="margin:0px;">SDN MELAYU TENGAH</h1>
             <h3 style="margin:0px;">KABUPATEN BANJAR</h3>
             <p style="margin:0px;">Jl. Melayu Ulu, Desa Melayu, Martapura Timur, Kab. Banjar, Kalimantan Selatan 70617
             </p>

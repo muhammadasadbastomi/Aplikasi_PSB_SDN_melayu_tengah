@@ -96,7 +96,7 @@
             <img class="sizeimg" src="images/logobanjar.png">
         </div>
         <div class="headtext">
-            <h1 style="margin:0px;">SDN MELAYU</h1>
+            <h1 style="margin:0px;">SDN MELAYU TENGAH</h1>
             <h3 style="margin:0px;">KABUPATEN BANJAR</h3>
             <p style="margin:0px;">Jl. Melayu Ulu, Desa Melayu, Martapura Timur, Kab. Banjar, Kalimantan Selatan 70617
             </p>
@@ -109,8 +109,10 @@
         <br>
         <h4>Ketentuan :</h4>
         <li style="margin-left:20px;">Pendaftaran Ulang dapat dilakukan dengan cara Cash atau Dicicil.</li>
-        <li style="margin-left:20px;">Pembayaran Cicilan maksimal 2 Kali Pembayaran, Dengan Pembayaran Pertama Rp.155.000,-</li>
-        <li style="margin-left:20px;">Bagi anak yang kurang mampu bisa menyerahkan Surat Miskin ke Pihak Sekolah atas Rekomendasi RT.</li>
+        <li style="margin-left:20px;">Pembayaran Cicilan maksimal 2 Kali Pembayaran, Dengan Pembayaran Pertama
+            Rp.155.000,-</li>
+        <li style="margin-left:20px;">Bagi anak yang kurang mampu bisa menyerahkan Surat Miskin ke Pihak Sekolah atas
+            Rekomendasi RT.</li>
         <br>
         <h4>Ketentuan Biaya Yang Harus Dibayar :</h4>
         <ol>
