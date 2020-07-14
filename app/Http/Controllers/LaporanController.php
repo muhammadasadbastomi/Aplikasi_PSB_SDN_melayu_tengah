@@ -36,10 +36,10 @@ class LaporanController extends Controller
         $start = $request->start;
         $end = $request->end;
         $data = Siswa::whereBetween('siswas.created_at', [$start, $end])
-        ->join('users', 'users.id', '=', 'siswas.user_id')
-        ->orderBy('users.name', 'ASC')->get();
+            ->join('users', 'users.id', '=', 'siswas.user_id')
+            ->orderBy('users.name', 'ASC')->get();
 
-        $pdf = PDF::loadview('admin/laporan/pendaftar', compact('data' , 'start', 'end'));
+        $pdf = PDF::loadview('admin/laporan/pendaftar', compact('data', 'start', 'end'));
         $pdf->setPaper('a4', 'portrait');
         return $pdf->stream('laporan-pendaftar-pdf');
     }
@@ -49,10 +49,10 @@ class LaporanController extends Controller
         $start = $request->start;
         $end = $request->end;
         $data = Siswa::where('status', 4)->whereBetween('siswas.created_at', [$start, $end])
-        ->join('users', 'users.id', '=', 'siswas.user_id')
-        ->orderBy('users.name', 'ASC')->get();
+            ->join('users', 'users.id', '=', 'siswas.user_id')
+            ->orderBy('users.name', 'ASC')->get();
 
-        $pdf = PDF::loadview('admin/laporan/siswalulus', compact('data' , 'start', 'end'));
+        $pdf = PDF::loadview('admin/laporan/siswalulus', compact('data', 'start', 'end'));
         $pdf->setPaper('a4', 'portrait');
         return $pdf->stream('laporan-pendaftar-lulus-pdf');
     }
@@ -81,19 +81,19 @@ class LaporanController extends Controller
 
     public function pembagiankelas(Request $request)
     {
-        $tgl= Carbon::now()->format('d-m-Y');
+        $tgl = Carbon::now()->format('d-m-Y');
         $filter = $request->filter;
-        $data = Kelas_detail::join('kelas','kelas.id', '=', 'kelas_details.kelas_id')->where('kelas','like',"%" .$filter. "%")->orderBy('kelas', 'ASC')->get();
+        $data = Kelas_detail::join('kelas', 'kelas.id', '=', 'kelas_details.kelas_id')->where('kelas', 'like', "%" . $filter . "%")->orderBy('kelas', 'ASC')->get();
 
 
-        $pdf = PDF::loadview('admin/laporan/pembagiankelas', compact('data','tgl'));
+        $pdf = PDF::loadview('admin/laporan/pembagiankelas', compact('data', 'tgl'));
         $pdf->setPaper('a4', 'portrait');
         return $pdf->stream('laporan-pembagiankelas-pdf');
     }
 
     public function jadwal($id)
     {
-        $kelas = Kelas::findOrfail('id', $id)->first();
+        $kelas = Kelas::where('id', $id)->first();
         $senin = Jadwal::where('kelas_id', $id)->where('hari', 1)->get();
         $selasa = Jadwal::where('kelas_id', $id)->where('hari', 2)->get();
         $rabu = Jadwal::where('kelas_id', $id)->where('hari', 3)->get();
@@ -101,8 +101,7 @@ class LaporanController extends Controller
         $jumat = Jadwal::where('kelas_id', $id)->where('hari', 5)->get();
         $sabtu = Jadwal::where('kelas_id', $id)->where('hari', 6)->get();
 
-
-        $pdf = PDF::loadview('admin/laporan/jadwalmapel', compact('senin', 'selasa', 'rabu', 'kamis', 'jumat', 'sabtu', 'kelas', 'mapel'));
+        $pdf = PDF::loadview('admin/laporan/jadwalmapel', compact('senin', 'selasa', 'rabu', 'kamis', 'jumat', 'sabtu', 'kelas'));
         $pdf->setPaper('a4', 'portrait');
         return $pdf->stream('laporan-jadwalmapel-pdf');
     }
@@ -112,6 +111,14 @@ class LaporanController extends Controller
         $start = $request->start;
         $end = $request->end;
         $data = Pembayaran::whereBetween('tgl_bayar', [$start, $end])->get();
+
+        $data  = $data->map(function ($item) {
+            $jumlah =  $item->nominal + $item->cicilan->nominal;
+            $item['jumlah'] = $jumlah;
+
+            return $item;
+        });
+
 
         $pdf = PDF::loadview('admin/laporan/pendapatan', compact('data', 'start', 'end'));
         $pdf->setPaper('a4', 'portrait');

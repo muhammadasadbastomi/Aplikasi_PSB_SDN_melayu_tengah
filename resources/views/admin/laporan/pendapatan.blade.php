@@ -144,7 +144,14 @@
                     </td>
                 </tr>
                 @endforeach
+
             </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="5">Total</td>
+                    <td>1</td>
+                </tr>
+            </tfoot>
         </table>
         <br>
         <br>

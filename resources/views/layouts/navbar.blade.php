@@ -2,9 +2,9 @@
     <div class="navbar-header d-xl-block d-none">
         <ul class="nav navbar-nav flex-row">
             <li class="nav-item"><a class="navbar-brand" href="{{ route('dashboard') }}">
-                    <div class="brand-logo"><img class="logo" src="{{ asset('images/logobanjar.png') }}">
+                    <div style="margin-left:-130px;" class="brand-logo"><img class="logo" src="{{ asset('images/logobanjar.png') }}">
                     </div>
-                    <h2 class="brand-text mb-0">PSB SDN Melayu</h2>
+                    <h2 class="brand-text mb-0">PSB SDN Melayu Tengah</h2>
                 </a></li>
         </ul>
     </div>
@@ -13,8 +13,7 @@
             <div class="navbar-collapse" id="navbar-mobile">
                 <div class="mr-auto float-left bookmark-wrapper d-flex align-items-center">
                     <ul class="nav navbar-nav">
-                        <li class="nav-item mobile-menu mr-auto"><a class="nav-link nav-menu-main menu-toggle"
-                                href="#"><i class="bx bx-menu"></i></a></li>
+                        <li class="nav-item mobile-menu mr-auto"><a class="nav-link nav-menu-main menu-toggle" href="#"><i class="bx bx-menu"></i></a></li>
                     </ul>
                     <ul class="nav navbar-nav">
                         <li class="nav-item mr-auto text-white">
@@ -22,22 +21,17 @@
                     </ul>
                 </div>
                 <ul class="nav navbar-nav float-right d-flex align-items-center">
-                    <li class="nav-item d-none d-lg-block"><a class="nav-link nav-link-expand"><i
-                                class="ficon bx bx-fullscreen"></i></a></li>
-                    <li class="dropdown dropdown-user nav-item"><a class="dropdown-toggle nav-link dropdown-user-link"
-                            href="#" data-toggle="dropdown">
+                    <li class="nav-item d-none d-lg-block"><a class="nav-link nav-link-expand"><i class="ficon bx bx-fullscreen"></i></a></li>
+                    <li class="dropdown dropdown-user nav-item"><a class="dropdown-toggle nav-link dropdown-user-link" href="#" data-toggle="dropdown">
                             <div class="user-nav d-lg-flex d-none">
                                 <span class="user-name">{{ Auth::user()->name }}</span>
                                 <span class="user-status">Available</span></div>
                             @if((Auth::user()->role == 2) && (Auth::user()->photos == !null))
-                            <span><img class="round" src="{{ url('images/biodata/'. Auth::user()->photos )}}"
-                                    height="40" width="40" alt=""></span>
+                            <span><img class="round" src="{{ url('images/biodata/'. Auth::user()->photos )}}" height="40" width="40" alt=""></span>
                             @elseif((Auth::user()->role == 2) && (Auth::user()->photos == !null))
-                            <span><img class="round" src="{{ url('images/admin/'. Auth::user()->photos )}}" height="40"
-                                    width="40" alt=""></span>
+                            <span><img class="round" src="{{ url('images/admin/'. Auth::user()->photos )}}" height="40" width="40" alt=""></span>
                             @else
-                            <span><img class="round" src="{{ url('images/default.png') }}" alt="avatar" height="40"
-                                    width="40"></span>
+                            <span><img class="round" src="{{ url('images/default.png') }}" alt="avatar" height="40" width="40"></span>
                             @endif
                         </a>
                         <div class="dropdown-menu dropdown-menu-right pb-0">

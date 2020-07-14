@@ -27,6 +27,7 @@
             border: 1px solid;
             padding-left: 5px;
             text-align: center;
+            height: 30px;
         }
 
         .judul {
@@ -107,9 +108,9 @@
         <h3 style="text-align:center;text-transform: uppercase;">Informasi Ketentuan Biaya</h3>
         <br>
         <h4>Ketentuan :</h4>
-        <li>Pendaftaran Ulang dapat dilakukan dengan cara Cash atau Dicicil.</li>
-        <li>Pembayaran Cicilan maksimal 2 Kali Pembayaran, Dengan Pembayaran Pertama Rp.155.000,-</li>
-        <li>Bagi anak yang kurang mampu bisa menyerahkan Surat Miskin ke Pihak Sekolah atas Rekomendasi RT.</li>
+        <li style="margin-left:20px;">Pendaftaran Ulang dapat dilakukan dengan cara Cash atau Dicicil.</li>
+        <li style="margin-left:20px;">Pembayaran Cicilan maksimal 2 Kali Pembayaran, Dengan Pembayaran Pertama Rp.155.000,-</li>
+        <li style="margin-left:20px;">Bagi anak yang kurang mampu bisa menyerahkan Surat Miskin ke Pihak Sekolah atas Rekomendasi RT.</li>
         <br>
         <h4>Ketentuan Biaya Yang Harus Dibayar :</h4>
         <ol>
