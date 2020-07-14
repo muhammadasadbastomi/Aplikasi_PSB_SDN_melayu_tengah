@@ -32,6 +32,11 @@ class CreateSiswasTable extends Migration
             $table->string('pembayaran_id')->nullable();
             $table->integer('status')->nullable();
             $table->timestamps();
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('wali_id')->references('id')->on('walis')->onDelete('cascade');
+            $table->foreign('ayah_id')->references('id')->on('ayahs')->onDelete('cascade');
+            $table->foreign('ibu_id')->references('id')->on('ibus')->onDelete('cascade');
+            $table->foreign('pembayaran_id')->references('id')->on('pembayarans')->onDelete('cascade');
         });
     }
 
