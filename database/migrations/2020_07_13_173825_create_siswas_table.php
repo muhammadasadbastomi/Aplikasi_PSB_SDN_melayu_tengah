@@ -29,7 +29,7 @@ class CreateSiswasTable extends Migration
             $table->string('jumlah_saudara')->nullable();
             $table->string('akte')->nullable();
             $table->string('kk')->nullable();
-            $table->string('pembayaran_id')->nullable();
+            $table->unsignedBigInteger('pembayaran_id')->nullable();
             $table->integer('status')->nullable();
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');

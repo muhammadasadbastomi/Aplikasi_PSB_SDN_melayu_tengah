@@ -110,17 +110,22 @@ class LaporanController extends Controller
     {
         $start = $request->start;
         $end = $request->end;
-        $data = Pembayaran::whereBetween('tgl_bayar', [$start, $end])->get();
+        $data = Pembayaran::whereBetween('tgl_bayar', [$start, $end])->with('cicilan')->get();
 
         $data  = $data->map(function ($item) {
+        if($item->cicilan_id != null){
             $jumlah =  $item->nominal + $item->cicilan->nominal;
+        }else{
+            $jumlah =  $item->nominal;
+        }
             $item['jumlah'] = $jumlah;
 
             return $item;
         });
+        $total = $data->sum('jumlah');
 
 
-        $pdf = PDF::loadview('admin/laporan/pendapatan', compact('data', 'start', 'end'));
+        $pdf = PDF::loadview('admin/laporan/pendapatan', compact('data', 'start', 'end','total'));
         $pdf->setPaper('a4', 'portrait');
         return $pdf->stream('laporan-pendapatan-pdf');
     }

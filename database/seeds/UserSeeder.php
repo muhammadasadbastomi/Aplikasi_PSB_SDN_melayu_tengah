@@ -23,16 +23,16 @@ class UserSeeder extends Seeder
             'password' => Hash::make('123'),
         ]);
 
-        //faker
-        // $faker = Faker::create('id_ID');
+        // faker
+        $faker = Faker::create('id_ID');
 
-        // for ($i = 0; $i < 10; $i++) {
-        //     DB::table('users')->insert([
-        //         'uuid' => Str::random(36),
-        //         'name' => $faker->firstNameFemale,
-        //         'email' => $faker->email,
-        //         'password' => Hash::make('123'),
-        //     ]);
-        // }
+        for ($i = 0; $i < 10; $i++) {
+            DB::table('users')->insert([
+                'uuid' => Str::random(36),
+                'name' => $faker->firstNameFemale,
+                'email' => $faker->email,
+                'password' => Hash::make('123'),
+            ]);
+        }
     }
 }

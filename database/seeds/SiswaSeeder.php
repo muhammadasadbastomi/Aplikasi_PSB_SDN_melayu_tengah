@@ -19,10 +19,10 @@ class SiswaSeeder extends Seeder
         for ($i = 0; $i < 10; $i++) {
             DB::table('siswas')->insert([
                 'uuid' => Str::random(36),
-                'user_id' => $faker->unique()->numberBetween(2, 11),
-                'wali_id' => $faker->numberBetween(1, 10),
-                'ayah_id' => $faker->numberBetween(1, 10),
-                'ibu_id' => $faker->numberBetween(1, 10),
+                'user_id' => $i,
+                'wali_id' => $i,
+                'ayah_id' => $i,
+                'ibu_id' => $i,
                 'alamat' => $faker->address,
                 'agama' => 'Islam',
                 'tempat_lahir' => $faker->address,

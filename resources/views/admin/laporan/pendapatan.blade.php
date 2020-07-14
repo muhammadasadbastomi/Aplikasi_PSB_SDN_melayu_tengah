@@ -149,7 +149,7 @@
             <tfoot>
                 <tr>
                     <td colspan="5">Total</td>
-                    <td>1</td>
+                    <td>@currency($total),-</td>
                 </tr>
             </tfoot>
         </table>
