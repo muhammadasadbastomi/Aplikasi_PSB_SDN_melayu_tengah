@@ -1,5 +1,6 @@
 <!--Basic Modal -->
-<div class="modal fade text-left" id="modalphotos" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" aria-hidden="true">
+<div class="modal fade text-left" id="modalphotos" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1"
+    aria-hidden="true">
     <div class="modal-dialog modal-dialog-scrollable" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -12,10 +13,10 @@
                 <form method="post" enctype="multipart/form-data">
                     @csrf
                     <input type="hidden" id="id" name="id" value="{{auth::user()->id}}">
-                    <fieldsetieldset class="form-group">
+                    <fieldset class="form-group">
                         <label for="photos">Foto Siswa</label>
                         <input type="file" class="form-control" id="photos" name="photos">
-                    </fieldsetieldset>
+                    </fieldset>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-light-secondary" data-dismiss="modal">Close</button>
                         <button type="submit" class="btn btn-primary ml-1">Upload</button>

@@ -31,7 +31,7 @@ class SiswaController extends Controller
     {
         $data = Siswa::where('uuid', $id)->first();
 
-        return view('admin.siswa.show', compact('data'));
+        return view('admin.pendaftaran.show', compact('data'));
     }
 
     public function konfirmasi($id)

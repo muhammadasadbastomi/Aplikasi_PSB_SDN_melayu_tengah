@@ -30,8 +30,10 @@
                                                 class="text-danger">Pendaftaran ditolak</a> @else <a
                                                 class="text-info">Telah Lulus</a> @endif</td>
                                         <td class="text-center">
-                                            <a class="btn btn-info round mr-1 mb-1 text-white"><i
-                                                    class="bx bx-search"></i> Lihat</a>
+                                            <a href="{{ route('siswaShow',['id' => $d->uuid]) }}"
+                                                class="btn btn-info round mr-1 mb-1 text-white">
+                                                <i class="bx bx-search"></i>
+                                                Lihat</a>
                                             <a href="{{ route('siswaKonfirmasi',['id' => $d->uuid]) }}"
                                                 class="btn btn-primary round mr-1 mb-1 text-white">Konfirmasi</a>
                                             <a href="{{ route('siswaTolak',['id' => $d->uuid]) }}"
