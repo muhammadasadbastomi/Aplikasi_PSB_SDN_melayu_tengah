@@ -23,12 +23,18 @@
                                     <tr>
                                         <td class="text-center">{{$loop->iteration}}</td>
                                         <td class="text-center">{{$d->siswa->user->name}}</td>
-                                        <td class="text-center">@if($d->metode == 2) Pembayaran Cash @else Pembayaran Cicilan @endif</td>
-                                        <td class="text-center">{{Carbon\Carbon::parse($d->tgl_bayar)->translatedFormat('d F Y')}}</td>
-                                        <td class="text-center">@if($d->cicilan_id == !null) Ke-{{$d->cicilan->cicilan_ke}} @else - @endif</td>
-                                        <td class="text-center">{{Carbon\Carbon::parse($expired)->translatedFormat('d F Y')}}</td>
+                                        <td class="text-center">@if($d->metode == 2) Pembayaran Cash @else Pembayaran
+                                            Cicilan @endif</td>
                                         <td class="text-center">
-                                            <a class="btn btn-info round mr-1 mb-1 text-white" data-toggle="modal" data-target="#modalshow" data-id="{{$d->id}}" data-nominal="{{$d->nominal}}" data-terbilang="{{$d->terbilang}}" data-bukti="{{$d->bukti}}"><i class="bx bxs-search"></i></a>
+                                            {{Carbon\Carbon::parse($d->tgl_bayar)->translatedFormat('d F Y')}}</td>
+                                        <td class="text-center">@if($d->cicilan_id == !null)
+                                            Ke-{{$d->cicilan->cicilan_ke}} @else - @endif</td>
+                                        <td class="text-center">
+                                            {{Carbon\Carbon::parse($expired)->translatedFormat('d F Y')}}</td>
+                                        <td class="text-center">
+                                            <a class="btn btn-info round mr-1 mb-1 text-white"
+                                                href="{{ route('pembayaranShow',['id' => $d->uuid]) }}"><i
+                                                    class="bx bxs-search"></i></a>
                                         </td>
                                     </tr>
                                     @endforeach

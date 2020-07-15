@@ -156,6 +156,13 @@ class PembayaranController extends Controller
         return view('admin.pembayaran.index', compact('data', 'lunas', 'cicil'));
     }
 
+    public function show($id)
+    {
+        $data = Pembayaran::where('uuid', $id)->first();
+
+        return view('admin.pembayaran.show', compact('data'));
+    }
+
     public function konfirmasi(Request $request)
     {
 

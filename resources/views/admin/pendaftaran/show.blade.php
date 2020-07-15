@@ -297,8 +297,77 @@ Biodata Siswa
                                     </div>
                                 </div>
                             </div>
+                            <hr>
 
                             <div class="card-body col-12">
+                                <div class="row">
+                                    <div class="col-sm">
+                                        <h3 class="text-center">Foto Ayah</h3>
+                                        <br>
+                                        <div class="text-center">
+                                            @if($data->ayah->foto == null)
+                                            <h2 class="text-center">Belum Ada Foto</h2>
+                                            @elseif($data->ayah->foto == !null)
+                                            <img style="height: 50%; width: 50%;"
+                                                src="{{ url('images/biodata/'. $data->ayah->foto )}}"
+                                                class="image-fluid" alt="responsive-image">
+                                            @endif
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm">
+                                        <h3 class="text-center">Foto Ibu</h3>
+                                        <br>
+                                        <div class="text-center">
+                                            @if($data->ibu->foto == null)
+                                            <h2 class="text-center">Belum Ada Foto</h2>
+                                            @elseif($data->ibu->foto == !null)
+                                            <img style="height: 50%; width: 50%;"
+                                                src="{{ url('images/biodata/'. $data->ibu->foto )}}" class="image-fluid"
+                                                alt="responsive-image">
+                                            @endif
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr>
+
+                            <div class="card-body col-12">
+                                <div class="row">
+                                    <div class="col-sm">
+                                        <h3 class="text-center">Foto Siswa</h3>
+                                        <br>
+                                        <div class="text-center">
+                                            @if($data->user->photos == null)
+                                            <h2 class="text-center">Belum Ada Foto</h2>
+                                            @elseif($data->user->photos == !null)
+                                            <img style="height: 50%; width: 50%;"
+                                                src="{{ url('images/biodata/'. $data->user->photos )}}"
+                                                class="image-fluid" alt="responsive-image">
+                                            @endif
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm">
+                                        <h3 class="text-center">Foto Wali</h3>
+                                        <br>
+                                        <div class="text-center">
+                                            @if($data->wali_id == null)
+                                            <h2 class="text-center">Tidak Ada Wali</h2>
+                                            @elseif($data->wali->foto == null)
+                                            <h2 class="text-center">Belum Ada Foto</h2>
+                                            @elseif($data->wali_id == !null)
+                                            <img style="height: 50%; width: 50%;"
+                                                src="{{ url('images/biodata/'. $data->wali->foto )}}"
+                                                class="image-fluid" alt="responsive-image">
+                                            @endif
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr>
+
+                            {{-- <div class="card-body col-12">
                                 <div class="row">
                                     <div class="col-sm">
                                         <h3>Bukti Pembayaran</h3>
@@ -308,53 +377,57 @@ Biodata Siswa
                                         @elseif($data->pembayaran->cicilan_id == !null)
                                         <img style="height: 50%; width: 50%;"
                                             src="{{ url('images/biodata/'. $data->pembayaran->cicilan->bukti )}}"
-                                            class="image-fluid" alt="responsive-image">
-                                        @elseif($data->pembayaran->bukti == !null)
-                                        <img style="height: 50%; width: 50%;"
-                                            src="{{ url('images/biodata/'. $data->pembayaran->bukti )}}"
-                                            class="image-fluid" alt="responsive-image">
-                                        @endif
-                                    </div>
-                                </div>
-                            </div>
+                            class="image-fluid" alt="responsive-image">
+                            @elseif($data->pembayaran->bukti == !null)
+                            <img style="height: 50%; width: 50%;"
+                                src="{{ url('images/biodata/'. $data->pembayaran->bukti )}}" class="image-fluid"
+                                alt="responsive-image">
+                            @endif
+                        </div>
+                    </div>
+                </div> --}}
 
-                            <div class="card-body col-12">
-                                <div class="row">
-                                    <div class="col-sm">
-                                        <h3>Kartu Keluarga</h3>
-                                        <br>
-                                        @if($data->kk == null)
-                                        <h2 class="text-center">Belum Ada Foto KK</h2>
-                                        @elseif($data->kk == !null)
-                                        <img style="height: 50%; width: 50%;"
-                                            src="{{ url('images/biodata/'. $data->kk )}}" class="image-fluid"
-                                            alt="responsive-image">
-                                        @endif
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="card-body col-12">
-                                <div class="row">
-                                    <div class="col-sm">
-                                        <h3>Foto Akte</h3>
-                                        <br>
-                                        @if($data->akte == null)
-                                        <h2 class="text-center">Belum Ada Foto Akte</h2>
-                                        @elseif($data->akte == !null)
-                                        <img style="height: 50%; width: 50%;"
-                                            src="{{ url('images/biodata/'. $data->akte )}}" class="image-fluid"
-                                            alt="responsive-image">
-                                        @endif
-                                    </div>
-                                </div>
+                <div class="card-body col-12">
+                    <div class="row">
+                        <div class="col-sm">
+                            <h3 class="text-center">Kartu Keluarga</h3>
+                            <br>
+                            <div class="text-center">
+                                @if($data->kk == null)
+                                <h2 class="text-center">Belum Ada Foto KK</h2>
+                                @elseif($data->kk == !null)
+                                <img style="height: 50%; width: 50%;" src="{{ url('images/biodata/'. $data->kk )}}"
+                                    class="image-fluid" alt="responsive-image">
+                                @endif
                             </div>
                         </div>
                     </div>
                 </div>
-            </section>
+
+                <div class="card-body col-12">
+                    <div class="row">
+                        <div class="col-sm">
+                            <h3 class="text-center">Foto Akte</h3>
+                            <br>
+                            <div class="text-center">
+                                @if($data->akte == null)
+                                <h2 class="text-center">Belum Ada Foto Akte</h2>
+                                @elseif($data->akte == !null)
+                                <img style="height: 50%; width: 50%;" src="{{ url('images/biodata/'. $data->akte )}}"
+                                    class="image-fluid" alt="responsive-image">
+                                @endif
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
         </div>
     </div>
+</div>
+</section>
+</div>
+</div>
 </div>
 </div>
 

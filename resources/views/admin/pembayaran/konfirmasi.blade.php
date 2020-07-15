@@ -24,20 +24,29 @@
                                     <tr>
                                         <td class="text-center">{{$loop->iteration}}</td>
                                         <td class="text-center">{{$d->siswa->user->name}}</td>
-                                        <td class="text-center">@if($d->metode == 2) Pembayaran Cash @else Pembayaran Cicilan @endif</td>
-                                        <td class="text-center">{{Carbon\Carbon::parse($d->tgl_bayar)->translatedFormat('d F Y')}}</td>
+                                        <td class="text-center">@if($d->metode == 2) Pembayaran Cash @else Pembayaran
+                                            Cicilan @endif</td>
+                                        <td class="text-center">
+                                            {{Carbon\Carbon::parse($d->tgl_bayar)->translatedFormat('d F Y')}}</td>
                                         @if($d->cicilan_id == !null)
-                                        <td class="text-center">@if($d->cicilan->cicilan_ke == 3) Ke 2 @elseif($d->cicilan_id == !null) Ke {{$d->cicilan->cicilan_ke}} @else - @endif</td>
+                                        <td class="text-center">@if($d->cicilan->cicilan_ke == 3) Ke 2
+                                            @elseif($d->cicilan_id == !null) Ke {{$d->cicilan->cicilan_ke}} @else -
+                                            @endif</td>
                                         @else
                                         <td class="text-center"> - </td>
                                         @endif
                                         @if($d->cicilan_id == !null)
-                                        <td class="text-center">Rp. {{number_format($d->siswa->pembayaran->cicilan->nominal, 0, ',', '.')}},-</td>
+                                        <td class="text-center">Rp.
+                                            {{number_format($d->siswa->pembayaran->cicilan->nominal, 0, ',', '.')}},-
+                                        </td>
                                         @else
-                                        <td class="text-center">Rp. {{number_format($d->siswa->pembayaran->nominal, 0, ',', '.')}},-</td>
+                                        <td class="text-center">Rp.
+                                            {{number_format($d->siswa->pembayaran->nominal, 0, ',', '.')}},-</td>
                                         @endif
                                         <td class="text-center">
-                                            <a class="btn btn-info round mr-1 mb-1 text-white" data-toggle="modal" data-target="#modalshow" data-id="{{$d->id}}" data-nominal="{{$d->nominal}}" data-terbilang="{{$d->terbilang}}" data-bukti="{{$d->bukti}}"><i class="bx bxs-search"></i></a>
+                                            <a class="btn btn-info round mr-1 mb-1 text-white"
+                                                href="{{ route('pembayaranShow',['id' => $d->uuid]) }}"><i
+                                                    class="bx bxs-search"></i></a>
                                         </td>
                                         <td class="text-center">
                                             @if($d->cicilan_id == !null)
@@ -45,15 +54,18 @@
                                                 {{ method_field('patch') }}
                                                 @csrf
                                                 <input type="hidden" id="id" name="id" value="{{$d->id}}">
-                                                <input type="hidden" id="cicilanke" name="cicilanke" value="{{$d->cicilan->cicilan_ke}}">
-                                                <button class="btn btn-success round mr-1 mb-1 text-white"> Konfirmasi </button>
+                                                <input type="hidden" id="cicilanke" name="cicilanke"
+                                                    value="{{$d->cicilan->cicilan_ke}}">
+                                                <button class="btn btn-success round mr-1 mb-1 text-white"> Konfirmasi
+                                                </button>
                                             </form>
                                             @else
                                             <form method="post">
                                                 {{ method_field('put') }}
                                                 @csrf
                                                 <input type="hidden" id="id" name="id" value="{{$d->id}}">
-                                                <button class="btn btn-success round mr-1 mb-1 text-white"> Konfirmasi </button>
+                                                <button class="btn btn-success round mr-1 mb-1 text-white"> Konfirmasi
+                                                </button>
                                             </form>
                                             @endif
                                         </td>
