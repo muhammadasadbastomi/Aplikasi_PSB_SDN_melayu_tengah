@@ -9,6 +9,7 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
+use App\Mail\MailSiswaLulus;
 
 class PembayaranController extends Controller
 {
@@ -176,7 +177,9 @@ class PembayaranController extends Controller
         $data1->status = '4';
         $data1->update();
 
+        // Mail::to($data1->user->email)->send(new MailSiswalulus);
         return back()->with('success', 'Pembayaran Berhasil Dikonfirmasi');
+        // return back()->with('success', 'Pembayaran Berhasil Dikonfirmasi, <br> Notif Email Dikirik Ke : '.$data1->user->name .'');
     }
 
     public function konfirmasicicilan(Request $request)
