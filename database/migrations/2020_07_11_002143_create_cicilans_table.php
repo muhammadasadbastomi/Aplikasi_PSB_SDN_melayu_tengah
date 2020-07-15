@@ -17,7 +17,6 @@ class CreateCicilansTable extends Migration
             $table->bigIncrements('id');
             $table->string('uuid')->length(36);
             $table->string('cicilan_ke');
-            $table->date('tanggal_akhir')->nullable();
             $table->string('nominal')->nullable();
             $table->string('terbilang')->nullable();
             $table->string('bukti')->nullable();

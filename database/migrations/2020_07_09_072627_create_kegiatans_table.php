@@ -19,7 +19,6 @@ class CreateKegiatansTable extends Migration
             $table->date('tgl_mulai');
             $table->date('tgl_akhir');
             $table->string('kegiatan');
-            $table->string('kegiatan_detail_id')->nullable();
             $table->string('keterangan')->nullable();
             $table->timestamps();
         });

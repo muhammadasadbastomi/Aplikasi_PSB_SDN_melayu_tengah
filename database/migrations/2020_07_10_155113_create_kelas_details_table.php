@@ -18,7 +18,6 @@ class CreateKelasDetailsTable extends Migration
             $table->string('uuid')->length(36);
             $table->unsignedBigInteger('kelas_id');
             $table->string('siswa_id');
-            $table->integer('absen')->nullable();
             $table->timestamps();
         });
     }

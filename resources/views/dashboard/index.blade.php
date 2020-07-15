@@ -16,9 +16,6 @@
                 </div>
             </div>
         </div>
-
-
-        {{-- siswa --}}
         <div class="content-body">
             @if(Auth::user()->role == 2)
             <!-- Dashboard SISWA -->
@@ -52,8 +49,7 @@
                                     @include('dashboard.jadwal')
 
                                     @else
-                                    <h4>Pembayaran Telah Dikonfirmasi, Silahkan Tunggu dan Lihat <a
-                                            href="{{route('kegiatanShow')}}">Daftar Kegiatan </a> Untuk Informasi
+                                    <h4>Pembayaran Telah Dikonfirmasi, Silahkan Tunggu dan Lihat <a href="{{route('kegiatanShow')}}">Daftar Kegiatan </a> Untuk Informasi
                                         Pembagian Kelas.</h4>
                                     @endif
 
@@ -81,7 +77,7 @@
                                         <i class="bx bx-list-ol font-medium-5"></i>
                                     </div>
                                     <div class="text-muted line-ellipsis">Total Pendaftaran</div>
-                                    <h3 class="mb-0">@if(empty(pendaftar())) Tidak Ada Data @else {{ pendaftar() }}
+                                    <h3 class="mb-0">@if(empty(totalsiswa())) Tidak Ada Data @else {{ totalsiswa() }}
                                         @endif
                                     </h3>
                                 </div>
@@ -137,6 +133,7 @@
                 </div>
             </div>
             @endif
+            <!-- Dashboard ADMIN end -->
         </div>
     </div>
 </div>

@@ -19,7 +19,7 @@ class CreateIbusTable extends Migration
             $table->string('nama');
             $table->text('alamat')->nullable();
             $table->string('telp')->nullable();
-            $table->string('agama')->nullable();
+            $table->enum('agama', ['1', '2', '3', '4', '5', '6'])->nullable();
             $table->text('tempat_lahir')->nullable();
             $table->date('tgl_lahir')->nullable();
             $table->string('pendidikan')->nullable();

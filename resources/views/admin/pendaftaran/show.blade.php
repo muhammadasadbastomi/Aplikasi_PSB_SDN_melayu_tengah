@@ -16,8 +16,7 @@ Biodata Siswa
                         <h5 class="content-header-title float-left pr-1 mb-0">Biodata Siswa</h5>
                         <div class="breadcrumb-wrapper col-12">
                             <ol class="breadcrumb p-0 mb-0">
-                                <li class="breadcrumb-item"><a href="{{ route('dashboard') }}"><i
-                                            class="bx bx-home-alt"></i></a>
+                                <li class="breadcrumb-item"><a href="{{ route('dashboard') }}"><i class="bx bx-home-alt"></i></a>
                                 </li>
                                 <li class="breadcrumb-item active">Biodata Siswa
                                 </li>
@@ -33,13 +32,11 @@ Biodata Siswa
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                <a href="{{ route('siswaIndex') }}" class="btn btn-primary"><i
-                                        class="bx bx-arrow-back"></i>Kembali</a>
+                                <a href="{{ route('siswaIndex') }}" class="btn btn-primary"><i class="bx bx-arrow-back"></i>Kembali</a>
                             </div>
                             <div class="card-body" class="col-12">
                                 <div>
-                                    <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel"
-                                        aria-labelledby="v-pills-home-tab">
+                                    <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
                                         <div class="tab-content" id="v-pills-tabContent">
                                             <div class="row">
 
@@ -306,11 +303,9 @@ Biodata Siswa
                                         @if($data->pembayaran_id == null)
                                         <h2 class="text-center">Belum Ada Pembayaran</h2>
                                         @elseif($data->pembayaran->cicilan_id == !null)
-                                        <img src="{{ $data->pembayaran->cicilan->bukti }}" class="image-fluid"
-                                            alt="responsive-image">
+                                        <img style="height: 50%; width: 50%;" src="{{ url('images/biodata/'. $data->pembayaran->cicilan->bukti )}}" class="image-fluid" alt="responsive-image">
                                         @elseif($data->pembayaran->bukti == !null)
-                                        <img src="{{ $data->pembayaran->bukti }}" class="image-fluid"
-                                            alt="responsive-image">
+                                        <img style="height: 50%; width: 50%;" src="{{ url('images/biodata/'. $data->pembayaran->bukti )}}" class="image-fluid" alt="responsive-image">
                                         @endif
                                     </div>
                                 </div>
@@ -338,8 +333,7 @@ Biodata Siswa
 <input type="hidden" id="id" name="id" value="{{ Auth()->user()->id }}">
 <div class="form-group">
     <label for="nama_wali">Nama Lengkap</label>
-    <input type="text" class="form-control" id="nama_wali" name="nama_wali" placeholder="Masukkan Nama Lengkap..."
-        value="@if($data->wali_id == !null){{ $data->wali->nama }}@endif">
+    <input type="text" class="form-control" id="nama_wali" name="nama_wali" placeholder="Masukkan Nama Lengkap..." value="@if($data->wali_id == !null){{ $data->wali->nama }}@endif">
 </div>
 <div class="form-group">
     <label for="jk_wali">Jenis Kelamin</label>
@@ -355,44 +349,35 @@ Biodata Siswa
 </div>
 <div class="form-group">
     <label for="alamat_wali">Alamat</label>
-    <textarea class="form-control" id="alamat_wali" name="alamat_wali"
-        placeholder="Masukkan Alamat...">@if($data->wali_id == !null){{$data->wali->alamat }}@endif</textarea>
+    <textarea class="form-control" id="alamat_wali" name="alamat_wali" placeholder="Masukkan Alamat...">@if($data->wali_id == !null){{$data->wali->alamat }}@endif</textarea>
 </div>
 <div class="form-group">
     <label for="telp_wali">Nomor Telepon</label>
-    <input type="text" class="form-control" id="telp_wali" name="telp_wali" placeholder="Masukkan Nomor Telepon..."
-        value="@if($data->wali_id == !null){{ $data->wali->telp }}@endif">
+    <input type="text" class="form-control" id="telp_wali" name="telp_wali" placeholder="Masukkan Nomor Telepon..." value="@if($data->wali_id == !null){{ $data->wali->telp }}@endif">
 </div>
 <div class="form-group">
     <label for="agama_wali">Agama</label>
-    <input type="text" class="form-control" id="agama_wali" name="agama_wali" placeholder="Masukkan Agama..."
-        value="@if($data->wali_id == !null){{ $data->wali->agama }}@endif">
+    <input type="text" class="form-control" id="agama_wali" name="agama_wali" placeholder="Masukkan Agama..." value="@if($data->wali_id == !null){{ $data->wali->agama }}@endif">
 </div>
 <div class="form-group">
     <label for="tempat_lahir_wali">Tempat Lahir</label>
-    <textarea class="form-control" id="tempat_lahir_wali" name="tempat_lahir_wali"
-        placeholder="Masukkan Tempat Lahir...">@if($data->wali_id == !null){{ $data->wali->tempat_lahir }}@endif</textarea>
+    <textarea class="form-control" id="tempat_lahir_wali" name="tempat_lahir_wali" placeholder="Masukkan Tempat Lahir...">@if($data->wali_id == !null){{ $data->wali->tempat_lahir }}@endif</textarea>
 </div>
 <div class="form-group">
     <label for="tgl_lahir_wali">Tanggal Lahir</label>
-    <input type="date" class="form-control" id="tgl_lahir_wali" name="tgl_lahir_wali"
-        value="@if($data->wali_id == !null){{$data->wali->tgl_lahir}}@endif">
+    <input type="date" class="form-control" id="tgl_lahir_wali" name="tgl_lahir_wali" value="@if($data->wali_id == !null){{$data->wali->tgl_lahir}}@endif">
 </div>
 <div class="form-group">
     <label for="pendidikan_wali">Pendidik Terakhir</label>
-    <input type="text" class="form-control" id="pendidikan_wali" name="pendidikan_wali"
-        placeholder="Masukkan Pendidik Terakhir..."
-        value="@if($data->wali_id == !null){{ $data->wali->pendidikan }}@endif">
+    <input type="text" class="form-control" id="pendidikan_wali" name="pendidikan_wali" placeholder="Masukkan Pendidik Terakhir..." value="@if($data->wali_id == !null){{ $data->wali->pendidikan }}@endif">
 </div>
 <div class="form-group">
     <label for="pekerjaan_wali">Pekerjaan</label>
-    <input type="text" class="form-control" id="pekerjaan_wali" name="pekerjaan_wali"
-        placeholder="Masukkan Pekerjaan..." value="@if($data->wali_id == !null){{ $data->wali->pekerjaan }}@endif">
+    <input type="text" class="form-control" id="pekerjaan_wali" name="pekerjaan_wali" placeholder="Masukkan Pekerjaan..." value="@if($data->wali_id == !null){{ $data->wali->pekerjaan }}@endif">
 </div>
 <div class="form-group">
     <label for="foto_wali">Foto</label>
-    <input type="file" name="foto_wali" id="foto_wali" class="form-control"
-        value="@if($data->wali_id == !null){{ $data->wali->foto }}@endif">
+    <input type="file" name="foto_wali" id="foto_wali" class="form-control" value="@if($data->wali_id == !null){{ $data->wali->foto }}@endif">
 </div>
 <div class="modal-footer">
     <button type="reset" class="btn btn-light-secondary">Reset</button>
@@ -409,52 +394,39 @@ Biodata Siswa
         <br>
         <div class="form-group">
             <label for="nama_ayah">Nama Ayah</label>
-            <input type="text" class="form-control" id="nama_ayah" name="nama_ayah"
-                placeholder="Masukkan Nama Lengkap..."
-                value="@if($data->ayah_id == !null){{ $data->ayah->nama }}@endif">
+            <input type="text" class="form-control" id="nama_ayah" name="nama_ayah" placeholder="Masukkan Nama Lengkap..." value="@if($data->ayah_id == !null){{ $data->ayah->nama }}@endif">
         </div>
         <div class="form-group">
             <label for="alamat_ayah">Alamat</label>
-            <textarea class="form-control" id="alamat_ayah" name="alamat_ayah"
-                placeholder="Masukkan Alamat...">@if($data->ayah_id == !null){{$data->ayah->alamat }}@endif</textarea>
+            <textarea class="form-control" id="alamat_ayah" name="alamat_ayah" placeholder="Masukkan Alamat...">@if($data->ayah_id == !null){{$data->ayah->alamat }}@endif</textarea>
         </div>
         <div class="form-group">
             <label for="telp_ayah">Nomor Telepon</label>
-            <input type="text" class="form-control" id="telp_ayah" name="telp_ayah"
-                placeholder="Masukkan Nomor Telepon..."
-                value="@if($data->ayah_id == !null){{ $data->ayah->telp }}@endif">
+            <input type="text" class="form-control" id="telp_ayah" name="telp_ayah" placeholder="Masukkan Nomor Telepon..." value="@if($data->ayah_id == !null){{ $data->ayah->telp }}@endif">
         </div>
         <div class="form-group">
             <label for="agama_ayah">Agama</label>
-            <input type="text" class="form-control" id="agama_ayah" name="agama_ayah" placeholder="Masukkan Agama..."
-                value="@if($data->ayah_id == !null){{ $data->ayah->agama }}@endif">
+            <input type="text" class="form-control" id="agama_ayah" name="agama_ayah" placeholder="Masukkan Agama..." value="@if($data->ayah_id == !null){{ $data->ayah->agama }}@endif">
         </div>
         <div class="form-group">
             <label for="tempat_lahir_ayah">Tempat Lahir</label>
-            <textarea class="form-control" id="tempat_lahir_ayah" name="tempat_lahir_ayah"
-                placeholder="Masukkan Tempat Lahir...">@if($data->ayah_id == !null){{ $data->ayah->tempat_lahir }}@endif</textarea>
+            <textarea class="form-control" id="tempat_lahir_ayah" name="tempat_lahir_ayah" placeholder="Masukkan Tempat Lahir...">@if($data->ayah_id == !null){{ $data->ayah->tempat_lahir }}@endif</textarea>
         </div>
         <div class="form-group">
             <label for="tgl_lahir_ayah">Tanggal Lahir</label>
-            <input type="date" class="form-control" id="tgl_lahir_ayah" name="tgl_lahir_ayah"
-                value="@if($data->ayah_id == !null){{$data->ayah->tgl_lahir}}@endif">
+            <input type="date" class="form-control" id="tgl_lahir_ayah" name="tgl_lahir_ayah" value="@if($data->ayah_id == !null){{$data->ayah->tgl_lahir}}@endif">
         </div>
         <div class="form-group">
             <label for="pendidikan_ayah">Pendidik Terakhir</label>
-            <input type="text" class="form-control" id="pendidikan_ayah" name="pendidikan_ayah"
-                placeholder="Masukkan Pendidik Terakhir..."
-                value="@if($data->ayah_id == !null){{ $data->ayah->pendidikan }}@endif">
+            <input type="text" class="form-control" id="pendidikan_ayah" name="pendidikan_ayah" placeholder="Masukkan Pendidik Terakhir..." value="@if($data->ayah_id == !null){{ $data->ayah->pendidikan }}@endif">
         </div>
         <div class="form-group">
             <label for="pekerjaan_ayah">Pekerjaan</label>
-            <input type="text" class="form-control" id="pekerjaan_ayah" name="pekerjaan_ayah"
-                placeholder="Masukkan Pekerjaan..."
-                value="@if($data->ayah_id == !null){{ $data->ayah->pekerjaan }}@endif">
+            <input type="text" class="form-control" id="pekerjaan_ayah" name="pekerjaan_ayah" placeholder="Masukkan Pekerjaan..." value="@if($data->ayah_id == !null){{ $data->ayah->pekerjaan }}@endif">
         </div>
         <div class="form-group">
             <label for="foto_ayah">Foto</label>
-            <input type="file" name="foto_ayah" id="foto_ayah" class="form-control"
-                value="@if($data->ayah_id == !null){{ $data->ayah->foto }}@endif">
+            <input type="file" name="foto_ayah" id="foto_ayah" class="form-control" value="@if($data->ayah_id == !null){{ $data->ayah->foto }}@endif">
         </div>
         <br>
         <hr style="border: 2px solid; border-radius: 3px;">
@@ -463,50 +435,39 @@ Biodata Siswa
         <br>
         <div class="form-group">
             <label for="nama_ibu">Nama Ibu</label>
-            <input type="text" class="form-control" id="nama_ibu" name="nama_ibu" placeholder="Masukkan Nama Lengkap..."
-                value="@if($data->ibu_id == !null){{ $data->ibu->nama }}@endif">
+            <input type="text" class="form-control" id="nama_ibu" name="nama_ibu" placeholder="Masukkan Nama Lengkap..." value="@if($data->ibu_id == !null){{ $data->ibu->nama }}@endif">
         </div>
         <div class="form-group">
             <label for="alamat_ibu">Alamat</label>
-            <textarea class="form-control" id="alamat_ibu" name="alamat_ibu"
-                placeholder="Masukkan Alamat...">@if($data->ibu_id == !null){{$data->ibu->alamat }}@endif</textarea>
+            <textarea class="form-control" id="alamat_ibu" name="alamat_ibu" placeholder="Masukkan Alamat...">@if($data->ibu_id == !null){{$data->ibu->alamat }}@endif</textarea>
         </div>
         <div class="form-group">
             <label for="telp_ibu">Nomor Telepon</label>
-            <input type="text" class="form-control" id="telp_ibu" name="telp_ibu"
-                placeholder="Masukkan Nomor Telepon..." value="@if($data->ibu_id == !null){{ $data->ibu->telp }}@endif">
+            <input type="text" class="form-control" id="telp_ibu" name="telp_ibu" placeholder="Masukkan Nomor Telepon..." value="@if($data->ibu_id == !null){{ $data->ibu->telp }}@endif">
         </div>
         <div class="form-group">
             <label for="agama_ibu">Agama</label>
-            <input type="text" class="form-control" id="agama_ibu" name="agama_ibu" placeholder="Masukkan Agama..."
-                value="@if($data->ibu_id == !null){{ $data->ibu->agama }}@endif">
+            <input type="text" class="form-control" id="agama_ibu" name="agama_ibu" placeholder="Masukkan Agama..." value="@if($data->ibu_id == !null){{ $data->ibu->agama }}@endif">
         </div>
         <div class="form-group">
             <label for="tempat_lahir_ibu">Tempat Lahir</label>
-            <textarea class="form-control" id="tempat_lahir_ibu" name="tempat_lahir_ibu"
-                placeholder="Masukkan Tempat Lahir...">@if($data->ibu_id == !null){{ $data->ibu->tempat_lahir }}@endif</textarea>
+            <textarea class="form-control" id="tempat_lahir_ibu" name="tempat_lahir_ibu" placeholder="Masukkan Tempat Lahir...">@if($data->ibu_id == !null){{ $data->ibu->tempat_lahir }}@endif</textarea>
         </div>
         <div class="form-group">
             <label for="tgl_lahir_ibu">Tanggal Lahir</label>
-            <input type="date" class="form-control" id="tgl_lahir_ibu" name="tgl_lahir_ibu"
-                value="@if($data->ibu_id == !null){{$data->ibu->tgl_lahir}}@endif">
+            <input type="date" class="form-control" id="tgl_lahir_ibu" name="tgl_lahir_ibu" value="@if($data->ibu_id == !null){{$data->ibu->tgl_lahir}}@endif">
         </div>
         <div class="form-group">
             <label for="pendidikan_ibu">Pendidik Terakhir</label>
-            <input type="text" class="form-control" id="pendidikan_ibu" name="pendidikan_ibu"
-                placeholder="Masukkan Pendidik Terakhir..."
-                value="@if($data->ibu_id == !null){{ $data->ibu->pendidikan }}@endif">
+            <input type="text" class="form-control" id="pendidikan_ibu" name="pendidikan_ibu" placeholder="Masukkan Pendidik Terakhir..." value="@if($data->ibu_id == !null){{ $data->ibu->pendidikan }}@endif">
         </div>
         <div class="form-group">
             <label for="pekerjaan_ibu">Pekerjaan</label>
-            <input type="text" class="form-control" id="pekerjaan_ibu" name="pekerjaan_ibu"
-                placeholder="Masukkan Pekerjaan..."
-                value="@if($data->ibu_id == !null){{ $data->ibu->pekerjaan }}@endif">
+            <input type="text" class="form-control" id="pekerjaan_ibu" name="pekerjaan_ibu" placeholder="Masukkan Pekerjaan..." value="@if($data->ibu_id == !null){{ $data->ibu->pekerjaan }}@endif">
         </div>
         <div class="form-group">
             <label for="foto_ibu">Foto</label>
-            <input type="file" name="foto_ibu" id="foto_ibu" class="form-control"
-                value="@if($data->ibu_id == !null){{ $data->ibu->foto }}@endif">
+            <input type="file" name="foto_ibu" id="foto_ibu" class="form-control" value="@if($data->ibu_id == !null){{ $data->ibu->foto }}@endif">
         </div>
 
         <div class="modal-footer">

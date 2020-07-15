@@ -6,7 +6,7 @@
                     <div class="card-body card-dashboard">
                         <!-- <button type="button" class="btn btn-primary round mr-1 mb-1" data-toggle="modal" data-target="#default"><i class="bx bx-plus-circle"></i></button> -->
                         <div class="table-responsive">
-                            <table class="table zero-configuration">
+                            <table class="table zero-configuration nowrap">
                                 <thead>
                                     <tr>
                                         <th class="text-center">No</th>

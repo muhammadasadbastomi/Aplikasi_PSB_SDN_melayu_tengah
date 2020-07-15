@@ -47,6 +47,7 @@ class HomeController extends Controller
 
                 return view('dashboard/index', compact('data', 'senin', 'selasa', 'rabu', 'kamis', 'jumat', 'sabtu', 'kelas', 'mapel'));
             }
+            return view('dashboard/index', compact('data'));
         }
 
         return view('dashboard/index');
