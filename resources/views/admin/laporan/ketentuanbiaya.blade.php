@@ -113,6 +113,8 @@
             Rp.155.000,-</li>
         <li style="margin-left:20px;">Bagi anak yang kurang mampu bisa menyerahkan Surat Miskin ke Pihak Sekolah atas
             Rekomendasi RT.</li>
+        <li style="margin-left:20px;">Pembayaran dapat dikirim melalui no.rek : 012 880 9923(BNI) atas nama Ramadhan
+            Noor</li>
         <br>
         <h4>Ketentuan Biaya Yang Harus Dibayar :</h4>
         <ol>

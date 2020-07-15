@@ -40,12 +40,12 @@ Isi Biodata
                                             <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill"
                                                 href="#v-pills-home" role="tab" aria-controls="v-pills-home"
                                                 aria-selected="true">Biodata Siswa</a>
-                                            <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill"
-                                                href="#v-pills-messages" role="tab" aria-controls="v-pills-messages"
-                                                aria-selected="false">Wali</a>
                                             <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill"
                                                 href="#v-pills-profile" role="tab" aria-controls="v-pills-profile"
                                                 aria-selected="false">Orangtua</a>
+                                            <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill"
+                                                href="#v-pills-messages" role="tab" aria-controls="v-pills-messages"
+                                                aria-selected="false">Wali</a>
                                         </div>
                                     </div>
                                     <div class="col-9">
@@ -130,12 +130,12 @@ Isi Biodata
                                                             name="photos" value="{{ Auth()->user()->photos }}">
                                                     </div>
                                                     <div class="form-group">
-                                                        <label for="akte">Foto Copy Akte Kelahiran</label>
+                                                        <label for="akte">Scan Akte Kelahiran</label>
                                                         <input type="file" name="akte" id="akte" class="form-control"
                                                             value="{{ $data->akte }}">
                                                     </div>
                                                     <div class="form-group">
-                                                        <label for="kartu_keluarga">Foto Copy Kartu Keluarga</label>
+                                                        <label for="kartu_keluarga">Scan Kartu Keluarga</label>
                                                         <input type="file" class="form-control" id="kartu_keluarga"
                                                             name="kartu_keluarga" value="{{ $data->kk }}">
                                                     </div>
@@ -153,7 +153,8 @@ Isi Biodata
                                                     {{ method_field('patch') }}
                                                     @csrf
                                                     <h3>Biodata Wali</h3>
-                                                    <small>Note : Tidak Perlu Diisi, Jika Tidak Ada Wali Siswa.</small>
+                                                    <strong>Note : Tidak Perlu Diisi, Jika Tidak Ada Wali
+                                                        Siswa.</strong>
                                                     <br>
                                                     <br>
                                                     <input type="hidden" id="id" name="id"
@@ -183,7 +184,7 @@ Isi Biodata
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="telp_wali">Nomor Telepon</label>
-                                                        <input type="text" class="form-control" id="telp_wali"
+                                                        <input type="number" class="form-control" id="telp_wali"
                                                             name="telp_wali" placeholder="Masukkan Nomor Telepon..."
                                                             value="@if($data->wali_id == !null){{ $data->wali->telp }}@endif">
                                                     </div>
@@ -288,7 +289,7 @@ Isi Biodata
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="telp_ayah">Nomor Telepon</label>
-                                                        <input type="text" class="form-control" id="telp_ayah"
+                                                        <input type="number" class="form-control" id="telp_ayah"
                                                             name="telp_ayah" placeholder="Masukkan Nomor Telepon..."
                                                             value="@if($data->ayah_id == !null){{ $data->ayah->telp }}@endif">
                                                     </div>
@@ -364,7 +365,7 @@ Isi Biodata
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="telp_ibu">Nomor Telepon</label>
-                                                        <input type="text" class="form-control" id="telp_ibu"
+                                                        <input type="number" class="form-control" id="telp_ibu"
                                                             name="telp_ibu" placeholder="Masukkan Nomor Telepon..."
                                                             value="@if($data->ibu_id == !null){{ $data->ibu->telp }}@endif">
                                                     </div>

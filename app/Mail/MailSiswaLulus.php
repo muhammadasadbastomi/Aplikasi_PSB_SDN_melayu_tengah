@@ -2,6 +2,7 @@
 
 namespace App\Mail;
 
+
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
@@ -30,7 +31,7 @@ class MailSiswaLulus extends Mailable
     public function build()
     {
         return $this->markdown('emails.sites.kelulusan')->with([
-            'nama_siswa' => $this->$data1->user->name,
+            'nama_siswa' => $this->data1->user->name,
             'tgl_diterima' => Carbon::now()->translatedFormat('l, d F Y'),
         ]);
     }

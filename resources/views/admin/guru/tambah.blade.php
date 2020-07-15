@@ -1,5 +1,6 @@
 <!--Basic Modal -->
-<div class="modal fade text-left" id="default" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" aria-hidden="true">
+<div class="modal fade text-left" id="default" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1"
+    aria-hidden="true">
     <div class="modal-dialog modal-dialog-scrollable" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -13,17 +14,21 @@
                     @csrf
                     <fieldset class="form-group">
                         <label for="nip">NIP</label>
-                        <input type="text" class="form-control" id="nip" name="nip" placeholder="Masukkan NIP" value="{{old('nip')}}">
+                        <input type="text" class="form-control" id="nip" name="nip" placeholder="Masukkan NIP"
+                            value="{{old('nip')}}">
                     </fieldset>
                     <fieldset class="form-group">
                         <label for="nama">Nama Lengkap</label>
-                        <input type="text" class="form-control" id="nama" name="nama" placeholder="Masukkan Nama Lengkap" value="{{old('nama')}}">
+                        <input type="text" class="form-control" id="nama" name="nama"
+                            placeholder="Masukkan Nama Lengkap" value="{{old('nama')}}">
                     </fieldset>
                     <label>Jenis Kelamin</label>
                     <fieldset class="form-group">
                         <select class="form-control" id="jenis_kelamin" name="jenis_kelamin">
-                            <option value="1" @if (old('jenis_kelamin')=='1' ) {{ 'selected' }} @endif>Laki-Laki</option>
-                            <option value="2" @if (old('jenis_kelamin')=='2' ) {{ 'selected' }} @endif>Perempuan</option>
+                            <option value="1" @if (old('jenis_kelamin')=='1' ) {{ 'selected' }} @endif>Laki-Laki
+                            </option>
+                            <option value="2" @if (old('jenis_kelamin')=='2' ) {{ 'selected' }} @endif>Perempuan
+                            </option>
                         </select>
                     </fieldset>
                     <fieldset class="form-group">
@@ -39,11 +44,13 @@
                     </fieldset>
                     <fieldset class="form-group">
                         <label for="telp">Telepon</label>
-                        <input type="text" class="form-control" id="telp" name="telp" placeholder="Masukkan Telepon" value="{{old('telp')}}">
+                        <input type="number" class="form-control" id="telp" name="telp" placeholder="Masukkan Telepon"
+                            value="{{old('telp')}}">
                     </fieldset>
                     <h6 class="form-group">Alamat</h6>
                     <fieldset class="form-group">
-                        <textarea class="form-control" id="alamat" name="alamat" rows="3" placeholder="Masukkan Alamat">{{old('alamat')}}</textarea>
+                        <textarea class="form-control" id="alamat" name="alamat" rows="3"
+                            placeholder="Masukkan Alamat">{{old('alamat')}}</textarea>
                     </fieldset>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-light-secondary" data-dismiss="modal">Close</button>
