@@ -124,7 +124,17 @@
                 <tr>
                     <td scope="col" class="text-center">{{ $loop->iteration }}</td>
                     <td scope="col" class="text-center">{{ $d->user->name }}</td>
-                    <td scope="col" class="text-center">{{ $d->agama }}</td>
+                    <td scope="col" class="text-center">
+                        @if($d->agama ==1) Islam
+                        @elseif($d->agama == 2) Kristen
+                        @elseif($d->agama == 3) Katholik
+                        @elseif($d->agama == 4) Hindu
+                        @elseif($d->agama == 5) Buddha
+                        @elseif($d->agama == 6) Kong Hu Cu
+                        @else
+                        -
+                        @endif
+                    </td>
                     @if ($d->jenis_kelamin == 1)
                     <td scope="col" class="text-center">Laki-laki</td>
                     @elseif($d->jenis_kelamin == 2)
