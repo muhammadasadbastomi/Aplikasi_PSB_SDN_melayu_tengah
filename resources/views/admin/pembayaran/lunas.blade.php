@@ -38,10 +38,9 @@
                                         @endif
                                         <td class="text-center text-success"> Lunas </td>
                                         <td class="text-center">
-                                            <a class="btn btn-info round mr-1 mb-1 text-white" data-toggle="modal"
-                                                data-target="#modalshow" data-id="{{$d->id}}"
-                                                data-nominal="{{$d->nominal}}" data-terbilang="{{$d->terbilang}}"
-                                                data-bukti="{{$d->bukti}}"><i class="bx bxs-search"></i></a>
+                                            <a class="btn btn-info round mr-1 mb-1 text-white"
+                                                href="{{ route('pembayaranShow',['id' => $d->uuid]) }}"><i
+                                                    class="bx bxs-search"></i></a>
                                         </td>
                                     </tr>
                                     @endforeach

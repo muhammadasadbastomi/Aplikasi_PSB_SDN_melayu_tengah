@@ -34,6 +34,7 @@ Route::group(['middleware' => ['auth', 'Checkrole:1']], function () {
     Route::get('/admin/siswa/tolak/{id}', 'SiswaController@tolak');
 
     Route::get('/admin/pembayaran', 'PembayaranController@indexadmin')->name('pembayaranIndexadmin');
+    Route::get('/admin/pembayaran/{id}', 'PembayaranController@show')->name('pembayaranShow');
     Route::put('/admin/pembayaran', 'PembayaranController@konfirmasi')->name('pembayaranKonfirmasi');
     Route::patch('/admin/pembayaran', 'PembayaranController@konfirmasicicilan')->name('pembayaranKonfirmasicicilan');
 
