@@ -18,7 +18,7 @@ class CreateGurusTable extends Migration
             $table->string('uuid')->length(36);
             $table->string('nip');
             $table->string('nama');
-            $table->string('agama');
+            $table->enum('agama', ['1', '2', '3', '4', '5', '6'])->nullable();
             $table->enum('jenis_kelamin',  ['1', '2']);
             $table->string('alamat');
             $table->string('telp');

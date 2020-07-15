@@ -20,8 +20,9 @@ class CreateSiswasTable extends Migration
             $table->unsignedBigInteger('wali_id')->nullable();
             $table->unsignedBigInteger('ayah_id')->nullable();
             $table->unsignedBigInteger('ibu_id')->nullable();
+            $table->unsignedBigInteger('pembayaran_id')->nullable();
             $table->text('alamat')->nullable();
-            $table->string('agama')->nullable();
+            $table->enum('agama', ['1', '2', '3', '4', '5', '6'])->nullable();
             $table->text('tempat_lahir')->nullable();
             $table->date('tgl_lahir')->nullable();
             $table->enum('jenis_kelamin', ['1', '2'])->nullable();
@@ -29,7 +30,6 @@ class CreateSiswasTable extends Migration
             $table->string('jumlah_saudara')->nullable();
             $table->string('akte')->nullable();
             $table->string('kk')->nullable();
-            $table->unsignedBigInteger('pembayaran_id')->nullable();
             $table->integer('status')->nullable();
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
