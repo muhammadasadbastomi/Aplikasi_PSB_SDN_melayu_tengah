@@ -21,6 +21,7 @@ class CreateKalenderDetailsTable extends Migration
             $table->date('tgl_mulai');
             $table->date('tgl_akhir');
             $table->timestamps();
+            $table->foreign('kalender_id')->references('id')->on('kalenders')->onDelete('cascade');
         });
     }
 
