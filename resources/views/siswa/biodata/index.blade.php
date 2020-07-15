@@ -137,8 +137,8 @@ Isi Biodata
                                                         <input type="text" class="form-control" id="telp_wali" name="telp_wali" placeholder="Masukkan Nomor Telepon..." value="@if($data->wali_id == !null){{ $data->wali->telp }}@endif">
                                                     </div>
                                                     <div class="form-group">
-                                                        <label for="agama">Agama</label>
-                                                        <select class="form-control" id="agama" name="agama">
+                                                        <label for="agama_wali">Agama</label>
+                                                        <select class="form-control" id="agama_wali" name="agama_wali">
                                                             <option value="1" @if($data->agama == 1 ) selected @endif >Islam</option>
                                                             <option value="2" @if($data->agama == 2 ) selected @endif >Kristen Protestan</option>
                                                             <option value="3" @if($data->agama == 3 ) selected @endif >Katolik</option>
@@ -194,7 +194,14 @@ Isi Biodata
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="agama_ayah">Agama</label>
-                                                        <input type="text" class="form-control" id="agama_ayah" name="agama_ayah" placeholder="Masukkan Agama..." value="@if($data->ayah_id == !null){{ $data->ayah->agama }}@endif">
+                                                        <select class="form-control" id="agama_ayah" name="agama_ayah">
+                                                            <option value="1" @if($data->agama == 1 ) selected @endif >Islam</option>
+                                                            <option value="2" @if($data->agama == 2 ) selected @endif >Kristen Protestan</option>
+                                                            <option value="3" @if($data->agama == 3 ) selected @endif >Katolik</option>
+                                                            <option value="4" @if($data->agama == 4 ) selected @endif >Hindu</option>
+                                                            <option value="5" @if($data->agama == 5 ) selected @endif >Buddha</option>
+                                                            <option value="6" @if($data->agama == 6 ) selected @endif >Kong Hu Cu</option>
+                                                        </select>
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="tempat_lahir_ayah">Tempat Lahir</label>
@@ -234,8 +241,8 @@ Isi Biodata
                                                         <input type="text" class="form-control" id="telp_ibu" name="telp_ibu" placeholder="Masukkan Nomor Telepon..." value="@if($data->ibu_id == !null){{ $data->ibu->telp }}@endif">
                                                     </div>
                                                     <div class="form-group">
-                                                        <label for="agama">Agama</label>
-                                                        <select class="form-control" id="agama" name="agama">
+                                                        <label for="agama_ibu">Agama</label>
+                                                        <select class="form-control" id="agama_ibu" name="agama_ibu">
                                                             <option value="1" @if($data->agama == 1 ) selected @endif >Islam</option>
                                                             <option value="2" @if($data->agama == 2 ) selected @endif >Kristen Protestan</option>
                                                             <option value="3" @if($data->agama == 3 ) selected @endif >Katolik</option>
