@@ -17,8 +17,10 @@ class CreateKelasDetailsTable extends Migration
             $table->bigIncrements('id');
             $table->string('uuid')->length(36);
             $table->unsignedBigInteger('kelas_id');
-            $table->string('siswa_id');
+            $table->unsignedBigInteger('siswa_id');
             $table->timestamps();
+            $table->foreign('kelas_id')->references('id')->on('kelas')->onDelete('cascade');
+            $table->foreign('siswa_id')->references('id')->on('siswas')->onDelete('cascade');
         });
     }
 

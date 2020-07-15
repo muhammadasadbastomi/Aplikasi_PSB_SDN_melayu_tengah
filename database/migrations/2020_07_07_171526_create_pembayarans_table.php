@@ -18,12 +18,13 @@ class CreatePembayaransTable extends Migration
             $table->string('uuid')->length(36);
             $table->string('metode');
             $table->date('tgl_bayar')->nullable();
-            $table->string('cicilan_id')->nullable();
+            $table->unsignedBigInteger('cicilan_id')->nullable();
             $table->string('status')->nullable();
             $table->string('nominal')->nullable();
             $table->string('terbilang')->nullable();
             $table->string('bukti')->nullable();
             $table->timestamps();
+            $table->foreign('cicilan_id')->references('id')->on('cicilans')->onDelete('cascade');
         });
     }
 

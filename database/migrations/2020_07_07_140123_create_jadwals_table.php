@@ -20,6 +20,8 @@ class CreateJadwalsTable extends Migration
             $table->unsignedBigInteger('mapel_id')->nullable();
             $table->enum('hari', ['1', '2', '3', '4', '5', '6', '7'])->nullable();
             $table->timestamps();
+            $table->foreign('kelas_id')->references('id')->on('kelas')->onDelete('cascade');
+            $table->foreign('mapel_id')->references('id')->on('mapels')->onDelete('cascade');
         });
     }
 

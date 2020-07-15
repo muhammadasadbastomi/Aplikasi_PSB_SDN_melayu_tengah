@@ -18,8 +18,9 @@ class CreateMapelsTable extends Migration
             $table->string('uuid')->length(36);
             $table->string('kode_mapel');
             $table->string('mapel');
-            $table->string('guru_id')->nullable();
+            $table->unsignedBigInteger('guru_id')->nullable();
             $table->timestamps();
+            $table->foreign('guru_id')->references('id')->on('gurus')->onDelete('cascade');
         });
     }
 
