@@ -30,7 +30,14 @@
                     </fieldset>
                     <fieldset class="form-group">
                         <label for="agama">Agama</label>
-                        <input type="text" class="form-control" id="agama" name="agama" placeholder="Masukkan Agama" value="{{old('agama')}}">
+                        <select class="form-control" id="agama" name="agama">
+                            <option value="1" @if (old('agama')=='1' ) {{'selected'}} @endif>Islam</option>
+                            <option value="2" @if (old('agama')=='2' ) {{'selected'}} @endif>Kristen Protestan</option>
+                            <option value="3" @if (old('agama')=='3' ) {{'selected'}} @endif>Katolik</option>
+                            <option value="4" @if (old('agama')=='4' ) {{'selected'}} @endif>Hindu</option>
+                            <option value="5" @if (old('agama')=='5' ) {{'selected'}} @endif>Buddha</option>
+                            <option value="6" @if (old('agama')=='6' ) {{'selected'}} @endif>Kong Hu Cu</option>
+                        </select>
                     </fieldset>
                     <fieldset class="form-group">
                         <label for="telp">Telepon</label>
