@@ -33,7 +33,7 @@
                                             {{Carbon\Carbon::parse($expired)->translatedFormat('d F Y')}}</td>
                                         <td class="text-center">
                                             <a class="btn btn-info round mr-1 mb-1 text-white"
-                                                href="{{ route('pembayaranShow',['id' => $d->uuid]) }}"><i
+                                                href=""><i
                                                     class="bx bxs-search"></i></a>
                                         </td>
                                     </tr>
