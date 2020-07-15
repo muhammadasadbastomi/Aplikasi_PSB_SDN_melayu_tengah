@@ -66,12 +66,12 @@ Isi Biodata
                                                     <div class="form-group">
                                                         <label for="agama">Agama</label>
                                                         <select class="form-control" id="agama" name="agama">
-                                                            <option value="1" @if($data->agama == 1 ) selected @endif >Islam</option>
-                                                            <option value="2" @if($data->agama == 2 ) selected @endif >Kristen Protestan</option>
-                                                            <option value="3" @if($data->agama == 3 ) selected @endif >Katolik</option>
-                                                            <option value="4" @if($data->agama == 4 ) selected @endif >Hindu</option>
-                                                            <option value="5" @if($data->agama == 5 ) selected @endif >Buddha</option>
-                                                            <option value="6" @if($data->agama == 6 ) selected @endif >Kong Hu Cu</option>
+                                                            <option value="1" @if($data->agama == 1 ) selected @endif @if(($data->agama == !null) && ($data->agama == 1)) selected @endif >Islam</option>
+                                                            <option value="2" @if($data->agama == 2 ) selected @endif @if(($data->agama == !null) && ($data->agama == 2)) selected @endif >Kristen Protestan</option>
+                                                            <option value="3" @if($data->agama == 3 ) selected @endif @if(($data->agama == !null) && ($data->agama == 3)) selected @endif >Katolik</option>
+                                                            <option value="4" @if($data->agama == 4 ) selected @endif @if(($data->agama == !null) && ($data->agama == 4)) selected @endif >Hindu</option>
+                                                            <option value="5" @if($data->agama == 5 ) selected @endif @if(($data->agama == !null) && ($data->agama == 5)) selected @endif >Buddha</option>
+                                                            <option value="6" @if($data->agama == 6 ) selected @endif @if(($data->agama == !null) && ($data->agama == 6)) selected @endif >Kong Hu Cu</option>
                                                         </select>
                                                     </div>
                                                     <div class="form-group">
@@ -139,12 +139,12 @@ Isi Biodata
                                                     <div class="form-group">
                                                         <label for="agama_wali">Agama</label>
                                                         <select class="form-control" id="agama_wali" name="agama_wali">
-                                                            <option value="1" @if($data->agama == 1 ) selected @endif >Islam</option>
-                                                            <option value="2" @if($data->agama == 2 ) selected @endif >Kristen Protestan</option>
-                                                            <option value="3" @if($data->agama == 3 ) selected @endif >Katolik</option>
-                                                            <option value="4" @if($data->agama == 4 ) selected @endif >Hindu</option>
-                                                            <option value="5" @if($data->agama == 5 ) selected @endif >Buddha</option>
-                                                            <option value="6" @if($data->agama == 6 ) selected @endif >Kong Hu Cu</option>
+                                                            <option value="1" @if(($data->wali->agama == !null) && ($data->wali->agama == 1)) selected @endif >Islam</option>
+                                                            <option value="2" @if(($data->wali->agama == !null) && ($data->wali->agama == 2)) selected @endif >Kristen Protestan</option>
+                                                            <option value="3" @if(($data->wali->agama == !null) && ($data->wali->agama == 3)) selected @endif >Katolik</option>
+                                                            <option value="4" @if(($data->wali->agama == !null) && ($data->wali->agama == 4)) selected @endif >Hindu</option>
+                                                            <option value="5" @if(($data->wali->agama == !null) && ($data->wali->agama == 5)) selected @endif >Buddha</option>
+                                                            <option value="6" @if(($data->wali->agama == !null) && ($data->wali->agama == 6)) selected @endif >Kong Hu Cu</option>
                                                         </select>
                                                     </div>
                                                     <div class="form-group">
@@ -195,12 +195,12 @@ Isi Biodata
                                                     <div class="form-group">
                                                         <label for="agama_ayah">Agama</label>
                                                         <select class="form-control" id="agama_ayah" name="agama_ayah">
-                                                            <option value="1" @if($data->agama == 1 ) selected @endif >Islam</option>
-                                                            <option value="2" @if($data->agama == 2 ) selected @endif >Kristen Protestan</option>
-                                                            <option value="3" @if($data->agama == 3 ) selected @endif >Katolik</option>
-                                                            <option value="4" @if($data->agama == 4 ) selected @endif >Hindu</option>
-                                                            <option value="5" @if($data->agama == 5 ) selected @endif >Buddha</option>
-                                                            <option value="6" @if($data->agama == 6 ) selected @endif >Kong Hu Cu</option>
+                                                            <option value="1" @if(($data->ayah_id == !null) && ($data->ayah->agama == 1)) selected @endif >Islam</option>
+                                                            <option value="2" @if(($data->ayah_id == !null) && ($data->ayah->agama == 2)) selected @endif >Kristen Protestan</option>
+                                                            <option value="3" @if(($data->ayah_id == !null) && ($data->ayah->agama == 3)) selected @endif >Katolik</option>
+                                                            <option value="4" @if(($data->ayah_id == !null) && ($data->ayah->agama == 4)) selected @endif >Hindu</option>
+                                                            <option value="5" @if(($data->ayah_id == !null) && ($data->ayah->agama == 5)) selected @endif >Buddha</option>
+                                                            <option value="6" @if(($data->ayah_id == !null) && ($data->ayah->agama == 6)) selected @endif >Kong Hu Cu</option>
                                                         </select>
                                                     </div>
                                                     <div class="form-group">
@@ -243,12 +243,12 @@ Isi Biodata
                                                     <div class="form-group">
                                                         <label for="agama_ibu">Agama</label>
                                                         <select class="form-control" id="agama_ibu" name="agama_ibu">
-                                                            <option value="1" @if($data->agama == 1 ) selected @endif >Islam</option>
-                                                            <option value="2" @if($data->agama == 2 ) selected @endif >Kristen Protestan</option>
-                                                            <option value="3" @if($data->agama == 3 ) selected @endif >Katolik</option>
-                                                            <option value="4" @if($data->agama == 4 ) selected @endif >Hindu</option>
-                                                            <option value="5" @if($data->agama == 5 ) selected @endif >Buddha</option>
-                                                            <option value="6" @if($data->agama == 6 ) selected @endif >Kong Hu Cu</option>
+                                                            <option value="1" @if(($data->ibu_id == !null) && ($data->ibu->agama == 1)) selected @endif >Islam</option>
+                                                            <option value="2" @if(($data->ibu_id == !null) && ($data->ibu->agama == 2)) selected @endif >Kristen Protestan</option>
+                                                            <option value="3" @if(($data->ibu_id == !null) && ($data->ibu->agama == 3)) selected @endif >Katolik</option>
+                                                            <option value="4" @if(($data->ibu_id == !null) && ($data->ibu->agama == 4)) selected @endif >Hindu</option>
+                                                            <option value="5" @if(($data->ibu_id == !null) && ($data->ibu->agama == 5)) selected @endif >Buddha</option>
+                                                            <option value="6" @if(($data->ibu_id == !null) && ($data->ibu->agama == 6)) selected @endif >Kong Hu Cu</option>
                                                         </select>
                                                     </div>
                                                     <div class="form-group">
