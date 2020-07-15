@@ -20,7 +20,7 @@ class CreateMapelsTable extends Migration
             $table->string('mapel');
             $table->unsignedBigInteger('guru_id')->nullable();
             $table->timestamps();
-            $table->foreign('guru_id')->references('id')->on('gurus')->onDelete('cascade');
+            // $table->foreign('guru_id')->references('id')->on('gurus')->onDelete('cascade');
         });
     }
 
