@@ -14,6 +14,7 @@ use App\Jadwal;
 use App\Kalender;
 use App\Kegiatan;
 use App\Kelas_detail;
+use App\Kalender_detail;
 use App\Kelas;
 use App\Mapel;
 use App\Pembayaran;
@@ -48,7 +49,7 @@ class LaporanController extends Controller
     {
         $start = $request->start;
         $end = $request->end;
-        $data = Siswa::where('status', 4)->whereBetween('siswas.created_at', [$start, $end])
+        $data = Siswa::where('status', '>=', '4')->whereBetween('siswas.created_at', [$start, $end])
             ->join('users', 'users.id', '=', 'siswas.user_id')
             ->orderBy('users.name', 'ASC')->get();
 
@@ -70,11 +71,11 @@ class LaporanController extends Controller
 
     public function kalender(Request $request)
     {
-        $start = $request->start;
-        $end = $request->end;
-        $data = Kalender::whereBetween('tgl_mulai', [$start, $end])->get();
+        $kalender = $request->kalender;
+        $tahun = Kalender::where('id', '=', $kalender)->first();
+        $data = Kalender_detail::where('id', '=', $kalender )->get();
 
-        $pdf = PDF::loadview('admin/laporan/kalender', compact('data', 'start', 'end'));
+        $pdf = PDF::loadview('admin/laporan/kalender', compact('data' , 'tahun'));
         $pdf->setPaper('a4', 'portrait');
         return $pdf->stream('laporan-kalender-pdf');
     }

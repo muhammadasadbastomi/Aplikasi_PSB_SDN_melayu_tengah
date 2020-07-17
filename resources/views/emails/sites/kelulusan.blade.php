@@ -8,5 +8,6 @@ Klik disini untuk mengunjungi website kami
 @endcomponent
 
 Terimakasih,<br>
-{{ config('app.name') }}
+<a style="text-decoration: none;" href="['url' => 'http://127.0.0.1:8000/']">SDN Melayu Tengah</a>, Kab.Banjar<br>
+Jl. Melayu Ulu, Desa Melayu, Martapura Timur, Kab. Banjar, Kalimantan Selatan 70617
 @endcomponent

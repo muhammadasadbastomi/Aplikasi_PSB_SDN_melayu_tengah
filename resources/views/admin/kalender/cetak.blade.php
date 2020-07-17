@@ -10,15 +10,15 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form method="post" action="{{ route('cetakKalender') }}" target="_blank">
+                <form method="get" action="{{ route('cetakKalender') }}" target="_blank">
                     @csrf
                     <fieldset class="form-group">
-                        <label for="start">Dari Tanggal</label>
-                        <input type="date" class="form-control" name="start" required>
-                    </fieldset>
-                    <fieldset class="form-group">
-                        <label for="end">Sampai Tanggal</label>
-                        <input type="date" class="form-control" name="end" required>
+                        <label for="start">Pilih Tahun Akademik</label>
+                        <select name="kalender" class="form-control" id="basicSelect">
+                            @foreach ($data as $d)
+                            <option value="{{$d->id}}">{{ $d->tahun }}</option>
+                            @endforeach
+                        </select>
                     </fieldset>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-light-secondary" data-dismiss="modal">Close</button>

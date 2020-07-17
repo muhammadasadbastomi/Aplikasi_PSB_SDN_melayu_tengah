@@ -13,6 +13,6 @@ class Kalender extends Model
 
     public function Kalender_detail()
     {
-        return $this->belongsTo(Kalender_detail::class);
+        return $this->HasMany(Kalender_detail::class);
     }
 }

@@ -11,8 +11,8 @@ class Kalender_detail extends Model
     use Notifiable;
     use Uuid;
 
-    public function Kalender_detail()
+    public function Kalender()
     {
-        return $this->belongsTo(Kalender_detail::class);
+        return $this->belongsTo(Kalender::class);
     }
 }

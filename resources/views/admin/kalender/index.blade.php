@@ -40,10 +40,10 @@ Data Kalender Akademik
                         <div class="card">
                             <div class="card-content">
                                 <div class="card-body card-dashboard">
-                                    <button type="button" class="btn btn-primary round mr-1 mb-1 float-right"
-                                        data-toggle="modal" data-target="#modaltambah"> Tambah Data <i
+                                    <button type="button" class="btn btn-primary round mr-1 mb-1 float-left"
+                                        data-toggle="modal" data-target="#modaltambah"> <i
                                             class="bx bx-plus-circle"></i></button>
-                                    <button type="button" data-toggle="modal" data-target="#cetaklulus"
+                                    <button type="button" data-toggle="modal" data-target="#modalcetak"
                                         class="btn btn-outline-default text-white float-right"><i class="menu-livicon"
                                             data-icon="print-doc"></i>Cetak</button>
                                     <div class="table-responsive">
