@@ -20,9 +20,20 @@
         table {
             border-collapse: collapse;
             width: 100%;
+            style="text-align:center;"
         }
 
-        td,
+        /* table.one {
+            float: left;
+            width: 45%;
+        }
+
+        table.two {
+            width: 45%;
+            float: right;
+        } */
+
+        ​ td,
         th {
             border: 1px solid;
             padding-left: 5px;
@@ -85,6 +96,10 @@
         h5 {
             line-height: 0.3;
         }
+
+        td {
+            border: 1px solid;
+        }
     </style>
 </head>
 
@@ -104,176 +119,109 @@
         <hr>
     </div>
 
-
-    <h3 style="text-align:center;text-transform: uppercase;">Jadwal Kelas {{ $kelas->kelas }}</h3>
-    <div class="row">
-        <div class="">
-            <h5 style="">Senin</h5>
-            <ul style="margin-left:-21px;">
-                @foreach($senin as $d)
-                @if($d->mapel->guru_id == 0)
-                <li>
-                    {{$d->mapel->mapel}}
-                    <a style="cursor: pointer;" class="delete badge badge-icon badge-light-danger"
-                        data-id="{{$d->uuid}}"><i class="bx bx-trash"></i></a>
-                    <a style="cursor: pointer;" class="badge badge-icon badge-light-warning" data-toggle="modal"
-                        data-target="#modaledit" data-id="{{$d->id}}" data-hari="{{$d->hari}}"
-                        data-mapel="{{$d->mapel_id}}"><i class="bx bx-edit"></i></a>
-                </li>
-                @else
-                <li>
-                    {{$d->mapel->mapel}}, Guru {{$d->mapel->guru->nama}}
-                    <a style="cursor: pointer;" class="delete badge badge-icon badge-light-danger"
-                        data-id="{{$d->uuid}}"><i class="bx bx-trash"></i></a>
-                    <a style="cursor: pointer;" class="badge badge-icon badge-light-warning" data-toggle="modal"
-                        data-target="#modaledit" data-id="{{$d->id}}" data-hari="{{$d->hari}}"
-                        data-mapel="{{$d->mapel_id}}"><i class="bx bx-edit"></i></a>
-                </li>
-                @endif
-                @endforeach
-            </ul>
+    <div style="margin-top:-40px;">
+        <h3 style="text-align:center; text-transform: uppercase;">Jadwal Kelas {{ $kelas->kelas }}</h3>
+        <br>
+        <div>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Senin </th>
+                        <th>Selasa</th>
+                        <th>Rabu</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="width : 33%; padding : 5px 5px 5px 5px;">
+                            @foreach($senin as $d)
+                            @if($d->mapel->guru_id == 0)
+                            {{ $d->mapel->mapel }}
+                            @else
+                            <b><u>{{ $d->mapel->mapel }}</u></b>
+                            <br> Guru : {{ $d->mapel->guru->nama }}
+                            <br>
+                            @endif
+                            @endforeach
+                        </td>
+                        <td style=" width : 33%; padding : 5px 5px 5px 5px;">
+                            @foreach($selasa as $d)
+                            @if($d->mapel->guru_id == 0)
+                            {{ $d->mapel->mapel }}
+                            @else
+                            <b><u>{{ $d->mapel->mapel }}</u></b>
+                            <br> Guru : {{ $d->mapel->guru->nama }}
+                            <br>
+                            @endif
+                            @endforeach
+                        </td>
+                        <td style="width : 33%; padding : 5px 5px 5px 5px;">
+                            @foreach($rabu as $d)
+                            @if($d->mapel->guru_id == 0)
+                            {{ $d->mapel->mapel }}
+                            @else
+                            <b><u>{{ $d->mapel->mapel }}</u></b>
+                            <br> Guru : {{ $d->mapel->guru->nama }}
+                            <br>
+                            @endif
+                            @endforeach
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
-
-        <div class="col-sm-4">
-            <h5>Selasa</h5>
-            <ul style="margin-left:-21px;">
-                @foreach($selasa as $d)
-                @if($d->mapel->guru_id == 0)
-                <li>
-                    {{$d->mapel->mapel}}
-                    <a style="cursor: pointer;" class="delete badge badge-icon badge-light-danger"
-                        data-id="{{$d->uuid}}"><i class="bx bx-trash"></i></a>
-                    <a style="cursor: pointer;" class="badge badge-icon badge-light-warning" data-toggle="modal"
-                        data-target="#modaledit" data-id="{{$d->id}}" data-hari="{{$d->hari}}"
-                        data-mapel="{{$d->mapel_id}}"><i class="bx bx-edit"></i></a>
-                </li>
-                @else
-                <li>
-                    {{$d->mapel->mapel}}, Guru {{$d->mapel->guru->nama}}
-                    <a style="cursor: pointer;" class="delete badge badge-icon badge-light-danger"
-                        data-id="{{$d->uuid}}"><i class="bx bx-trash"></i></a>
-                    <a style="cursor: pointer;" class="badge badge-icon badge-light-warning" data-toggle="modal"
-                        data-target="#modaledit" data-id="{{$d->id}}" data-hari="{{$d->hari}}"
-                        data-mapel="{{$d->mapel_id}}"><i class="bx bx-edit"></i></a>
-                </li>
-                @endif
-                @endforeach
-            </ul>
-        </div>
-
-        <div class="col-sm-4">
-            <h5>Rabu</h5>
-            <ul style="margin-left:-21px;">
-                @foreach($rabu as $d)
-                @if($d->mapel->guru_id == 0)
-                <li>
-                    {{$d->mapel->mapel}}
-                    <a style="cursor: pointer;" class="delete badge badge-icon badge-light-danger"
-                        data-id="{{$d->uuid}}"><i class="bx bx-trash"></i></a>
-                    <a style="cursor: pointer;" class="badge badge-icon badge-light-warning" data-toggle="modal"
-                        data-target="#modaledit" data-id="{{$d->id}}" data-hari="{{$d->hari}}"
-                        data-mapel="{{$d->mapel_id}}"><i class="bx bx-edit"></i></a>
-                </li>
-                @else
-                <li>
-                    {{$d->mapel->mapel}}, Guru {{$d->mapel->guru->nama}}
-                    <a style="cursor: pointer;" class="delete badge badge-icon badge-light-danger"
-                        data-id="{{$d->uuid}}"><i class="bx bx-trash"></i></a>
-                    <a style="cursor: pointer;" class="badge badge-icon badge-light-warning" data-toggle="modal"
-                        data-target="#modaledit" data-id="{{$d->id}}" data-hari="{{$d->hari}}"
-                        data-mapel="{{$d->mapel_id}}"><i class="bx bx-edit"></i></a>
-                </li>
-                @endif
-                @endforeach
-            </ul>
-        </div>
-    </div>
-
-
-    <div class="row" style="margin-top:2%;">
-        <div class="col-sm-4">
-            <h5>Kamis</h5>
-            <ul style="margin-left:-21px;">
-                @foreach($kamis as $d)
-                @if($d->mapel->guru_id == 0)
-                <li>
-                    {{$d->mapel->mapel}}
-                    <a style="cursor: pointer;" class="delete badge badge-icon badge-light-danger"
-                        data-id="{{$d->uuid}}"><i class="bx bx-trash"></i></a>
-                    <a style="cursor: pointer;" class="badge badge-icon badge-light-warning" data-toggle="modal"
-                        data-target="#modaledit" data-id="{{$d->id}}" data-hari="{{$d->hari}}"
-                        data-mapel="{{$d->mapel_id}}"><i class="bx bx-edit"></i></a>
-                </li>
-                @else
-                <li>
-                    {{$d->mapel->mapel}}, Guru {{$d->mapel->guru->nama}}
-                    <a style="cursor: pointer;" class="delete badge badge-icon badge-light-danger"
-                        data-id="{{$d->uuid}}"><i class="bx bx-trash"></i></a>
-                    <a style="cursor: pointer;" class="badge badge-icon badge-light-warning" data-toggle="modal"
-                        data-target="#modaledit" data-id="{{$d->id}}" data-hari="{{$d->hari}}"
-                        data-mapel="{{$d->mapel_id}}"><i class="bx bx-edit"></i></a>
-                </li>
-                @endif
-                @endforeach
-            </ul>
-        </div>
-
-        <div class="col-sm-4">
-            <h5>Jumat</h5>
-            <ul style="margin-left:-21px;">
-                @foreach($jumat as $d)
-                @if($d->mapel->guru_id == 0)
-                <li>
-                    {{$d->mapel->mapel}}
-                    <a style="cursor: pointer;" class="delete badge badge-icon badge-light-danger"
-                        data-id="{{$d->uuid}}"><i class="bx bx-trash"></i></a>
-                    <a style="cursor: pointer;" class="badge badge-icon badge-light-warning" data-toggle="modal"
-                        data-target="#modaledit" data-id="{{$d->id}}" data-hari="{{$d->hari}}"
-                        data-mapel="{{$d->mapel_id}}"><i class="bx bx-edit"></i></a>
-                </li>
-                @else
-                <li>
-                    {{$d->mapel->mapel}}, Guru {{$d->mapel->guru->nama}}
-                    <a style="cursor: pointer;" class="delete badge badge-icon badge-light-danger"
-                        data-id="{{$d->uuid}}"><i class="bx bx-trash"></i></a>
-                    <a style="cursor: pointer;" class="badge badge-icon badge-light-warning" data-toggle="modal"
-                        data-target="#modaledit" data-id="{{$d->id}}" data-hari="{{$d->hari}}"
-                        data-mapel="{{$d->mapel_id}}"><i class="bx bx-edit"></i></a>
-                </li>
-                @endif
-                @endforeach
-            </ul>
-        </div>
-
-        <div class="col-sm-4">
-            <h5>Sabtu</h5>
-            <ul style="margin-left:-21px;">
-                @foreach($sabtu as $d)
-                @if($d->mapel->guru_id == 0)
-                <li>
-                    {{$d->mapel->mapel}}
-                    <a style="cursor: pointer;" class="delete badge badge-icon badge-light-danger"
-                        data-id="{{$d->uuid}}"><i class="bx bx-trash"></i></a>
-                    <a style="cursor: pointer;" class="badge badge-icon badge-light-warning" data-toggle="modal"
-                        data-target="#modaledit" data-id="{{$d->id}}" data-hari="{{$d->hari}}"
-                        data-mapel="{{$d->mapel_id}}"><i class="bx bx-edit"></i></a>
-                </li>
-                @else
-                <li>
-                    {{$d->mapel->mapel}}, Guru {{$d->mapel->guru->nama}}
-                    <a style="cursor: pointer;" class="delete badge badge-icon badge-light-danger"
-                        data-id="{{$d->uuid}}"><i class="bx bx-trash"></i></a>
-                    <a style="cursor: pointer;" class="badge badge-icon badge-light-warning" data-toggle="modal"
-                        data-target="#modaledit" data-id="{{$d->id}}" data-hari="{{$d->hari}}"
-                        data-mapel="{{$d->mapel_id}}"><i class="bx bx-edit"></i></a>
-                </li>
-                @endif
-                @endforeach
-            </ul>
+        <br>
+        <div>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Kamis</th>
+                        <th>Jumat</th>
+                        <th>Sabtu</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="width : 33%; padding : 5px 5px 5px 5px;">
+                            @foreach($kamis as $d)
+                            @if($d->mapel->guru_id == 0)
+                            {{ $d->mapel->mapel }}
+                            @else
+                            <b><u>{{ $d->mapel->mapel }}</u></b>
+                            <br> Guru : {{ $d->mapel->guru->nama }}
+                            <br>
+                            @endif
+                            @endforeach
+                        </td>
+                        <td style=" width : 33%; padding : 5px 5px 5px 5px;">
+                            @foreach($jumat as $d)
+                            @if($d->mapel->guru_id == 0)
+                            {{ $d->mapel->mapel }}
+                            @else
+                            <b><u>{{ $d->mapel->mapel }}</u></b>
+                            <br> Guru : {{ $d->mapel->guru->nama }}
+                            <br>
+                            @endif
+                            @endforeach
+                        </td>
+                        <td style="width : 33%; padding : 5px 5px 5px 5px;">
+                            @foreach($sabtu as $d)
+                            @if($d->mapel->guru_id == 0)
+                            {{ $d->mapel->mapel }}
+                            @else
+                            <b><u>{{ $d->mapel->mapel }}</u></b>
+                            <br> Guru : {{ $d->mapel->guru->nama }}
+                            <br>
+                            @endif
+                            @endforeach
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
-    <br>
-    <br>
+
+
     <!-- <div class="ttd">
             <h5>
                 Banjarbaru,
