@@ -104,141 +104,177 @@
         <hr>
     </div>
 
-    <div class="container" style="margin-top:-40px;">
-        <h3 style="text-align:center;text-transform: uppercase;">Jadwal Kelas {{ $kelas->kelas }}</h3>
-        <div class="row">
-            <div class="col-sm-4">
-                <h5>Senin</h5>
-                <ul style="margin-left:-21px;">
-                    @foreach($senin as $d)
-                    @if($d->mapel->guru_id == 0)
-                    <li>
-                        {{$d->mapel->mapel}}
-                        <a style="cursor: pointer;" class="delete badge badge-icon badge-light-danger" data-id="{{$d->uuid}}"><i class="bx bx-trash"></i></a>
-                        <a style="cursor: pointer;" class="badge badge-icon badge-light-warning" data-toggle="modal" data-target="#modaledit" data-id="{{$d->id}}" data-hari="{{$d->hari}}" data-mapel="{{$d->mapel_id}}"><i class="bx bx-edit"></i></a>
-                    </li>
-                    @else
-                    <li>
-                        {{$d->mapel->mapel}}, Guru {{$d->mapel->guru->nama}}
-                        <a style="cursor: pointer;" class="delete badge badge-icon badge-light-danger" data-id="{{$d->uuid}}"><i class="bx bx-trash"></i></a>
-                        <a style="cursor: pointer;" class="badge badge-icon badge-light-warning" data-toggle="modal" data-target="#modaledit" data-id="{{$d->id}}" data-hari="{{$d->hari}}" data-mapel="{{$d->mapel_id}}"><i class="bx bx-edit"></i></a>
-                    </li>
-                    @endif
-                    @endforeach
-                </ul>
-            </div>
 
-            <div class="col-sm-4">
-                <h5>Selasa</h5>
-                <ul style="margin-left:-21px;">
-                    @foreach($selasa as $d)
-                    @if($d->mapel->guru_id == 0)
-                    <li>
-                        {{$d->mapel->mapel}}
-                        <a style="cursor: pointer;" class="delete badge badge-icon badge-light-danger" data-id="{{$d->uuid}}"><i class="bx bx-trash"></i></a>
-                        <a style="cursor: pointer;" class="badge badge-icon badge-light-warning" data-toggle="modal" data-target="#modaledit" data-id="{{$d->id}}" data-hari="{{$d->hari}}" data-mapel="{{$d->mapel_id}}"><i class="bx bx-edit"></i></a>
-                    </li>
-                    @else
-                    <li>
-                        {{$d->mapel->mapel}}, Guru {{$d->mapel->guru->nama}}
-                        <a style="cursor: pointer;" class="delete badge badge-icon badge-light-danger" data-id="{{$d->uuid}}"><i class="bx bx-trash"></i></a>
-                        <a style="cursor: pointer;" class="badge badge-icon badge-light-warning" data-toggle="modal" data-target="#modaledit" data-id="{{$d->id}}" data-hari="{{$d->hari}}" data-mapel="{{$d->mapel_id}}"><i class="bx bx-edit"></i></a>
-                    </li>
-                    @endif
-                    @endforeach
-                </ul>
-            </div>
-
-            <div class="col-sm-4">
-                <h5>Rabu</h5>
-                <ul style="margin-left:-21px;">
-                    @foreach($rabu as $d)
-                    @if($d->mapel->guru_id == 0)
-                    <li>
-                        {{$d->mapel->mapel}}
-                        <a style="cursor: pointer;" class="delete badge badge-icon badge-light-danger" data-id="{{$d->uuid}}"><i class="bx bx-trash"></i></a>
-                        <a style="cursor: pointer;" class="badge badge-icon badge-light-warning" data-toggle="modal" data-target="#modaledit" data-id="{{$d->id}}" data-hari="{{$d->hari}}" data-mapel="{{$d->mapel_id}}"><i class="bx bx-edit"></i></a>
-                    </li>
-                    @else
-                    <li>
-                        {{$d->mapel->mapel}}, Guru {{$d->mapel->guru->nama}}
-                        <a style="cursor: pointer;" class="delete badge badge-icon badge-light-danger" data-id="{{$d->uuid}}"><i class="bx bx-trash"></i></a>
-                        <a style="cursor: pointer;" class="badge badge-icon badge-light-warning" data-toggle="modal" data-target="#modaledit" data-id="{{$d->id}}" data-hari="{{$d->hari}}" data-mapel="{{$d->mapel_id}}"><i class="bx bx-edit"></i></a>
-                    </li>
-                    @endif
-                    @endforeach
-                </ul>
-            </div>
+    <h3 style="text-align:center;text-transform: uppercase;">Jadwal Kelas {{ $kelas->kelas }}</h3>
+    <div class="row">
+        <div class="">
+            <h5 style="">Senin</h5>
+            <ul style="margin-left:-21px;">
+                @foreach($senin as $d)
+                @if($d->mapel->guru_id == 0)
+                <li>
+                    {{$d->mapel->mapel}}
+                    <a style="cursor: pointer;" class="delete badge badge-icon badge-light-danger"
+                        data-id="{{$d->uuid}}"><i class="bx bx-trash"></i></a>
+                    <a style="cursor: pointer;" class="badge badge-icon badge-light-warning" data-toggle="modal"
+                        data-target="#modaledit" data-id="{{$d->id}}" data-hari="{{$d->hari}}"
+                        data-mapel="{{$d->mapel_id}}"><i class="bx bx-edit"></i></a>
+                </li>
+                @else
+                <li>
+                    {{$d->mapel->mapel}}, Guru {{$d->mapel->guru->nama}}
+                    <a style="cursor: pointer;" class="delete badge badge-icon badge-light-danger"
+                        data-id="{{$d->uuid}}"><i class="bx bx-trash"></i></a>
+                    <a style="cursor: pointer;" class="badge badge-icon badge-light-warning" data-toggle="modal"
+                        data-target="#modaledit" data-id="{{$d->id}}" data-hari="{{$d->hari}}"
+                        data-mapel="{{$d->mapel_id}}"><i class="bx bx-edit"></i></a>
+                </li>
+                @endif
+                @endforeach
+            </ul>
         </div>
 
-
-        <div class="row" style="margin-top:2%;">
-            <div class="col-sm-4">
-                <h5>Kamis</h5>
-                <ul style="margin-left:-21px;">
-                    @foreach($kamis as $d)
-                    @if($d->mapel->guru_id == 0)
-                    <li>
-                        {{$d->mapel->mapel}}
-                        <a style="cursor: pointer;" class="delete badge badge-icon badge-light-danger" data-id="{{$d->uuid}}"><i class="bx bx-trash"></i></a>
-                        <a style="cursor: pointer;" class="badge badge-icon badge-light-warning" data-toggle="modal" data-target="#modaledit" data-id="{{$d->id}}" data-hari="{{$d->hari}}" data-mapel="{{$d->mapel_id}}"><i class="bx bx-edit"></i></a>
-                    </li>
-                    @else
-                    <li>
-                        {{$d->mapel->mapel}}, Guru {{$d->mapel->guru->nama}}
-                        <a style="cursor: pointer;" class="delete badge badge-icon badge-light-danger" data-id="{{$d->uuid}}"><i class="bx bx-trash"></i></a>
-                        <a style="cursor: pointer;" class="badge badge-icon badge-light-warning" data-toggle="modal" data-target="#modaledit" data-id="{{$d->id}}" data-hari="{{$d->hari}}" data-mapel="{{$d->mapel_id}}"><i class="bx bx-edit"></i></a>
-                    </li>
-                    @endif
-                    @endforeach
-                </ul>
-            </div>
-
-            <div class="col-sm-4">
-                <h5>Jumat</h5>
-                <ul style="margin-left:-21px;">
-                    @foreach($jumat as $d)
-                    @if($d->mapel->guru_id == 0)
-                    <li>
-                        {{$d->mapel->mapel}}
-                        <a style="cursor: pointer;" class="delete badge badge-icon badge-light-danger" data-id="{{$d->uuid}}"><i class="bx bx-trash"></i></a>
-                        <a style="cursor: pointer;" class="badge badge-icon badge-light-warning" data-toggle="modal" data-target="#modaledit" data-id="{{$d->id}}" data-hari="{{$d->hari}}" data-mapel="{{$d->mapel_id}}"><i class="bx bx-edit"></i></a>
-                    </li>
-                    @else
-                    <li>
-                        {{$d->mapel->mapel}}, Guru {{$d->mapel->guru->nama}}
-                        <a style="cursor: pointer;" class="delete badge badge-icon badge-light-danger" data-id="{{$d->uuid}}"><i class="bx bx-trash"></i></a>
-                        <a style="cursor: pointer;" class="badge badge-icon badge-light-warning" data-toggle="modal" data-target="#modaledit" data-id="{{$d->id}}" data-hari="{{$d->hari}}" data-mapel="{{$d->mapel_id}}"><i class="bx bx-edit"></i></a>
-                    </li>
-                    @endif
-                    @endforeach
-                </ul>
-            </div>
-
-            <div class="col-sm-4">
-                <h5>Sabtu</h5>
-                <ul style="margin-left:-21px;">
-                    @foreach($sabtu as $d)
-                    @if($d->mapel->guru_id == 0)
-                    <li>
-                        {{$d->mapel->mapel}}
-                        <a style="cursor: pointer;" class="delete badge badge-icon badge-light-danger" data-id="{{$d->uuid}}"><i class="bx bx-trash"></i></a>
-                        <a style="cursor: pointer;" class="badge badge-icon badge-light-warning" data-toggle="modal" data-target="#modaledit" data-id="{{$d->id}}" data-hari="{{$d->hari}}" data-mapel="{{$d->mapel_id}}"><i class="bx bx-edit"></i></a>
-                    </li>
-                    @else
-                    <li>
-                        {{$d->mapel->mapel}}, Guru {{$d->mapel->guru->nama}}
-                        <a style="cursor: pointer;" class="delete badge badge-icon badge-light-danger" data-id="{{$d->uuid}}"><i class="bx bx-trash"></i></a>
-                        <a style="cursor: pointer;" class="badge badge-icon badge-light-warning" data-toggle="modal" data-target="#modaledit" data-id="{{$d->id}}" data-hari="{{$d->hari}}" data-mapel="{{$d->mapel_id}}"><i class="bx bx-edit"></i></a>
-                    </li>
-                    @endif
-                    @endforeach
-                </ul>
-            </div>
+        <div class="col-sm-4">
+            <h5>Selasa</h5>
+            <ul style="margin-left:-21px;">
+                @foreach($selasa as $d)
+                @if($d->mapel->guru_id == 0)
+                <li>
+                    {{$d->mapel->mapel}}
+                    <a style="cursor: pointer;" class="delete badge badge-icon badge-light-danger"
+                        data-id="{{$d->uuid}}"><i class="bx bx-trash"></i></a>
+                    <a style="cursor: pointer;" class="badge badge-icon badge-light-warning" data-toggle="modal"
+                        data-target="#modaledit" data-id="{{$d->id}}" data-hari="{{$d->hari}}"
+                        data-mapel="{{$d->mapel_id}}"><i class="bx bx-edit"></i></a>
+                </li>
+                @else
+                <li>
+                    {{$d->mapel->mapel}}, Guru {{$d->mapel->guru->nama}}
+                    <a style="cursor: pointer;" class="delete badge badge-icon badge-light-danger"
+                        data-id="{{$d->uuid}}"><i class="bx bx-trash"></i></a>
+                    <a style="cursor: pointer;" class="badge badge-icon badge-light-warning" data-toggle="modal"
+                        data-target="#modaledit" data-id="{{$d->id}}" data-hari="{{$d->hari}}"
+                        data-mapel="{{$d->mapel_id}}"><i class="bx bx-edit"></i></a>
+                </li>
+                @endif
+                @endforeach
+            </ul>
         </div>
-        <br>
-        <br>
-        <!-- <div class="ttd">
+
+        <div class="col-sm-4">
+            <h5>Rabu</h5>
+            <ul style="margin-left:-21px;">
+                @foreach($rabu as $d)
+                @if($d->mapel->guru_id == 0)
+                <li>
+                    {{$d->mapel->mapel}}
+                    <a style="cursor: pointer;" class="delete badge badge-icon badge-light-danger"
+                        data-id="{{$d->uuid}}"><i class="bx bx-trash"></i></a>
+                    <a style="cursor: pointer;" class="badge badge-icon badge-light-warning" data-toggle="modal"
+                        data-target="#modaledit" data-id="{{$d->id}}" data-hari="{{$d->hari}}"
+                        data-mapel="{{$d->mapel_id}}"><i class="bx bx-edit"></i></a>
+                </li>
+                @else
+                <li>
+                    {{$d->mapel->mapel}}, Guru {{$d->mapel->guru->nama}}
+                    <a style="cursor: pointer;" class="delete badge badge-icon badge-light-danger"
+                        data-id="{{$d->uuid}}"><i class="bx bx-trash"></i></a>
+                    <a style="cursor: pointer;" class="badge badge-icon badge-light-warning" data-toggle="modal"
+                        data-target="#modaledit" data-id="{{$d->id}}" data-hari="{{$d->hari}}"
+                        data-mapel="{{$d->mapel_id}}"><i class="bx bx-edit"></i></a>
+                </li>
+                @endif
+                @endforeach
+            </ul>
+        </div>
+    </div>
+
+
+    <div class="row" style="margin-top:2%;">
+        <div class="col-sm-4">
+            <h5>Kamis</h5>
+            <ul style="margin-left:-21px;">
+                @foreach($kamis as $d)
+                @if($d->mapel->guru_id == 0)
+                <li>
+                    {{$d->mapel->mapel}}
+                    <a style="cursor: pointer;" class="delete badge badge-icon badge-light-danger"
+                        data-id="{{$d->uuid}}"><i class="bx bx-trash"></i></a>
+                    <a style="cursor: pointer;" class="badge badge-icon badge-light-warning" data-toggle="modal"
+                        data-target="#modaledit" data-id="{{$d->id}}" data-hari="{{$d->hari}}"
+                        data-mapel="{{$d->mapel_id}}"><i class="bx bx-edit"></i></a>
+                </li>
+                @else
+                <li>
+                    {{$d->mapel->mapel}}, Guru {{$d->mapel->guru->nama}}
+                    <a style="cursor: pointer;" class="delete badge badge-icon badge-light-danger"
+                        data-id="{{$d->uuid}}"><i class="bx bx-trash"></i></a>
+                    <a style="cursor: pointer;" class="badge badge-icon badge-light-warning" data-toggle="modal"
+                        data-target="#modaledit" data-id="{{$d->id}}" data-hari="{{$d->hari}}"
+                        data-mapel="{{$d->mapel_id}}"><i class="bx bx-edit"></i></a>
+                </li>
+                @endif
+                @endforeach
+            </ul>
+        </div>
+
+        <div class="col-sm-4">
+            <h5>Jumat</h5>
+            <ul style="margin-left:-21px;">
+                @foreach($jumat as $d)
+                @if($d->mapel->guru_id == 0)
+                <li>
+                    {{$d->mapel->mapel}}
+                    <a style="cursor: pointer;" class="delete badge badge-icon badge-light-danger"
+                        data-id="{{$d->uuid}}"><i class="bx bx-trash"></i></a>
+                    <a style="cursor: pointer;" class="badge badge-icon badge-light-warning" data-toggle="modal"
+                        data-target="#modaledit" data-id="{{$d->id}}" data-hari="{{$d->hari}}"
+                        data-mapel="{{$d->mapel_id}}"><i class="bx bx-edit"></i></a>
+                </li>
+                @else
+                <li>
+                    {{$d->mapel->mapel}}, Guru {{$d->mapel->guru->nama}}
+                    <a style="cursor: pointer;" class="delete badge badge-icon badge-light-danger"
+                        data-id="{{$d->uuid}}"><i class="bx bx-trash"></i></a>
+                    <a style="cursor: pointer;" class="badge badge-icon badge-light-warning" data-toggle="modal"
+                        data-target="#modaledit" data-id="{{$d->id}}" data-hari="{{$d->hari}}"
+                        data-mapel="{{$d->mapel_id}}"><i class="bx bx-edit"></i></a>
+                </li>
+                @endif
+                @endforeach
+            </ul>
+        </div>
+
+        <div class="col-sm-4">
+            <h5>Sabtu</h5>
+            <ul style="margin-left:-21px;">
+                @foreach($sabtu as $d)
+                @if($d->mapel->guru_id == 0)
+                <li>
+                    {{$d->mapel->mapel}}
+                    <a style="cursor: pointer;" class="delete badge badge-icon badge-light-danger"
+                        data-id="{{$d->uuid}}"><i class="bx bx-trash"></i></a>
+                    <a style="cursor: pointer;" class="badge badge-icon badge-light-warning" data-toggle="modal"
+                        data-target="#modaledit" data-id="{{$d->id}}" data-hari="{{$d->hari}}"
+                        data-mapel="{{$d->mapel_id}}"><i class="bx bx-edit"></i></a>
+                </li>
+                @else
+                <li>
+                    {{$d->mapel->mapel}}, Guru {{$d->mapel->guru->nama}}
+                    <a style="cursor: pointer;" class="delete badge badge-icon badge-light-danger"
+                        data-id="{{$d->uuid}}"><i class="bx bx-trash"></i></a>
+                    <a style="cursor: pointer;" class="badge badge-icon badge-light-warning" data-toggle="modal"
+                        data-target="#modaledit" data-id="{{$d->id}}" data-hari="{{$d->hari}}"
+                        data-mapel="{{$d->mapel_id}}"><i class="bx bx-edit"></i></a>
+                </li>
+                @endif
+                @endforeach
+            </ul>
+        </div>
+    </div>
+    <br>
+    <br>
+    <!-- <div class="ttd">
             <h5>
                 Banjarbaru,
             </h5>
@@ -249,7 +285,7 @@
             <h5>golongan / kode golongan</h5>
             <h5>NIP.</h5>
         </div> -->
-    </div>
+
 </body>
 
 </html>

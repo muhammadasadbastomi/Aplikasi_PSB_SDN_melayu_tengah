@@ -80,6 +80,7 @@ Route::group(['middleware' => ['auth', 'Checkrole:1']], function () {
 
     Route::get('/admin/user', 'UserController@profile')->name('userProfile');
 
+    ;
     Route::get('/admin/laporan/cetakguru', 'LaporanController@guru')->name('cetakGuru');
     Route::post('/admin/laporan/cetakpendaftar', 'LaporanController@pendaftar')->name('cetakPendaftar');
     Route::post('/admin/laporan/cetaklulus', 'LaporanController@lulus')->name('cetakLulus');
@@ -89,6 +90,10 @@ Route::group(['middleware' => ['auth', 'Checkrole:1']], function () {
     Route::get('/admin/laporan/cetakjadwal/{id}', 'LaporanController@jadwal')->name('cetakJadwal');
     Route::post('/admin/laporan/cetakpendapatan', 'LaporanController@pendapatan')->name('cetakPendapatan');
     Route::get('/admin/laporan/cetakketentuanbiaya', 'LaporanController@ketentuanbiaya')->name('cetakKetentuan');
+    Route::get('/admin/laporan/cetaksiswa', 'LaporanController@siswa')->name('cetakSiswa');
+    Route::get('/admin/laporan/cetaksiswaall', 'LaporanController@siswaall')->name('cetakSiswaAll');
+    Route::get('/admin/laporan/cetaksiswaditolak', 'LaporanController@siswaditolak')->name('cetakSiswaditolak');
+    Route::get('/admin/laporan/cetaksiswaditolakall', 'LaporanController@siswaditolakall')->name('cetakSiswaditolakall');
 });
 
 Route::group(['middleware' => ['auth', 'Checkrole:2']], function () {

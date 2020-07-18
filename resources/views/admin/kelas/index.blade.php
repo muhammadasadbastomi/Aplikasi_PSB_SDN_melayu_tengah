@@ -42,9 +42,30 @@ Data Kelas
                                 <div class="card-body card-dashboard">
                                     <button type="button" class="btn btn-primary round mr-1 mb-1" data-toggle="modal"
                                         data-target="#default"><i class="bx bx-plus-circle"></i></button>
-                                    <button type="button" data-toggle="modal" data-target="#cetak"
-                                        class="btn btn-outline-default text-white float-right"><i class="menu-livicon"
-                                            data-icon="print-doc"></i>Cetak</button>
+                                    <div class="btn-group mb-1 float-right">
+                                        <div class="dropdown dropleft dropdown-color-icon">
+                                            <button class="btn btn-primary dropdown-toggle" type="button"
+                                                id="dropdownMenuButtonEmoji" data-toggle="dropdown" aria-haspopup="true"
+                                                aria-expanded="false">
+                                                Cetak
+                                            </button>
+                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButtonEmoji">
+                                                <a type="button" class="dropdown-item" data-toggle="modal"
+                                                    data-target="#cetak">Cetak
+                                                    Pembagian Kelas</a>
+                                                <a target="_blank" class="dropdown-item"
+                                                    href="{{ route('cetakSiswaAll') }}">Cetak Siswa
+                                                    Keseluruhan </a>
+                                                <a type="button" class="dropdown-item" data-toggle="modal"
+                                                    data-target="#cetaksiswa">Cetak Siswa Periode</a>
+                                                <a target="_blank" class="dropdown-item"
+                                                    href="{{ route('cetakSiswaditolakall') }}">Cetak Siswa
+                                                    Ditolak Keseluruhan </a>
+                                                <a type="button" class="dropdown-item" data-toggle="modal"
+                                                    data-target="#cetaksiswaditolak">Cetak Siswa Ditolak Periode</a>
+                                            </div>
+                                        </div>
+                                    </div>
                                     <div class="table-responsive">
                                         <table class="table zero-configuration">
                                             <thead>
