@@ -77,7 +77,7 @@ class LaporanController extends Controller
     {
         $now = Carbon::now()->format('d-m-Y');
         $kalender = $request->kalender;
-        $tahun = Kalender::where('id', '=', $kalender)->get();
+        $tahun = Kalender::where('id', '=', $kalender)->first();
         $data = Kalender_detail::where('kalender_id', $kalender )->get();
 
         $pdf = PDF::loadview('admin/laporan/kalender', compact('data' , 'tahun', 'now'));

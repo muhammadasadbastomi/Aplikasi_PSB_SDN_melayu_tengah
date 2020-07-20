@@ -180,7 +180,7 @@ class PembayaranController extends Controller
 
         Mail::to($data1->user->email)->send(new MailSiswalulus($data1));
         //return back()->with('success', 'Pembayaran Berhasil Dikonfirmasi');
-        return back()->with('success', 'Pembayaran Berhasil Dikonfirmasi, <br> Notif Email Dikirik Ke : '.$data1->user->name .'');
+        return back()->with('success', 'Pembayaran Berhasil Dikonfirmasi, <br> Notif Email Dikirim Ke : '.$data1->user->name .'');
     }
 
     public function konfirmasicicilan(Request $request)

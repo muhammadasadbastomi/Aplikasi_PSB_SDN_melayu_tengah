@@ -133,9 +133,21 @@
                     <td scope="col" class="text-center">Laki-laki</td>
                     @elseif($d->jenis_kelamin == 2)
                     <td scope="col" class="text-center">Perempuan</td>
+                    @else
+                    <td scope="col" class="text-center">-</td>
                     @endif
-                    <td scope="col" class="text-center">{{ $d->tempat_lahir }},
-                        {{Carbon\Carbon::parse($d->tgl_lahir)->translatedFormat('d F Y')}}</td>
+                    <td scope="col" class="text-center">
+                        @if($d->tempat_lahir != null)
+                        {{ $d->tempat_lahir }}
+                        @else
+                        Belum Ada Tempat
+                        @endif,
+                        @if($d->tgl_lahir != null)
+                        {{Carbon\Carbon::parse($d->tgl_lahir)->translatedFormat('d F Y')}}
+                        @else
+                        Belum Ada Tanggal
+                        @endif
+                    </td>
                     <td scope="col" class="text-center">
                         {{Carbon\Carbon::parse($d->created_at)->translatedFormat('d F Y')}}</td>
                     <td scope="col" class="text-center">
@@ -147,6 +159,8 @@
                         Ditolak
                         @elseif($d->status >= 4)
                         lulus
+                        @else
+                        -
                         @endif
                     </td>
                 </tr>
