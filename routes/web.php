@@ -106,6 +106,7 @@ Route::group(['middleware' => ['auth', 'Checkrole:2']], function () {
     Route::post('/siswa/pembayaran', 'PembayaranController@metode')->name('pembayaranMetode');
     Route::put('/siswa/pembayaran', 'PembayaranController@cash')->name('pembayaranCash');
     Route::patch('/siswa/pembayaran', 'PembayaranController@cicil')->name('pembayaranCicil');
+    Route::post('/pembayaran/siswa/pembayaran/{id}', 'PembayaranController@ubahpembayaran')->name('pembayaranUbah');
 
     Route::get('/siswa/kegiatan', 'KegiatanController@show')->name('kegiatanShow');
 

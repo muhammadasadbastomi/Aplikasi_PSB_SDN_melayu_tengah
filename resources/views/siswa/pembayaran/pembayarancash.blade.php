@@ -1,6 +1,10 @@
 <div class="card-body card-dashboard">
     <div class="table-responsive">
         <h2>Pembayaran Pendaftaran</h2>
+        <form method="post" action="{{ route('pembayaranUbah',['id' => Auth::user()->id]) }}">
+            @csrf
+            <button class="btn btn-info btn-sm" style="float:right;">Ubah Pembayaran</button>
+        </form>
         <h5> <b> Total Pembayaran yang harus Dibayarkan Adalah : Rp. 310.000,- </b> </h5>
         <br>
         <form method="POST" enctype="multipart/form-data">

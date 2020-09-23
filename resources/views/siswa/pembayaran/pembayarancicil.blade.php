@@ -1,6 +1,10 @@
 <div class="card-body card-dashboard">
     <div class="table-responsive">
         <h2>Cicilan Maksimal 2 Kali Pembayaran</h2>
+        <form method="post" action="{{ route('pembayaranUbah',['id' => Auth::user()->id]) }}">
+            @csrf
+            <button class="btn btn-info btn-sm" style="float:right;">Ubah Pembayaran</button>
+        </form>
         <h5> <b> Pembayaran Pertama yang harus Dibayarkan Adalah : Rp. 155.000,- </b> </h5>
         <br>
         <form method="POST" enctype="multipart/form-data">
@@ -13,11 +17,13 @@
             </fieldset>
             <fieldset class="form-group">
                 <label for="nominal">Nominal</label>
-                <input type="number" class="form-control" id="nominal" name="nominal" placeholder="Masukkan Nominal Harga Bayar" value="{{old('nominal')}}">
+                <input type="number" class="form-control" id="nominal" name="nominal"
+                    placeholder="Masukkan Nominal Harga Bayar" value="{{old('nominal')}}">
             </fieldset>
             <fieldset class="form-group">
                 <label for="terbilang">Terbilang</label>
-                <input type="text" class="form-control" id="terbilang" name="terbilang" placeholder="Masukkan Terbilang Harga Bayar" value="{{old('terbilang')}}">
+                <input type="text" class="form-control" id="terbilang" name="terbilang"
+                    placeholder="Masukkan Terbilang Harga Bayar" value="{{old('terbilang')}}">
             </fieldset>
             <fieldset class="form-group">
                 <label for="bukti">Bukti Pembayara</label>

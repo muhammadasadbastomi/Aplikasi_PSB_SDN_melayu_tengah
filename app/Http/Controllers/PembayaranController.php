@@ -15,6 +15,18 @@ use App\Mail\MailSiswaLulus;
 class PembayaranController extends Controller
 {
     //siswa
+    public function ubahpembayaran($id)
+    {
+        // $data1 = Siswa::where('user_id', $id)->first();
+        // $data3 = Pembayaran::find($data1->pembayaran_id);
+        // $data3->delete();
+        
+        $data = Siswa::where('user_id', $id)->first();
+        $data->pembayaran_id = null;
+        $data->update();
+
+        return back();
+    }
     public function index()
     {
         $data = Siswa::where('user_id',  Auth()->user()->id)->first();
