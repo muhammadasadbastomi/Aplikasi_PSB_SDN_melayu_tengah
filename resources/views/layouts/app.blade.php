@@ -32,8 +32,11 @@
                         </div>
                         <div class="page-links">
                             <a href="{{ route('login') }}"
-                                class="{{ (\Request::route()->getName() == 'login') ? 'active' : '' }}">Login</a><a
-                                href="{{ route('register') }}"
+                                class="{{ (\Request::route()->getName() == 'login') ? 'active' : '' }}">Login</a>
+                            <a href="{{ route('loginSiswa') }}"
+                                class="{{ (\Request::route()->getName() == 'loginSiswa') ? 'active' : '' }}">Login
+                                Siswa</a>
+                            <a href="{{ route('register') }}"
                                 class="{{ (\Request::route()->getName() == 'register') ? 'active' : '' }}">Register</a>
                         </div>
                         @yield('content')
